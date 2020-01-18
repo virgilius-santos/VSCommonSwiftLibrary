@@ -2,13 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:VComponents/VComponents.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:VComponents/VComponents.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:VService/VService.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

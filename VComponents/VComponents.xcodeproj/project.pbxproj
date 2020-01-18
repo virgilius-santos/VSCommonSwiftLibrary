@@ -10,6 +10,7 @@
 		1869A4E323D318AA0030742E /* VComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A4D923D318AA0030742E /* VComponents.framework */; };
 		1869A4E823D318AA0030742E /* VComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A4E723D318AA0030742E /* VComponentsTests.swift */; };
 		1869A4EA23D318AA0030742E /* VComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A4DC23D318AA0030742E /* VComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1869A4F423D31AC50030742E /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A4F323D31AC50030742E /* Start.swift */; };
 		85DAC9B6B702F96C7742C160 /* Pods_VComponents_VComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43F401E01AC775AAD3AB24B /* Pods_VComponents_VComponentsTests.framework */; };
 		BF7C59AEEA0B425F566A6556 /* Pods_VComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73088A310C07D4D1528DA848 /* Pods_VComponents.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		1869A4E223D318AA0030742E /* VComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1869A4E723D318AA0030742E /* VComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VComponentsTests.swift; sourceTree = "<group>"; };
 		1869A4E923D318AA0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1869A4F323D31AC50030742E /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
 		5E5F2B1B5ED5BD8626BF2A04 /* Pods-VComponents-VComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VComponents-VComponentsTests.release.xcconfig"; path = "Target Support Files/Pods-VComponents-VComponentsTests/Pods-VComponents-VComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
 		72B1CEAD6B11CAA2EFD05729 /* Pods-VComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VComponents.release.xcconfig"; path = "Target Support Files/Pods-VComponents/Pods-VComponents.release.xcconfig"; sourceTree = "<group>"; };
 		73088A310C07D4D1528DA848 /* Pods_VComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 			children = (
 				1869A4DC23D318AA0030742E /* VComponents.h */,
 				1869A4DD23D318AA0030742E /* Info.plist */,
+				1869A4F323D31AC50030742E /* Start.swift */,
 			);
 			path = VComponents;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				TargetAttributes = {
 					1869A4D823D318AA0030742E = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					1869A4E123D318AA0030742E = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -277,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1869A4F423D31AC50030742E /* Start.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8BBE5696C805E80A9F861DF /* Pods-VComponents.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
@@ -439,6 +445,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VComponents;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -448,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72B1CEAD6B11CAA2EFD05729 /* Pods-VComponents.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
@@ -473,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09C80BDA613D53A174DF1869 /* Pods-VComponents-VComponentsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
 				INFOPLIST_FILE = VComponentsTests/Info.plist;
@@ -492,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E5F2B1B5ED5BD8626BF2A04 /* Pods-VComponents-VComponentsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
 				INFOPLIST_FILE = VComponentsTests/Info.plist;
