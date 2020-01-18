@@ -7,120 +7,116 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1869A49123D29A800030742E /* VService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A48723D29A800030742E /* VService.framework */; };
-		1869A49623D29A800030742E /* VServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A49523D29A800030742E /* VServiceTests.swift */; };
-		1869A49823D29A800030742E /* VService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A48A23D29A800030742E /* VService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1869A4A423D29DDA0030742E /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A4A323D29DDA0030742E /* Start.swift */; };
-		3D5F8A1639DBDDE4F22F606A /* Pods_VService_VServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */; };
-		B6BA1BFD39F12D604EE42C41 /* Pods_VService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */; };
+		0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */; };
+		1869A50923D31BFF0030742E /* VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A4FF23D31BFE0030742E /* VCore.framework */; };
+		1869A50E23D31BFF0030742E /* VCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A50D23D31BFF0030742E /* VCoreTests.swift */; };
+		1869A51023D31BFF0030742E /* VCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A50223D31BFE0030742E /* VCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1869A51A23D31C0C0030742E /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A51923D31C0C0030742E /* Start.swift */; };
+		31D63A3ADD7A7089986D53D7 /* Pods_VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1869A49223D29A800030742E /* PBXContainerItemProxy */ = {
+		1869A50A23D31BFF0030742E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1869A47E23D29A800030742E /* Project object */;
+			containerPortal = 1869A4F623D31BFE0030742E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1869A48623D29A800030742E;
-			remoteInfo = VService;
+			remoteGlobalIDString = 1869A4FE23D31BFE0030742E;
+			remoteInfo = VCore;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1869A48723D29A800030742E /* VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1869A48A23D29A800030742E /* VService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VService.h; sourceTree = "<group>"; };
-		1869A48B23D29A800030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1869A49023D29A800030742E /* VServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1869A49523D29A800030742E /* VServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VServiceTests.swift; sourceTree = "<group>"; };
-		1869A49723D29A800030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1869A4A323D29DDA0030742E /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
-		1869A4CD23D314650030742E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1869A4CE23D314650030742E /* VService.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = VService.podspec; path = ../VService.podspec; sourceTree = "<group>"; };
-		2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.release.xcconfig"; sourceTree = "<group>"; };
-		35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService/Pods-VService.release.xcconfig"; sourceTree = "<group>"; };
-		7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VService_VServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.debug.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BEEA46ACF3162D81F8064206 /* Pods-VService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.debug.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService/Pods-VService.debug.xcconfig"; sourceTree = "<group>"; };
+		1869A4FF23D31BFE0030742E /* VCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1869A50223D31BFE0030742E /* VCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCore.h; sourceTree = "<group>"; };
+		1869A50323D31BFE0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1869A50823D31BFF0030742E /* VCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1869A50D23D31BFF0030742E /* VCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCoreTests.swift; sourceTree = "<group>"; };
+		1869A50F23D31BFF0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1869A51923D31C0C0030742E /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
+		3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCore_VCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF691652F428B635AD3EE7F9 /* Pods-VCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore/Pods-VCore.release.xcconfig"; sourceTree = "<group>"; };
+		DBE9553605E243427CB1EB24 /* Pods-VCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore/Pods-VCore.debug.xcconfig"; sourceTree = "<group>"; };
+		E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1869A48423D29A800030742E /* Frameworks */ = {
+		1869A4FC23D31BFE0030742E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6BA1BFD39F12D604EE42C41 /* Pods_VService.framework in Frameworks */,
+				31D63A3ADD7A7089986D53D7 /* Pods_VCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1869A48D23D29A800030742E /* Frameworks */ = {
+		1869A50523D31BFF0030742E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1869A49123D29A800030742E /* VService.framework in Frameworks */,
-				3D5F8A1639DBDDE4F22F606A /* Pods_VService_VServiceTests.framework in Frameworks */,
+				1869A50923D31BFF0030742E /* VCore.framework in Frameworks */,
+				0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1869A47D23D29A800030742E = {
+		1869A4F523D31BFE0030742E = {
 			isa = PBXGroup;
 			children = (
-				1869A4CD23D314650030742E /* README.md */,
-				1869A4CE23D314650030742E /* VService.podspec */,
-				1869A48923D29A800030742E /* VService */,
-				1869A49423D29A800030742E /* VServiceTests */,
-				1869A48823D29A800030742E /* Products */,
-				6450B389B8409EB2CBC33F73 /* Pods */,
-				2A229FA38711CED38475AADD /* Frameworks */,
+				1869A50123D31BFE0030742E /* VCore */,
+				1869A50C23D31BFF0030742E /* VCoreTests */,
+				1869A50023D31BFE0030742E /* Products */,
+				2657205F4EA7CCC2DD8901A4 /* Pods */,
+				1ED390E6DF420445811581D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		1869A48823D29A800030742E /* Products */ = {
+		1869A50023D31BFE0030742E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1869A48723D29A800030742E /* VService.framework */,
-				1869A49023D29A800030742E /* VServiceTests.xctest */,
+				1869A4FF23D31BFE0030742E /* VCore.framework */,
+				1869A50823D31BFF0030742E /* VCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1869A48923D29A800030742E /* VService */ = {
+		1869A50123D31BFE0030742E /* VCore */ = {
 			isa = PBXGroup;
 			children = (
-				1869A4A323D29DDA0030742E /* Start.swift */,
-				1869A48A23D29A800030742E /* VService.h */,
-				1869A48B23D29A800030742E /* Info.plist */,
+				1869A50223D31BFE0030742E /* VCore.h */,
+				1869A50323D31BFE0030742E /* Info.plist */,
+				1869A51923D31C0C0030742E /* Start.swift */,
 			);
-			path = VService;
+			path = VCore;
 			sourceTree = "<group>";
 		};
-		1869A49423D29A800030742E /* VServiceTests */ = {
+		1869A50C23D31BFF0030742E /* VCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				1869A49523D29A800030742E /* VServiceTests.swift */,
-				1869A49723D29A800030742E /* Info.plist */,
+				1869A50D23D31BFF0030742E /* VCoreTests.swift */,
+				1869A50F23D31BFF0030742E /* Info.plist */,
 			);
-			path = VServiceTests;
+			path = VCoreTests;
 			sourceTree = "<group>";
 		};
-		2A229FA38711CED38475AADD /* Frameworks */ = {
+		1ED390E6DF420445811581D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */,
-				AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */,
+				E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */,
+				3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6450B389B8409EB2CBC33F73 /* Pods */ = {
+		2657205F4EA7CCC2DD8901A4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BEEA46ACF3162D81F8064206 /* Pods-VService.debug.xcconfig */,
-				35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */,
-				B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */,
-				2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */,
+				DBE9553605E243427CB1EB24 /* Pods-VCore.debug.xcconfig */,
+				CF691652F428B635AD3EE7F9 /* Pods-VCore.release.xcconfig */,
+				5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */,
+				C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -129,76 +125,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1869A48223D29A800030742E /* Headers */ = {
+		1869A4FA23D31BFE0030742E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1869A49823D29A800030742E /* VService.h in Headers */,
+				1869A51023D31BFF0030742E /* VCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1869A48623D29A800030742E /* VService */ = {
+		1869A4FE23D31BFE0030742E /* VCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1869A49B23D29A800030742E /* Build configuration list for PBXNativeTarget "VService" */;
+			buildConfigurationList = 1869A51323D31BFF0030742E /* Build configuration list for PBXNativeTarget "VCore" */;
 			buildPhases = (
-				0ABC1D4B2C38D51C92176D05 /* [CP] Check Pods Manifest.lock */,
-				1869A48223D29A800030742E /* Headers */,
-				1869A48323D29A800030742E /* Sources */,
-				1869A48423D29A800030742E /* Frameworks */,
-				1869A48523D29A800030742E /* Resources */,
+				78DEE2D1AA94C8138875128D /* [CP] Check Pods Manifest.lock */,
+				1869A4FA23D31BFE0030742E /* Headers */,
+				1869A4FB23D31BFE0030742E /* Sources */,
+				1869A4FC23D31BFE0030742E /* Frameworks */,
+				1869A4FD23D31BFE0030742E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = VService;
-			productName = VService;
-			productReference = 1869A48723D29A800030742E /* VService.framework */;
+			name = VCore;
+			productName = VCore;
+			productReference = 1869A4FF23D31BFE0030742E /* VCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1869A48F23D29A800030742E /* VServiceTests */ = {
+		1869A50723D31BFF0030742E /* VCoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1869A49E23D29A800030742E /* Build configuration list for PBXNativeTarget "VServiceTests" */;
+			buildConfigurationList = 1869A51623D31BFF0030742E /* Build configuration list for PBXNativeTarget "VCoreTests" */;
 			buildPhases = (
-				158A43CBB13CBC3E841DDB14 /* [CP] Check Pods Manifest.lock */,
-				1869A48C23D29A800030742E /* Sources */,
-				1869A48D23D29A800030742E /* Frameworks */,
-				1869A48E23D29A800030742E /* Resources */,
-				1940C707F61453B716CB5A75 /* [CP] Embed Pods Frameworks */,
+				7CCD80B82B97BC609837860B /* [CP] Check Pods Manifest.lock */,
+				1869A50423D31BFF0030742E /* Sources */,
+				1869A50523D31BFF0030742E /* Frameworks */,
+				1869A50623D31BFF0030742E /* Resources */,
+				A65F2C4E1A7449DFB79479E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1869A49323D29A800030742E /* PBXTargetDependency */,
+				1869A50B23D31BFF0030742E /* PBXTargetDependency */,
 			);
-			name = VServiceTests;
-			productName = VServiceTests;
-			productReference = 1869A49023D29A800030742E /* VServiceTests.xctest */;
+			name = VCoreTests;
+			productName = VCoreTests;
+			productReference = 1869A50823D31BFF0030742E /* VCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1869A47E23D29A800030742E /* Project object */ = {
+		1869A4F623D31BFE0030742E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Virgilius Santos";
 				TargetAttributes = {
-					1869A48623D29A800030742E = {
+					1869A4FE23D31BFE0030742E = {
 						CreatedOnToolsVersion = 11.2.1;
 						LastSwiftMigration = 1120;
 					};
-					1869A48F23D29A800030742E = {
+					1869A50723D31BFF0030742E = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 1869A48123D29A800030742E /* Build configuration list for PBXProject "VService" */;
+			buildConfigurationList = 1869A4F923D31BFE0030742E /* Build configuration list for PBXProject "VCore" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -206,26 +202,26 @@
 				en,
 				Base,
 			);
-			mainGroup = 1869A47D23D29A800030742E;
-			productRefGroup = 1869A48823D29A800030742E /* Products */;
+			mainGroup = 1869A4F523D31BFE0030742E;
+			productRefGroup = 1869A50023D31BFE0030742E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1869A48623D29A800030742E /* VService */,
-				1869A48F23D29A800030742E /* VServiceTests */,
+				1869A4FE23D31BFE0030742E /* VCore */,
+				1869A50723D31BFF0030742E /* VCoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1869A48523D29A800030742E /* Resources */ = {
+		1869A4FD23D31BFE0030742E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1869A48E23D29A800030742E /* Resources */ = {
+		1869A50623D31BFF0030742E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,7 +231,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0ABC1D4B2C38D51C92176D05 /* [CP] Check Pods Manifest.lock */ = {
+		78DEE2D1AA94C8138875128D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,14 +246,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VService-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCore-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		158A43CBB13CBC3E841DDB14 /* [CP] Check Pods Manifest.lock */ = {
+		7CCD80B82B97BC609837860B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,61 +268,61 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VService-VServiceTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCore-VCoreTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1940C707F61453B716CB5A75 /* [CP] Embed Pods Frameworks */ = {
+		A65F2C4E1A7449DFB79479E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1869A48323D29A800030742E /* Sources */ = {
+		1869A4FB23D31BFE0030742E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1869A4A423D29DDA0030742E /* Start.swift in Sources */,
+				1869A51A23D31C0C0030742E /* Start.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1869A48C23D29A800030742E /* Sources */ = {
+		1869A50423D31BFF0030742E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1869A49623D29A800030742E /* VServiceTests.swift in Sources */,
+				1869A50E23D31BFF0030742E /* VCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1869A49323D29A800030742E /* PBXTargetDependency */ = {
+		1869A50B23D31BFF0030742E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1869A48623D29A800030742E /* VService */;
-			targetProxy = 1869A49223D29A800030742E /* PBXContainerItemProxy */;
+			target = 1869A4FE23D31BFE0030742E /* VCore */;
+			targetProxy = 1869A50A23D31BFF0030742E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1869A49923D29A800030742E /* Debug */ = {
+		1869A51123D31BFF0030742E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -389,7 +385,7 @@
 			};
 			name = Debug;
 		};
-		1869A49A23D29A800030742E /* Release */ = {
+		1869A51223D31BFF0030742E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -434,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -446,10 +442,11 @@
 			};
 			name = Release;
 		};
-		1869A49C23D29A800030742E /* Debug */ = {
+		1869A51423D31BFF0030742E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEEA46ACF3162D81F8064206 /* Pods-VService.debug.xcconfig */;
+			baseConfigurationReference = DBE9553605E243427CB1EB24 /* Pods-VCore.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -457,14 +454,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VService/Info.plist;
+				INFOPLIST_FILE = VCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -473,10 +470,11 @@
 			};
 			name = Debug;
 		};
-		1869A49D23D29A800030742E /* Release */ = {
+		1869A51523D31BFF0030742E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */;
+			baseConfigurationReference = CF691652F428B635AD3EE7F9 /* Pods-VCore.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -484,14 +482,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VService/Info.plist;
+				INFOPLIST_FILE = VCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -499,40 +497,40 @@
 			};
 			name = Release;
 		};
-		1869A49F23D29A800030742E /* Debug */ = {
+		1869A51723D31BFF0030742E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */;
+			baseConfigurationReference = 5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT) $(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
-				INFOPLIST_FILE = VServiceTests/Info.plist;
+				INFOPLIST_FILE = VCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		1869A4A023D29A800030742E /* Release */ = {
+		1869A51823D31BFF0030742E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */;
+			baseConfigurationReference = C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT) $(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KR99UBUHUT;
-				INFOPLIST_FILE = VServiceTests/Info.plist;
+				INFOPLIST_FILE = VCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,34 +540,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1869A48123D29A800030742E /* Build configuration list for PBXProject "VService" */ = {
+		1869A4F923D31BFE0030742E /* Build configuration list for PBXProject "VCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1869A49923D29A800030742E /* Debug */,
-				1869A49A23D29A800030742E /* Release */,
+				1869A51123D31BFF0030742E /* Debug */,
+				1869A51223D31BFF0030742E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1869A49B23D29A800030742E /* Build configuration list for PBXNativeTarget "VService" */ = {
+		1869A51323D31BFF0030742E /* Build configuration list for PBXNativeTarget "VCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1869A49C23D29A800030742E /* Debug */,
-				1869A49D23D29A800030742E /* Release */,
+				1869A51423D31BFF0030742E /* Debug */,
+				1869A51523D31BFF0030742E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1869A49E23D29A800030742E /* Build configuration list for PBXNativeTarget "VServiceTests" */ = {
+		1869A51623D31BFF0030742E /* Build configuration list for PBXNativeTarget "VCoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1869A49F23D29A800030742E /* Debug */,
-				1869A4A023D29A800030742E /* Release */,
+				1869A51723D31BFF0030742E /* Debug */,
+				1869A51823D31BFF0030742E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1869A47E23D29A800030742E /* Project object */;
+	rootObject = 1869A4F623D31BFE0030742E /* Project object */;
 }

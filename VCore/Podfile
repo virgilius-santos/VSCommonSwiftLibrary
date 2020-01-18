@@ -1,0 +1,14 @@
+
+platform :ios, '12.4'
+
+use_frameworks!
+
+
+target 'VCore' do
+
+  target 'VCoreTests' do
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
+end
