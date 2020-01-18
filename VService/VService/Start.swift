@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Start {
+struct StartLocal {
     
 }

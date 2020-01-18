@@ -35,6 +35,7 @@
 		1869A4A323D29DDA0030742E /* Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
 		1869A4CD23D314650030742E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1869A4CE23D314650030742E /* VService.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = VService.podspec; path = ../VService.podspec; sourceTree = "<group>"; };
+		1869A51B23D3227C0030742E /* VCore.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = VCore.xcworkspace; path = ../VCore/VCore.xcworkspace; sourceTree = "<group>"; };
 		2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService/Pods-VService.release.xcconfig"; sourceTree = "<group>"; };
 		7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +109,7 @@
 		2A229FA38711CED38475AADD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1869A51B23D3227C0030742E /* VCore.xcworkspace */,
 				7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */,
 				AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */,
 			);
