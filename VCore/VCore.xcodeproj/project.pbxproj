@@ -10,8 +10,9 @@
 		0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */; };
 		185DC02F23D464070083A6D4 /* VLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02E23D464070083A6D4 /* VLogger.swift */; };
 		185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03023D465CD0083A6D4 /* VLogModifier.swift */; };
+		185DC07423D51D360083A6D4 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */; };
 		1869A50923D31BFF0030742E /* VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A4FF23D31BFE0030742E /* VCore.framework */; };
-		1869A50E23D31BFF0030742E /* VCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A50D23D31BFF0030742E /* VCoreTests.swift */; };
+		1869A50E23D31BFF0030742E /* ReusableTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A50D23D31BFF0030742E /* ReusableTableViewCellTests.swift */; };
 		1869A51023D31BFF0030742E /* VCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A50223D31BFE0030742E /* VCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1869A58823D3AF090030742E /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58723D3AF090030742E /* EncodableExtensions.swift */; };
 		1869A58A23D3B0A60030742E /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58923D3B0A60030742E /* DictionaryExtensions.swift */; };
@@ -32,11 +33,12 @@
 /* Begin PBXFileReference section */
 		185DC02E23D464070083A6D4 /* VLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogger.swift; sourceTree = "<group>"; };
 		185DC03023D465CD0083A6D4 /* VLogModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogModifier.swift; sourceTree = "<group>"; };
+		185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTableViewCell.swift; sourceTree = "<group>"; };
 		1869A4FF23D31BFE0030742E /* VCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1869A50223D31BFE0030742E /* VCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCore.h; sourceTree = "<group>"; };
 		1869A50323D31BFE0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1869A50823D31BFF0030742E /* VCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1869A50D23D31BFF0030742E /* VCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCoreTests.swift; sourceTree = "<group>"; };
+		1869A50D23D31BFF0030742E /* ReusableTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTableViewCellTests.swift; sourceTree = "<group>"; };
 		1869A50F23D31BFF0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1869A54723D358100030742E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1869A54823D358100030742E /* VCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = VCore.podspec; path = ../VCore.podspec; sourceTree = "<group>"; };
@@ -79,6 +81,21 @@
 				185DC03023D465CD0083A6D4 /* VLogModifier.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		185DC07223D51D060083A6D4 /* UIKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKitExtensions;
+			sourceTree = "<group>";
+		};
+		185DC07523D51E050083A6D4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		1869A4F523D31BFE0030742E = {
@@ -133,8 +150,10 @@
 		1869A54423D357A30030742E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				185DC07523D51E050083A6D4 /* Protocols */,
 				185DC02D23D463F60083A6D4 /* Logger */,
 				1869A58623D3AF090030742E /* FoundationExtensions */,
+				185DC07223D51D060083A6D4 /* UIKitExtensions */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -150,7 +169,7 @@
 		1869A54623D357B60030742E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1869A50D23D31BFF0030742E /* VCoreTests.swift */,
+				1869A50D23D31BFF0030742E /* ReusableTableViewCellTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -228,7 +247,6 @@
 				1869A50523D31BFF0030742E /* Frameworks */,
 				1869A50623D31BFF0030742E /* Resources */,
 				A65F2C4E1A7449DFB79479E0 /* [CP] Embed Pods Frameworks */,
-				185DC02C23D463350083A6D4 /* Swiftformat */,
 			);
 			buildRules = (
 			);
@@ -296,24 +314,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		185DC02C23D463350083A6D4 /* Swiftformat */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftformat;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
-		};
 		78DEE2D1AA94C8138875128D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +387,7 @@
 				185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */,
 				185DC02F23D464070083A6D4 /* VLogger.swift in Sources */,
 				1869A58C23D3B3C50030742E /* DecodableExtensions.swift in Sources */,
+				185DC07423D51D360083A6D4 /* ReusableTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1869A50E23D31BFF0030742E /* VCoreTests.swift in Sources */,
+				1869A50E23D31BFF0030742E /* ReusableTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
