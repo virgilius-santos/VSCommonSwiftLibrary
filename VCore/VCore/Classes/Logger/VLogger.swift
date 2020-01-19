@@ -9,13 +9,12 @@
 import Foundation
 import Willow
 
-public var logger = VLogger()
+public let logger = VLogger.willowLogger
 
 public struct VLogger {
     static let willowLogger: Logger = buildDebugLogger(name: "Logger")
 
     private static func buildDebugLogger(name: String) -> Logger {
-        
         let logModifier = VLogModifier(name: name)
 
         // prints straight to the console

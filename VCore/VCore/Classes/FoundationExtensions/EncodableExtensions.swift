@@ -11,7 +11,11 @@ import Foundation
 public extension Encodable {
     func data() throws -> Data {
         let jsonEncoder = JSONEncoder()
-        let data = try jsonEncoder.encode(self)
-        return data
+        do {
+            return try jsonEncoder.encode(self)
+        } catch {
+            logger.errorMessage(error.localizedDescription)
+            throw error
+        }
     }
 }

@@ -11,6 +11,11 @@ import Foundation
 public extension Decodable {
     static func decode(data: Data) throws -> Self {
         let jsonDecoder = JSONDecoder()
-        return try jsonDecoder.decode(Self.self, from: data)
+        do {
+            return try jsonDecoder.decode(Self.self, from: data)
+        } catch {
+            logger.errorMessage(error.localizedDescription)
+            throw error
+        }
     }
 }

@@ -10,7 +10,11 @@ import Foundation
 
 public extension Dictionary where Value == Any {
     func data(options: JSONSerialization.WritingOptions = JSONSerialization.WritingOptions.prettyPrinted) throws -> Data {
-        try JSONSerialization
-            .data(withJSONObject: self, options: options)
+        do {
+            return try JSONSerialization.data(withJSONObject: self, options: options)
+        } catch {
+            logger.errorMessage(error.localizedDescription)
+            throw error
+        }
     }
 }
