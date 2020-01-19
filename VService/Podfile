@@ -10,8 +10,8 @@ target 'VService' do
   pod "VCore", :path => '../'
 
   target 'VServiceTests' do
-    pod 'Quick'         , '~> 2.2'
-    pod 'Nimble'        , '~> 8.0'
-    pod 'Mockingjay'    , '~> 2.0'
+    pod 'Quick'                 , '~> 2.2'
+    pod 'Nimble'                , '~> 8.0'
+    pod 'OHHTTPStubs/Swift'     , '~> 8.0'
   end
 end

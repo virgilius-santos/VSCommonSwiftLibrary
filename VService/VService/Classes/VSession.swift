@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VCore
 
 public class VSession {
     public let config: VConfiguration
@@ -33,10 +34,12 @@ public class VSession {
 
                 do {
                     if let err = errorHandler.build(error) {
+                        logger.error("\(err) info:\(String(describing: error))")
                         throw err
                     }
 
                     if let err = errorHandler.build(response) {
+                        logger.error("\(err) info:\(String(describing: response))")
                         throw err
                     }
 
@@ -67,7 +70,7 @@ public class VSession {
 
 extension VSession {
     func request(resquest: VRequestData, completion: ((Result<Data, VSessionError>) -> Void)? = nil) {
-        request(resquest: resquest, response: VResponseData<Data>(), completion: completion)
+        request(resquest: resquest, response: VResponseData<Data>(decode: { $0 }), completion: completion)
     }
 
     func request<DataReceived: Decodable>(resquest: VRequestData,
@@ -79,6 +82,7 @@ extension VSession {
 public extension VSession {
     func makeRequest(resquestData: VRequestData, config: VConfiguration) throws -> URLRequest {
         guard let url = resquestData.url else {
+            logger.error("\(VSessionError.urlInvalid) info:\(String(describing: resquestData.url))")
             throw VSessionError.urlInvalid
         }
 

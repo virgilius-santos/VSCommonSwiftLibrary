@@ -1,28 +1,32 @@
 PODS:
-  - Mockingjay (2.0.1):
-    - Mockingjay/Core (= 2.0.1)
-    - Mockingjay/XCTest (= 2.0.1)
-  - Mockingjay/Core (2.0.1):
-    - URITemplate (~> 2.0)
-  - Mockingjay/XCTest (2.0.1):
-    - Mockingjay/Core
   - Nimble (8.0.5)
+  - OHHTTPStubs/Core (8.0.0)
+  - OHHTTPStubs/Default (8.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (8.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (8.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (8.0.0)
+  - OHHTTPStubs/Swift (8.0.0):
+    - OHHTTPStubs/Default
   - Quick (2.2.0)
-  - URITemplate (2.0.3)
   - VCore (0.1.0-rc1):
     - Willow (~> 5.0)
   - Willow (5.2.1)
 
 DEPENDENCIES:
-  - Mockingjay (~> 2.0)
   - Nimble (~> 8.0)
+  - OHHTTPStubs/Swift (~> 8.0)
   - Quick (~> 2.2)
   - VCore (from `../`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Mockingjay
-    - URITemplate
+    - OHHTTPStubs
     - Willow
   trunk:
     - Nimble
@@ -33,13 +37,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
+  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
   VCore: a36cee4d1ba8902806fb8021a0e08d19d6dc1a85
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 7ca26dc2a01cb52ae93b2a8f9940d5bad47f436e
+PODFILE CHECKSUM: 2f45c60dd81085db66299a8a655534cdeee2a759
 
 COCOAPODS: 1.8.4

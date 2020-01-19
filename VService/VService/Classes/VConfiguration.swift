@@ -24,8 +24,9 @@ public struct VConfiguration {
         self.timeoutInterval = timeoutInterval
         self.headers = headers
         self.configuration = configuration
+        self.configuration.timeoutIntervalForResource = timeoutInterval
     }
 
     public static let `default` = VConfiguration(cachePolicy: CachePolicy.useProtocolCachePolicy,
-                                                 timeoutInterval: TimeInterval(20))
+                                                 timeoutInterval: TimeInterval(2))
 }
