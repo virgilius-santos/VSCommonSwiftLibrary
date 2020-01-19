@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "VCore"
-  spec.version      = "0.1.0-rc1"
+  spec.version      = "0.1.0"
   spec.summary      = "UIKit and Foundation extension in Swift."
   spec.homepage     = "https://github.com/virgilius-santos/VSCommonSwiftLibrary"
 
@@ -82,6 +82,6 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  spec.dependency 'Willow', '~> 5.0'
+  spec.dependency 'Willow', '~> 5.2.1'
 
 end
