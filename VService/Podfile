@@ -1,4 +1,5 @@
-source "https://github.com/virgilius-santos/VSCommonSwiftLibrary.git"
+source 'https://github.com/virgilius-santos/public-pod-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '12.4'
 
@@ -6,7 +7,7 @@ use_frameworks!
 
 target 'VService' do
 
-  pod "VCore"
+  pod "VCore", :path => '../'
 
   target 'VServiceTests' do
     pod 'Quick'

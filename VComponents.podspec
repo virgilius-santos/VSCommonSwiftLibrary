@@ -10,8 +10,8 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "VComponents"
-  spec.version      = "0.0.1"
-  spec.summary      = "Elegant UIKit and Foundation components and extensions in Swift."
+  spec.version      = "0.0.2"
+  spec.summary      = "Elegant UIKit and Foundation components in Swift."
   spec.homepage     = "https://github.com/virgilius-santos/VSCommonSwiftLibrary"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -40,7 +40,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "VComponents/VComponents/**/*.{swift}"
+  spec.source_files  = "VComponents/VComponents/Classes/**/*.{swift}"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"

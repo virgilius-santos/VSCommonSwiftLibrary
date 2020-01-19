@@ -1,20 +1,27 @@
 PODS:
   - Nimble (8.0.5)
   - Quick (2.2.0)
+  - VCore (0.0.1)
 
 DEPENDENCIES:
   - Nimble
   - Quick
+  - VCore (from `../`)
 
 SPEC REPOS:
   trunk:
     - Nimble
     - Quick
 
+EXTERNAL SOURCES:
+  VCore:
+    :path: "../"
+
 SPEC CHECKSUMS:
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  VCore: dbba219dec810cb49555401a45ed3b7fb7f76822
 
-PODFILE CHECKSUM: e7bf094aaf09f054b44471280b55c69c9d28ac0d
+PODFILE CHECKSUM: cd1947d794ba686dce298b8461605a3d67d329d1
 
 COCOAPODS: 1.8.4
