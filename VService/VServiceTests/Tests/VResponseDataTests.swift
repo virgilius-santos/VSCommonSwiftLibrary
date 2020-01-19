@@ -22,34 +22,35 @@ class VResponseDataTests: QuickSpec {
         describe("usando com um decodable") {
             context("inicializado sem argumentos") {
                 it("deve retornar o objecto") {
-                    expect {
+                    expect { {
                         let sut = VResponseData<DecodableMock>()
                         let data = try DecodableMock(teste: 9).data()
                         let decodeMock = try sut.decode(data)
                         expect(decodeMock.teste).to(equal(9))
-                    }.toNot(throwError())
+
+                        } }.toNot(throwError())
                 }
             }
 
             context("inicializado apenas com o tipo") {
                 it("deve retornar o objecto") {
-                    expect {
+                    expect { {
                         let sut = VResponseData(type: DecodableMock.self)
                         let data = try DecodableMock(teste: 9).data()
                         let decodeMock = try sut.decode(data)
                         expect(decodeMock.teste).to(equal(9))
-                    }.toNot(throwError())
+                        } }.toNot(throwError())
                 }
             }
 
             context("inicializado com a closure") {
                 it("deve retornar o objecto") {
-                    expect {
+                    expect { {
                         let sut = VResponseData { try DecodableMock.decode(data: $0) }
                         let data = try DecodableMock(teste: 9).data()
                         let decodeMock = try sut.decode(data)
                         expect(decodeMock.teste).to(equal(9))
-                    }.toNot(throwError())
+                        } }.toNot(throwError())
                 }
             }
         }
