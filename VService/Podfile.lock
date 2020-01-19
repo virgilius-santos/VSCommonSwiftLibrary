@@ -14,35 +14,32 @@ PODS:
   - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
   - Quick (2.2.0)
-  - VCore (0.1.0-rc1):
-    - Willow (~> 5.0)
+  - VCore (0.1.0):
+    - Willow (~> 5.2.1)
   - Willow (5.2.1)
 
 DEPENDENCIES:
   - Nimble (~> 8.0)
   - OHHTTPStubs/Swift (~> 8.0)
   - Quick (~> 2.2)
-  - VCore (from `../`)
+  - VCore
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - OHHTTPStubs
-    - Willow
-  trunk:
     - Nimble
+    - OHHTTPStubs
     - Quick
-
-EXTERNAL SOURCES:
-  VCore:
-    :path: "../"
+    - Willow
+  https://github.com/virgilius-santos/public-pod-specs:
+    - VCore
 
 SPEC CHECKSUMS:
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  VCore: a36cee4d1ba8902806fb8021a0e08d19d6dc1a85
+  VCore: 6d521257752da14f6b98f487c1add02edc68c807
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 2f45c60dd81085db66299a8a655534cdeee2a759
+PODFILE CHECKSUM: a9bfc50666677e12435a0b9c3e60e2e05eac6149
 
 COCOAPODS: 1.8.4

@@ -7,7 +7,7 @@ use_frameworks!
 
 target 'VService' do
 
-  pod "VCore", :path => '../'
+  pod "VCore"                   #, :path => '../'
 
   target 'VServiceTests' do
     pod 'Quick'                 , '~> 2.2'
