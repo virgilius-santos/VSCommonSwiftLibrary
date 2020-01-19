@@ -11,10 +11,10 @@ import Foundation
 public class VSession {
     public let config: VConfiguration
     var dataTask: URLSessionDataTask?
-    let errorHandler: ErrorHandler
+    let errorHandler: VErrorHandler
 
     public init(config: VConfiguration = VConfiguration.default,
-                errorHandler: ErrorHandler = ErrorHandler()) {
+                errorHandler: VErrorHandler = VErrorHandler()) {
         self.config = config
         self.errorHandler = errorHandler
     }

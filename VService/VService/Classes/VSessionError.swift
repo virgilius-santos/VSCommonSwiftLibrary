@@ -14,7 +14,7 @@ public enum VSessionError: Error {
     case generic, urlInvalid, withoutConnection, responseFailure
 }
 
-public struct ErrorHandler {
+public struct VErrorHandler {
     typealias RuleFunction = (Any?) -> VSessionError?
 
     public init() {}
@@ -27,7 +27,7 @@ public struct ErrorHandler {
     }
 
     func build(_ info: Any?) -> VSessionError? {
-        ErrorHandler.rules.compactMap { $0(info) }.first
+        VErrorHandler.rules.compactMap { $0(info) }.first
     }
 
     func build(_ info: Any? = nil) -> VSessionError {
@@ -39,7 +39,7 @@ public struct ErrorHandler {
     }
 }
 
-extension ErrorHandler {
+extension VErrorHandler {
     var isInternetAvailable: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -60,7 +60,7 @@ extension ErrorHandler {
     }
 }
 
-extension ErrorHandler {
+extension VErrorHandler {
     static let rules: [RuleFunction] = [
         sessionRule,
         responseRule,
@@ -70,11 +70,10 @@ extension ErrorHandler {
 
     static let responseRule: RuleFunction = {
         if let response = $0 as? HTTPURLResponse,
-            response.statusCode >= 200,
-            response.statusCode <= 299 {
-            return nil
+            response.statusCode < 200 || response.statusCode > 299 {
+            logger.error("\(VSessionError.responseFailure) info:\(String(describing: $0))")
+            return VSessionError.responseFailure
         }
-        logger.error("\(VSessionError.responseFailure) info:\(String(describing: $0))")
-        return VSessionError.responseFailure
+        return nil
     }
 }

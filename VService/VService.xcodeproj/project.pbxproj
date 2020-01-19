@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		181BA55D23D3D99B000874EF /* VSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BA55C23D3D99B000874EF /* VSessionTests.swift */; };
 		185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02923D449310083A6D4 /* VSessionError.swift */; };
+		185DC03323D485780083A6D4 /* VErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */; };
 		1869A49123D29A800030742E /* VService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A48723D29A800030742E /* VService.framework */; };
 		1869A49623D29A800030742E /* VRequestDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A49523D29A800030742E /* VRequestDataTests.swift */; };
 		1869A49823D29A800030742E /* VService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A48A23D29A800030742E /* VService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		181BA55C23D3D99B000874EF /* VSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionTests.swift; sourceTree = "<group>"; };
 		185DC02923D449310083A6D4 /* VSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionError.swift; sourceTree = "<group>"; };
+		185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VErrorHandlerTests.swift; sourceTree = "<group>"; };
 		1869A48723D29A800030742E /* VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1869A48A23D29A800030742E /* VService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VService.h; sourceTree = "<group>"; };
 		1869A48B23D29A800030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				1869A49523D29A800030742E /* VRequestDataTests.swift */,
 				1869A58D23D3B6C60030742E /* VResponseDataTests.swift */,
 				181BA55C23D3D99B000874EF /* VSessionTests.swift */,
+				185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185DC03323D485780083A6D4 /* VErrorHandlerTests.swift in Sources */,
 				1869A49623D29A800030742E /* VRequestDataTests.swift in Sources */,
 				1869A58E23D3B6C60030742E /* VResponseDataTests.swift in Sources */,
 				181BA55D23D3D99B000874EF /* VSessionTests.swift in Sources */,
