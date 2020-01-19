@@ -10,6 +10,7 @@
 		181BA55D23D3D99B000874EF /* VSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BA55C23D3D99B000874EF /* VSessionTests.swift */; };
 		185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02923D449310083A6D4 /* VSessionError.swift */; };
 		185DC03323D485780083A6D4 /* VErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */; };
+		185DC06E23D4F22D0083A6D4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */; };
 		1869A49123D29A800030742E /* VService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A48723D29A800030742E /* VService.framework */; };
 		1869A49623D29A800030742E /* VRequestDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A49523D29A800030742E /* VRequestDataTests.swift */; };
 		1869A49823D29A800030742E /* VService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A48A23D29A800030742E /* VService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +37,7 @@
 		181BA55C23D3D99B000874EF /* VSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionTests.swift; sourceTree = "<group>"; };
 		185DC02923D449310083A6D4 /* VSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionError.swift; sourceTree = "<group>"; };
 		185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VErrorHandlerTests.swift; sourceTree = "<group>"; };
+		185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		1869A48723D29A800030742E /* VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1869A48A23D29A800030742E /* VService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VService.h; sourceTree = "<group>"; };
 		1869A48B23D29A800030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185DC06B23D4F2080083A6D4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1869A57D23D3A9FC0030742E /* VConfiguration.swift */,
+				1869A4A323D29DDA0030742E /* VRequestData.swift */,
+				1869A58123D3ABF60030742E /* VResponseData.swift */,
+				1869A57F23D3AB190030742E /* VSession.swift */,
+				185DC02923D449310083A6D4 /* VSessionError.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		185DC06C23D4F2140083A6D4 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 		1869A47D23D29A800030742E = {
 			isa = PBXGroup;
 			children = (
@@ -131,11 +153,8 @@
 		1869A54A23D3587E0030742E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1869A57D23D3A9FC0030742E /* VConfiguration.swift */,
-				1869A4A323D29DDA0030742E /* VRequestData.swift */,
-				1869A58123D3ABF60030742E /* VResponseData.swift */,
-				1869A57F23D3AB190030742E /* VSession.swift */,
-				185DC02923D449310083A6D4 /* VSessionError.swift */,
+				185DC06C23D4F2140083A6D4 /* LocalStorage */,
+				185DC06B23D4F2080083A6D4 /* Service */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -380,6 +399,7 @@
 				1869A4A423D29DDA0030742E /* VRequestData.swift in Sources */,
 				1869A58023D3AB190030742E /* VSession.swift in Sources */,
 				1869A57E23D3A9FC0030742E /* VConfiguration.swift in Sources */,
+				185DC06E23D4F22D0083A6D4 /* LocalStorage.swift in Sources */,
 				185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */,
 				1869A58223D3ABF60030742E /* VResponseData.swift in Sources */,
 			);
