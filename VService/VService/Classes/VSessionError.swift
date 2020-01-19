@@ -10,15 +10,11 @@ import Foundation
 import SystemConfiguration
 
 public enum VSessionError: Error {
-    case generic, urlInvalid, withoutConnection
+    case generic, urlInvalid, withoutConnection, responseFailure
 }
 
 public struct ErrorHandler {
     typealias RuleFunction = (Any?) -> VSessionError?
-
-    let rules: [RuleFunction] = [
-        sessionRule,
-    ]
 
     public init() {}
 
@@ -29,11 +25,13 @@ public struct ErrorHandler {
     }
 
     func build(_ info: Any?) -> VSessionError? {
-        return rules.compactMap { $0(info) }.first
+        let rule = ErrorHandler.rules.compactMap { $0(info) }.first
+        return rule
     }
 
     func build(_ info: Any? = nil) -> VSessionError {
-        return build(info) ?? VSessionError.generic
+        let rule = build(info) ?? VSessionError.generic
+        return rule
     }
 }
 
@@ -56,6 +54,22 @@ extension ErrorHandler {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
+}
 
-    static var sessionRule: RuleFunction = { $0 as? VSessionError }
+extension ErrorHandler {
+    static let rules: [RuleFunction] = [
+        sessionRule,
+        responseRule,
+    ]
+
+    static let sessionRule: RuleFunction = { $0 as? VSessionError }
+
+    static let responseRule: RuleFunction = {
+        if let response = $0 as? HTTPURLResponse,
+            response.statusCode >= 200,
+            response.statusCode <= 299 {
+            return nil
+        }
+        return VSessionError.responseFailure
+    }
 }

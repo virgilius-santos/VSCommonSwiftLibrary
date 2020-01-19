@@ -97,6 +97,6 @@ public extension VSession {
     }
 
     func makeSession(config: VConfiguration) -> URLSession {
-        return URLSession(configuration: config.configuration)
+        URLSession(configuration: config.configuration)
     }
 }
