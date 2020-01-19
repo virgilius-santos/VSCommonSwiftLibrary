@@ -1,4 +1,7 @@
 PODS:
+  - Kingfisher (5.13.0):
+    - Kingfisher/Core (= 5.13.0)
+  - Kingfisher/Core (5.13.0)
   - Nimble (8.0.5)
   - OHHTTPStubs/Core (8.0.0)
   - OHHTTPStubs/Default (8.0.0):
@@ -19,6 +22,7 @@ PODS:
   - Willow (5.2.1)
 
 DEPENDENCIES:
+  - Kingfisher (~> 5.0)
   - Nimble (~> 8.0)
   - OHHTTPStubs/Swift (~> 8.0)
   - Quick (~> 2.2)
@@ -26,6 +30,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Kingfisher
     - Nimble
     - OHHTTPStubs
     - Quick
@@ -34,12 +39,13 @@ SPEC REPOS:
     - VCore
 
 SPEC CHECKSUMS:
+  Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   VCore: 6d521257752da14f6b98f487c1add02edc68c807
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: a9bfc50666677e12435a0b9c3e60e2e05eac6149
+PODFILE CHECKSUM: 335aaf4891b5eb66272c018f86c075509cc89fbe
 
 COCOAPODS: 1.8.4

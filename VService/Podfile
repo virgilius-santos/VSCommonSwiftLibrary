@@ -8,6 +8,7 @@ use_frameworks!
 target 'VService' do
 
   pod "VCore"                   #, :path => '../'
+  pod 'Kingfisher'              , '~> 5.0'
 
   target 'VServiceTests' do
     pod 'Quick'                 , '~> 2.2'
