@@ -8,6 +8,8 @@ use_frameworks!
 
 target 'VCore' do
 
+  pod 'Willow', '~> 5.0'
+  
   target 'VCoreTests' do
     pod 'Quick'
     pod 'Nimble'
