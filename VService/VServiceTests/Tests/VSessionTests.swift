@@ -136,6 +136,30 @@ class VSessionTests: QuickSpec {
                 }
 
                 context("recebendo erro da request") {
+                    it("cancelando a request") {
+                        stub(condition: isHost("www.google.com")) { _ in
+                            let stubData = try! DataMock(value: 45).data()
+                            return OHHTTPStubsResponse(data: stubData,
+                                                       statusCode: 599,
+                                                       headers: nil)
+                                .requestTime(5, responseTime: 2)
+                        }
+
+                        waitUntil(timeout: 20) { done in
+                            self.sut.request(resquest: self.requestData) { result in
+                                switch result {
+                                case .success:
+                                    fail("deveria dar timeout")
+                                case let .failure(error):
+                                    expect(error).to(equal(.cancelled))
+                                }
+                                done()
+                            }
+
+                            self.sut.cancel()
+                        }
+                    }
+
                     it("reponse menor que 200") {
                         stub(condition: isHost("www.google.com")) { _ in
                             let stubData = try! DataMock(value: 45).data()

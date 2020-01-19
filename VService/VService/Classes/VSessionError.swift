@@ -11,7 +11,8 @@ import SystemConfiguration
 import VCore
 
 public enum VSessionError: Error {
-    case generic, urlInvalid, withoutConnection, responseFailure, timedOut
+    case generic, urlInvalid, withoutConnection
+    case responseFailure, timedOut, cancelled
 }
 
 public struct VErrorHandler {
@@ -66,6 +67,7 @@ extension VErrorHandler {
         responseRule,
         timedOutConnectionRule,
         withoutConnectionRule,
+        cancelledRule,
         errorRule,
     ]
 
@@ -90,6 +92,13 @@ extension VErrorHandler {
     static let timedOutConnectionRule: RuleFunction = {
         if let err = $0 as? NSError, err.code == URLError.timedOut.rawValue {
             return VSessionError.timedOut
+        }
+        return nil
+    }
+
+    static let cancelledRule: RuleFunction = {
+        if let err = $0 as? NSError, err.code == URLError.cancelled.rawValue {
+            return VSessionError.cancelled
         }
         return nil
     }
