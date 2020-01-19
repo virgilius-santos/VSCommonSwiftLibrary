@@ -13,7 +13,7 @@ public extension Dictionary where Value == Any {
         do {
             return try JSONSerialization.data(withJSONObject: self, options: options)
         } catch {
-            logger.errorMessage(error.localizedDescription)
+            logger.error(String(describing: error))
             throw error
         }
     }

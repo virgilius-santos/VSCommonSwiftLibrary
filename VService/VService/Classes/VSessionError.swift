@@ -8,6 +8,7 @@
 
 import Foundation
 import SystemConfiguration
+import VCore
 
 public enum VSessionError: Error {
     case generic, urlInvalid, withoutConnection, responseFailure
@@ -20,18 +21,21 @@ public struct ErrorHandler {
 
     func checkConection() throws {
         if !isInternetAvailable {
+            logger.error("\(VSessionError.withoutConnection)")
             throw VSessionError.withoutConnection
         }
     }
 
     func build(_ info: Any?) -> VSessionError? {
-        let rule = ErrorHandler.rules.compactMap { $0(info) }.first
-        return rule
+        ErrorHandler.rules.compactMap { $0(info) }.first
     }
 
     func build(_ info: Any? = nil) -> VSessionError {
-        let rule = build(info) ?? VSessionError.generic
-        return rule
+        if let error = build(info) {
+            return error
+        }
+        logger.error("\(VSessionError.generic) info:\(String(describing: info))")
+        return VSessionError.generic
     }
 }
 
@@ -70,6 +74,7 @@ extension ErrorHandler {
             response.statusCode <= 299 {
             return nil
         }
+        logger.error("\(VSessionError.responseFailure) info:\(String(describing: $0))")
         return VSessionError.responseFailure
     }
 }

@@ -14,7 +14,7 @@ public extension Encodable {
         do {
             return try jsonEncoder.encode(self)
         } catch {
-            logger.errorMessage(error.localizedDescription)
+            logger.error(String(describing: error))
             throw error
         }
     }

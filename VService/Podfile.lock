@@ -1,7 +1,9 @@
 PODS:
   - Nimble (8.0.5)
   - Quick (2.2.0)
-  - VCore (0.0.1)
+  - VCore (0.1.0-rc1):
+    - Willow (~> 5.0)
+  - Willow (5.2.1)
 
 DEPENDENCIES:
   - Nimble
@@ -9,6 +11,8 @@ DEPENDENCIES:
   - VCore (from `../`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Willow
   trunk:
     - Nimble
     - Quick
@@ -20,7 +24,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  VCore: dbba219dec810cb49555401a45ed3b7fb7f76822
+  VCore: a36cee4d1ba8902806fb8021a0e08d19d6dc1a85
+  Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
 PODFILE CHECKSUM: cd1947d794ba686dce298b8461605a3d67d329d1
 

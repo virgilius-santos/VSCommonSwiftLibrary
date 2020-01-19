@@ -14,7 +14,7 @@ public extension Decodable {
         do {
             return try jsonDecoder.decode(Self.self, from: data)
         } catch {
-            logger.errorMessage(error.localizedDescription)
+            logger.error(String(describing: error))
             throw error
         }
     }
