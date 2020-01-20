@@ -8,9 +8,9 @@
 
 import UIKit
 
-public protocol ReusableTableViewCell {}
+public protocol ReusableViewCell {}
 
-public extension ReusableTableViewCell where Self: UITableViewCell {
+public extension ReusableViewCell where Self: UITableViewCell {
     static func cellIdentifier() -> String {
         String(describing: Self.self)
     }
@@ -26,7 +26,7 @@ public extension ReusableTableViewCell where Self: UITableViewCell {
     }
 }
 
-public extension ReusableTableViewCell where Self: UICollectionViewCell {
+public extension ReusableViewCell where Self: UICollectionViewCell {
     static func cellIdentifier() -> String {
         String(describing: Self.self)
     }

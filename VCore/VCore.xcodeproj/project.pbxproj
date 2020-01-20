@@ -10,7 +10,7 @@
 		0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */; };
 		185DC02F23D464070083A6D4 /* VLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02E23D464070083A6D4 /* VLogger.swift */; };
 		185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03023D465CD0083A6D4 /* VLogModifier.swift */; };
-		185DC07423D51D360083A6D4 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */; };
+		185DC07423D51D360083A6D4 /* ReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC07323D51D360083A6D4 /* ReusableViewCell.swift */; };
 		1869A50923D31BFF0030742E /* VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1869A4FF23D31BFE0030742E /* VCore.framework */; };
 		1869A50E23D31BFF0030742E /* ReusableTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A50D23D31BFF0030742E /* ReusableTableViewCellTests.swift */; };
 		1869A51023D31BFF0030742E /* VCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1869A50223D31BFE0030742E /* VCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,6 +18,7 @@
 		1869A58A23D3B0A60030742E /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58923D3B0A60030742E /* DictionaryExtensions.swift */; };
 		1869A58C23D3B3C50030742E /* DecodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58B23D3B3C50030742E /* DecodableExtensions.swift */; };
 		18C7FFD323D5346400F023E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */; };
+		18C7FFF223D6704A00F023E6 /* WindowStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */; };
 		31D63A3ADD7A7089986D53D7 /* Pods_VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +35,7 @@
 /* Begin PBXFileReference section */
 		185DC02E23D464070083A6D4 /* VLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogger.swift; sourceTree = "<group>"; };
 		185DC03023D465CD0083A6D4 /* VLogModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLogModifier.swift; sourceTree = "<group>"; };
-		185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTableViewCell.swift; sourceTree = "<group>"; };
+		185DC07323D51D360083A6D4 /* ReusableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewCell.swift; sourceTree = "<group>"; };
 		1869A4FF23D31BFE0030742E /* VCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1869A50223D31BFE0030742E /* VCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCore.h; sourceTree = "<group>"; };
 		1869A50323D31BFE0030742E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		1869A58923D3B0A60030742E /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		1869A58B23D3B3C50030742E /* DecodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableExtensions.swift; sourceTree = "<group>"; };
 		18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStyleProtocol.swift; sourceTree = "<group>"; };
 		3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCore_VCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +98,8 @@
 		185DC07523D51E050083A6D4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				185DC07323D51D360083A6D4 /* ReusableTableViewCell.swift */,
+				185DC07323D51D360083A6D4 /* ReusableViewCell.swift */,
+				18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -385,13 +388,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C7FFF223D6704A00F023E6 /* WindowStyleProtocol.swift in Sources */,
 				1869A58823D3AF090030742E /* EncodableExtensions.swift in Sources */,
 				18C7FFD323D5346400F023E6 /* UIColorExtensions.swift in Sources */,
 				1869A58A23D3B0A60030742E /* DictionaryExtensions.swift in Sources */,
 				185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */,
 				185DC02F23D464070083A6D4 /* VLogger.swift in Sources */,
 				1869A58C23D3B3C50030742E /* DecodableExtensions.swift in Sources */,
-				185DC07423D51D360083A6D4 /* ReusableTableViewCell.swift in Sources */,
+				185DC07423D51D360083A6D4 /* ReusableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,10 +49,10 @@ class ReusableTableViewCellTests: XCTestCase {
     }
 }
 
-private class ReusableTableViewCellMock: UITableViewCell, ReusableTableViewCell {}
+private class ReusableTableViewCellMock: UITableViewCell, ReusableViewCell {}
 
 
-private class ReusableCollectionViewCellMock: UICollectionViewCell, ReusableTableViewCell {}
+private class ReusableCollectionViewCellMock: UICollectionViewCell, ReusableViewCell {}
 
 private class UITableViewMock: UITableView {
     var cellClass: AnyClass?
