@@ -9,10 +9,5 @@
 import UIKit
 
 public protocol WindowStyleProtocol {
-    
-    associatedtype Style
-    
     var window: UIWindow? { get }
-    
-    func apply(style: Style)
 }
