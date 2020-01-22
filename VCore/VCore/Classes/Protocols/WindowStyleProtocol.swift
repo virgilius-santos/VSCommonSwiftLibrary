@@ -8,6 +8,6 @@
 
 import UIKit
 
-public protocol WindowStyleProtocol {
+public protocol WindowStyleable {
     var window: UIWindow? { get }
 }
