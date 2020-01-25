@@ -18,9 +18,7 @@
 		1869A4A423D29DDA0030742E /* VRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A4A323D29DDA0030742E /* VRequestData.swift */; };
 		1869A57E23D3A9FC0030742E /* VConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A57D23D3A9FC0030742E /* VConfiguration.swift */; };
 		1869A58023D3AB190030742E /* VSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A57F23D3AB190030742E /* VSession.swift */; };
-		1869A58223D3ABF60030742E /* VResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58123D3ABF60030742E /* VResponseData.swift */; };
-		1869A58E23D3B6C60030742E /* VResponseDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58D23D3B6C60030742E /* VResponseDataTests.swift */; };
-		3D5F8A1639DBDDE4F22F606A /* Pods_VService_VServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */; };
+		9CFFF22E401625E65E50D52D /* Pods_VServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A091BD7379D482E0A513A8 /* Pods_VServiceTests.framework */; };
 		B6BA1BFD39F12D604EE42C41 /* Pods_VService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1063694C7D9332CFBF5A992D /* Pods-VServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VServiceTests.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VServiceTests/Pods-VServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		181BA55C23D3D99B000874EF /* VSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionTests.swift; sourceTree = "<group>"; };
 		185DC02923D449310083A6D4 /* VSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionError.swift; sourceTree = "<group>"; };
 		185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VErrorHandlerTests.swift; sourceTree = "<group>"; };
@@ -52,14 +51,13 @@
 		1869A51B23D3227C0030742E /* VCore.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = VCore.xcworkspace; path = ../VCore/VCore.xcworkspace; sourceTree = "<group>"; };
 		1869A57D23D3A9FC0030742E /* VConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConfiguration.swift; sourceTree = "<group>"; };
 		1869A57F23D3AB190030742E /* VSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSession.swift; sourceTree = "<group>"; };
-		1869A58123D3ABF60030742E /* VResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VResponseData.swift; sourceTree = "<group>"; };
-		1869A58D23D3B6C60030742E /* VResponseDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VResponseDataTests.swift; sourceTree = "<group>"; };
 		2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.release.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService/Pods-VService.release.xcconfig"; sourceTree = "<group>"; };
+		64A091BD7379D482E0A513A8 /* Pods_VServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VService_VServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.debug.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BEEA46ACF3162D81F8064206 /* Pods-VService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.debug.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VService/Pods-VService.debug.xcconfig"; sourceTree = "<group>"; };
+		EC6FA26791835FCA6901A5D4 /* Pods-VServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VServiceTests.debug.xcconfig"; path = "../VService/Pods/Target Support Files/Pods-VServiceTests/Pods-VServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1869A49123D29A800030742E /* VService.framework in Frameworks */,
-				3D5F8A1639DBDDE4F22F606A /* Pods_VService_VServiceTests.framework in Frameworks */,
+				9CFFF22E401625E65E50D52D /* Pods_VServiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +86,6 @@
 			children = (
 				1869A57D23D3A9FC0030742E /* VConfiguration.swift */,
 				1869A4A323D29DDA0030742E /* VRequestData.swift */,
-				1869A58123D3ABF60030742E /* VResponseData.swift */,
 				1869A57F23D3AB190030742E /* VSession.swift */,
 				185DC02923D449310083A6D4 /* VSessionError.swift */,
 			);
@@ -182,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				1869A49523D29A800030742E /* VRequestDataTests.swift */,
-				1869A58D23D3B6C60030742E /* VResponseDataTests.swift */,
 				181BA55C23D3D99B000874EF /* VSessionTests.swift */,
 				185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */,
 			);
@@ -194,7 +190,7 @@
 			children = (
 				1869A51B23D3227C0030742E /* VCore.xcworkspace */,
 				7A2597ECDBC010AE19D54E10 /* Pods_VService.framework */,
-				AD8C543EA38C5198DCEAA9B2 /* Pods_VService_VServiceTests.framework */,
+				64A091BD7379D482E0A513A8 /* Pods_VServiceTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,6 +202,8 @@
 				35F04F000A739900954FEF23 /* Pods-VService.release.xcconfig */,
 				B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */,
 				2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */,
+				EC6FA26791835FCA6901A5D4 /* Pods-VServiceTests.debug.xcconfig */,
+				1063694C7D9332CFBF5A992D /* Pods-VServiceTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -359,7 +357,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VService-VServiceTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VServiceTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,15 +387,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VServiceTests/Pods-VServiceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VServiceTests/Pods-VServiceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VServiceTests/Pods-VServiceTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -412,7 +410,6 @@
 				1869A57E23D3A9FC0030742E /* VConfiguration.swift in Sources */,
 				185DC06E23D4F22D0083A6D4 /* LocalStorage.swift in Sources */,
 				185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */,
-				1869A58223D3ABF60030742E /* VResponseData.swift in Sources */,
 				185DC07123D4FAEA0083A6D4 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +420,6 @@
 			files = (
 				185DC03323D485780083A6D4 /* VErrorHandlerTests.swift in Sources */,
 				1869A49623D29A800030742E /* VRequestDataTests.swift in Sources */,
-				1869A58E23D3B6C60030742E /* VResponseDataTests.swift in Sources */,
 				181BA55D23D3D99B000874EF /* VSessionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +618,7 @@
 		};
 		1869A49F23D29A800030742E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B118BAF7766FE54A1731C50D /* Pods-VService-VServiceTests.debug.xcconfig */;
+			baseConfigurationReference = EC6FA26791835FCA6901A5D4 /* Pods-VServiceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT) $(inherited)";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -646,7 +642,7 @@
 		};
 		1869A4A023D29A800030742E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EEC6BD94EE96C9EC74B79E2 /* Pods-VService-VServiceTests.release.xcconfig */;
+			baseConfigurationReference = 1063694C7D9332CFBF5A992D /* Pods-VServiceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT) $(inherited)";
 				CODE_SIGN_IDENTITY = "Apple Development";

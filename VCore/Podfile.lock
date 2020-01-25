@@ -4,8 +4,8 @@ PODS:
   - Willow (5.2.1)
 
 DEPENDENCIES:
-  - Nimble
-  - Quick
+  - Nimble (~> 8.0)
+  - Quick (~> 2.2)
   - Willow (~> 5.0)
 
 SPEC REPOS:
@@ -20,6 +20,6 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 7fffb7c9e6803bff3a023f9a968016def8ac5034
+PODFILE CHECKSUM: 4108d69ec076d0d577c00bd2370183ba090c3cc4
 
 COCOAPODS: 1.8.4

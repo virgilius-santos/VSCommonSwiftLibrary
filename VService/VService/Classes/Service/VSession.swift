@@ -21,7 +21,7 @@ public class VSession {
     }
 
     public func request<DataReceived>(resquest requestData: VRequestData,
-                                      response responseData: VResponseData<DataReceived>,
+                                      response responseData: @escaping ((Data) throws -> DataReceived),
                                       completion: ((Result<DataReceived, VSessionError>) -> Void)?) {
         do {
             try errorHandler.checkConection()
@@ -47,7 +47,7 @@ public class VSession {
                         throw errorHandler.build()
                     }
 
-                    let objectDecoded = try responseData.decode(data)
+                    let objectDecoded = try responseData(data)
                     completion?(.success(objectDecoded))
                 } catch {
                     completion?(.failure(errorHandler.build(error)))
@@ -69,13 +69,24 @@ public class VSession {
 }
 
 extension VSession {
-    func request(resquest: VRequestData, completion: ((Result<Data, VSessionError>) -> Void)? = nil) {
-        request(resquest: resquest, response: VResponseData<Data>(decode: { $0 }), completion: completion)
+    func request(resquest: VRequestData,
+                 completion: ((Result<Data, VSessionError>) -> Void)? = nil) {
+        request(resquest: resquest, response: { $0 }, completion: completion)
     }
 
     func request<DataReceived: Decodable>(resquest: VRequestData,
                                           completion: ((Result<DataReceived, VSessionError>) -> Void)? = nil) {
-        request(resquest: resquest, response: VResponseData<DataReceived>(), completion: completion)
+        request(resquest: resquest,
+                response: { try DataReceived.decode(data: $0) },
+                completion: completion)
+    }
+
+    func request<DataReceived: Decodable>(resquest: VRequestData,
+                                          response: DataReceived.Type,
+                                          completion: ((Result<DataReceived, VSessionError>) -> Void)? = nil) {
+        request(resquest: resquest,
+                response: { try response.decode(data: $0) },
+                completion: completion)
     }
 }
 

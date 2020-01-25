@@ -5,14 +5,11 @@ platform :ios, '12.4'
 
 use_frameworks!
 
-
 target 'VCore' do
+  pod 'Willow'        , '~> 5.0', :inhibit_warnings => true
+end
 
-  pod 'Willow', '~> 5.0'
-  
-  target 'VCoreTests' do
-    pod 'Quick'
-    pod 'Nimble'
-  end
-
+target 'VCoreTests' do 
+  pod 'Quick'       , '~> 2.2', :inhibit_warnings => true
+  pod 'Nimble'      , '~> 8.0', :inhibit_warnings => true
 end

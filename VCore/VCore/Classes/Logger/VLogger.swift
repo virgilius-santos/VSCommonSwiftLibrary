@@ -14,31 +14,32 @@ public let logger = VLogger()
 public class VLogger {
     lazy var willowLogger: Logger = buildDebugLogger(name: "Logger")
 
-    public func debug(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func debug(_ message: String..., file: String = #file, function: String = #function, line: Int = #line) {
         willowLogger.debugMessage(self.format(message: message, file: file, function: function, line: line))
     }
 
-    public func info(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func info(_ message: String..., file: String = #file, function: String = #function, line: Int = #line) {
         willowLogger.infoMessage(self.format(message: message, file: file, function: function, line: line))
     }
 
-    public func event(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func event(_ message: String..., file: String = #file, function: String = #function, line: Int = #line) {
         willowLogger.eventMessage(self.format(message: message, file: file, function: function, line: line))
     }
 
-    public func warn(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func warn(_ message: String..., file: String = #file, function: String = #function, line: Int = #line) {
         willowLogger.warnMessage(self.format(message: message, file: file, function: function, line: line))
     }
 
-    public func error(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+    public func error(_ message: String..., file: String = #file, function: String = #function, line: Int = #line) {
         willowLogger.errorMessage(self.format(message: message, file: file, function: function, line: line))
     }
 
-    func format(message: String, file: String, function: String, line: Int) -> String {
+    func format(message: [String], file: String, function: String, line: Int) -> String {
+        let msg = message.count == 1 ? message[0] : message[1...].reduce(message[0],{ $0 + " " + $1})
         #if DEBUG /* I use os_log in production where line numbers and functions are discouraged */
-            return "[\(sourceFileName(filePath: file)) \(function):\(line)] \(message)"
+        return "[\(sourceFileName(filePath: file)) \(function):\(line)] \(msg)"
         #else
-            return message
+            return msg
         #endif
     }
 

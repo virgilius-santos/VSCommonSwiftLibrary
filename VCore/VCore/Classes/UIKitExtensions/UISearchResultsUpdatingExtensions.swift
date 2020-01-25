@@ -11,7 +11,7 @@ import UIKit
 public extension UISearchResultsUpdating where Self: UIViewController {
     
     @discardableResult
-    func addSearchBar(placeholder: String, scopeButtonTitles: String...) -> UISearchController {
+    func addSearchBar(placeholder: String, scopeButtonTitles: [String]) -> UISearchController {
         let search = UISearchController(searchResultsController: nil)
         search.obscuresBackgroundDuringPresentation = false
         search.searchResultsUpdater = self

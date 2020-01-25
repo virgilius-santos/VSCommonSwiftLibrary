@@ -122,7 +122,7 @@ class VSessionTests: QuickSpec {
                         }
 
                         waitUntil(timeout: 5) { done in
-                            self.sut.request(resquest: self.requestData, response: VResponseData<DataMock>()) { result in
+                            self.sut.request(resquest: self.requestData, response: DataMock.self) { result in
                                 switch result {
                                 case let .success(data):
                                     expect(data.value).to(equal(45))
@@ -170,7 +170,7 @@ class VSessionTests: QuickSpec {
 
                         waitUntil(timeout: 5) { done in
 
-                            self.sut.request(resquest: self.requestData, response: VResponseData<DataMock>()) { result in
+                            self.sut.request(resquest: self.requestData, response: DataMock.self) { result in
                                 switch result {
                                 case .success:
                                     fail("deveria dar erro")
@@ -192,7 +192,7 @@ class VSessionTests: QuickSpec {
 
                         waitUntil(timeout: 5) { done in
 
-                            self.sut.request(resquest: self.requestData, response: VResponseData<DataMock>()) { result in
+                            self.sut.request(resquest: self.requestData) { result in
                                 switch result {
                                 case .success:
                                     fail("deveria dar erro")

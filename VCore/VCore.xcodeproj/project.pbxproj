@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */; };
 		185DC02F23D464070083A6D4 /* VLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02E23D464070083A6D4 /* VLogger.swift */; };
 		185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03023D465CD0083A6D4 /* VLogModifier.swift */; };
 		185DC07423D51D360083A6D4 /* ReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC07323D51D360083A6D4 /* ReusableViewCell.swift */; };
@@ -21,6 +20,7 @@
 		18C7FFD323D5346400F023E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */; };
 		18C7FFF223D6704A00F023E6 /* WindowStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */; };
 		31D63A3ADD7A7089986D53D7 /* Pods_VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */; };
+		E61DC9ADDC61AEBF818BA9B7 /* Pods_VCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792C0ED5E956A76272416103 /* Pods_VCoreTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,10 @@
 		18C7001823D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchResultsUpdatingExtensions.swift; sourceTree = "<group>"; };
 		18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStyleProtocol.swift; sourceTree = "<group>"; };
-		3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCore_VCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		419F39361C0B1C3867F187F4 /* Pods-VCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCoreTests.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCoreTests/Pods-VCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		792C0ED5E956A76272416103 /* Pods_VCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83711E089F8F44DE4CC29F6E /* Pods-VCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCoreTests.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCoreTests/Pods-VCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore-VCoreTests.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF691652F428B635AD3EE7F9 /* Pods-VCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore/Pods-VCore.release.xcconfig"; sourceTree = "<group>"; };
 		DBE9553605E243427CB1EB24 /* Pods-VCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCore.debug.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCore/Pods-VCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1869A50923D31BFF0030742E /* VCore.framework in Frameworks */,
-				0C255FD21420392BA92294ED /* Pods_VCore_VCoreTests.framework in Frameworks */,
+				E61DC9ADDC61AEBF818BA9B7 /* Pods_VCoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */,
-				3E60390D9BC659926F412CD4 /* Pods_VCore_VCoreTests.framework */,
+				792C0ED5E956A76272416103 /* Pods_VCoreTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +211,8 @@
 				CF691652F428B635AD3EE7F9 /* Pods-VCore.release.xcconfig */,
 				5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */,
 				C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */,
+				83711E089F8F44DE4CC29F6E /* Pods-VCoreTests.debug.xcconfig */,
+				419F39361C0B1C3867F187F4 /* Pods-VCoreTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -360,7 +364,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCore-VCoreTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCoreTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,15 +377,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCoreTests/Pods-VCoreTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCoreTests/Pods-VCoreTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCore-VCoreTests/Pods-VCore-VCoreTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCoreTests/Pods-VCoreTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -564,9 +568,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -592,14 +597,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.organization.VCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		1869A51723D31BFF0030742E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D198D541572EEE832A94459 /* Pods-VCore-VCoreTests.debug.xcconfig */;
+			baseConfigurationReference = 83711E089F8F44DE4CC29F6E /* Pods-VCoreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -619,7 +625,7 @@
 		};
 		1869A51823D31BFF0030742E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1160732ED8D26DE88FE0579 /* Pods-VCore-VCoreTests.release.xcconfig */;
+			baseConfigurationReference = 419F39361C0B1C3867F187F4 /* Pods-VCoreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;

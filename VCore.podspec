@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint VCore.podspec' to ensure this is a
+#  Be sure to run `pod spec lint VCore.podspec --allow-warnings' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "VCore"
-  spec.version      = "0.2.0"
+  spec.version      = "0.3.0"
   spec.summary      = "UIKit and Foundation extension in Swift."
   spec.homepage     = "https://github.com/virgilius-santos/VSCommonSwiftLibrary"
 
