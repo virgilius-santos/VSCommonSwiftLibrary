@@ -63,7 +63,7 @@ public class VSession {
         }
     }
 
-    func cancel() {
+    public func cancel() {
         dataTask?.cancel()
     }
 }
@@ -90,7 +90,7 @@ extension VSession {
     }
 }
 
-public extension VSession {
+extension VSession {
     func makeRequest(resquestData: VRequestData, config: VConfiguration) throws -> URLRequest {
         guard let url = resquestData.url else {
             logger.error("\(VSessionError.urlInvalid) info:\(String(describing: resquestData.url))")
