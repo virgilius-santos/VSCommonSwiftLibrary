@@ -28,5 +28,5 @@ public struct VConfiguration {
     }
 
     public static let `default` = VConfiguration(cachePolicy: CachePolicy.useProtocolCachePolicy,
-                                                 timeoutInterval: TimeInterval(2))
+                                                 timeoutInterval: TimeInterval(10))
 }
