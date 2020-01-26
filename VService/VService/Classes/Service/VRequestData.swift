@@ -47,16 +47,16 @@ public struct VRequestData {
         return urlComponents?.url
     }
 
-    mutating func add(path: Any) {
+    public mutating func add(path: Any) {
         paths.append("\(path)")
     }
 
-    mutating func addQuery(key: Any, value: Any) {
+    public mutating func addQuery(key: Any, value: Any) {
         if queryParameters == nil { queryParameters = [] }
         queryParameters?.append((key: "\(key)", value: "\(value)"))
     }
 
-    mutating func addHeader(key: Any, value: Any) {
+    public mutating func addHeader(key: Any, value: Any) {
         if headers == nil { headers = [] }
         headers?.append((key: "\(key)", value: "\(value)"))
     }
