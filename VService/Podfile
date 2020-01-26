@@ -6,12 +6,12 @@ platform :ios, '12.4'
 use_frameworks!
 
 target 'VService' do
-  pod "VCore"                   , :path => '../'
+  pod "VCore"                   , '~> 0.3'#, :path => '../'
   pod 'Kingfisher'              , '~> 5.0', :inhibit_warnings => true
-end
-
-target 'VServiceTests' do
-  pod 'Quick'                 , '~> 2.2', :inhibit_warnings => true
-  pod 'Nimble'                , '~> 8.0', :inhibit_warnings => true
-  pod 'OHHTTPStubs/Swift'     , '~> 8.0', :inhibit_warnings => true
+  
+  target 'VServiceTests' do
+    pod 'Quick'                 , '~> 2.2', :inhibit_warnings => true
+    pod 'Nimble'                , '~> 8.0', :inhibit_warnings => true
+    pod 'OHHTTPStubs/Swift'     , '~> 8.0', :inhibit_warnings => true
+  end
 end

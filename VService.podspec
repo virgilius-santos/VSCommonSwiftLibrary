@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  spec.dependency "VCore"               , '~> 0.1'
+  spec.dependency "VCore"               , '~> 0.3'
   spec.dependency "Kingfisher"          , '~> 5.0'
 
 end
