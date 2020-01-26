@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "VCore"
-  spec.version      = "0.3.0"
+  spec.version      = "0.4.0"
   spec.summary      = "UIKit and Foundation extension in Swift."
   spec.homepage     = "https://github.com/virgilius-santos/VSCommonSwiftLibrary"
 

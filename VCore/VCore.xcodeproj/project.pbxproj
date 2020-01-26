@@ -16,7 +16,7 @@
 		1869A58823D3AF090030742E /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58723D3AF090030742E /* EncodableExtensions.swift */; };
 		1869A58A23D3B0A60030742E /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58923D3B0A60030742E /* DictionaryExtensions.swift */; };
 		1869A58C23D3B3C50030742E /* DecodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1869A58B23D3B3C50030742E /* DecodableExtensions.swift */; };
-		18C7001923D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7001823D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift */; };
+		18C7001923D7E23A00F023E6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7001823D7E23A00F023E6 /* UIViewControllerExtensions.swift */; };
 		18C7FFD323D5346400F023E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */; };
 		18C7FFF223D6704A00F023E6 /* WindowStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */; };
 		31D63A3ADD7A7089986D53D7 /* Pods_VCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E426A98A3589ED18C8C626F3 /* Pods_VCore.framework */; };
@@ -48,7 +48,7 @@
 		1869A58723D3AF090030742E /* EncodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodableExtensions.swift; sourceTree = "<group>"; };
 		1869A58923D3B0A60030742E /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		1869A58B23D3B3C50030742E /* DecodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableExtensions.swift; sourceTree = "<group>"; };
-		18C7001823D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchResultsUpdatingExtensions.swift; sourceTree = "<group>"; };
+		18C7001823D7E23A00F023E6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		18C7FFF123D6704A00F023E6 /* WindowStyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStyleProtocol.swift; sourceTree = "<group>"; };
 		419F39361C0B1C3867F187F4 /* Pods-VCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCoreTests.release.xcconfig"; path = "../VCore/Pods/Target Support Files/Pods-VCoreTests/Pods-VCoreTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				18C7FFD223D5346400F023E6 /* UIColorExtensions.swift */,
-				18C7001823D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift */,
+				18C7001823D7E23A00F023E6 /* UIViewControllerExtensions.swift */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 				18C7FFF223D6704A00F023E6 /* WindowStyleProtocol.swift in Sources */,
 				1869A58823D3AF090030742E /* EncodableExtensions.swift in Sources */,
 				18C7FFD323D5346400F023E6 /* UIColorExtensions.swift in Sources */,
-				18C7001923D7E23A00F023E6 /* UISearchResultsUpdatingExtensions.swift in Sources */,
+				18C7001923D7E23A00F023E6 /* UIViewControllerExtensions.swift in Sources */,
 				1869A58A23D3B0A60030742E /* DictionaryExtensions.swift in Sources */,
 				185DC03123D465CD0083A6D4 /* VLogModifier.swift in Sources */,
 				185DC02F23D464070083A6D4 /* VLogger.swift in Sources */,
