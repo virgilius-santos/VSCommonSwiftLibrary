@@ -116,6 +116,15 @@ extension VSessionProtocol {
                 errorHandler: customErrorHandler,
                 completion: completion)
     }
+    
+    func request<DataReceived: Decodable>(resquest: VRequestData,
+                                          response responseData: @escaping ((Data) throws -> DataReceived),
+                                          completion: ((Result<DataReceived, VSessionError>) -> Void)? = nil) {
+        request(resquest: resquest,
+                response: responseData,
+                errorHandler: nil,
+                completion: completion)
+    }
 }
 
 extension VSession {
