@@ -16,6 +16,7 @@ public protocol VSessionProtocol {
                                response responseData: @escaping ((Data) throws -> DataReceived),
                                errorHandler: CustomErrorHandler?,
                                completion: ((Result<DataReceived, VSessionError>) -> Void)?)
+    func cancel()
 }
 
 public class VSession: VSessionProtocol {
