@@ -263,6 +263,31 @@ class VSessionTests: QuickSpec {
                             }
                         }
                     }
+                    
+                    it("erro customizado") {
+                        stub(condition: isHost("www.google.com")) { _ in
+                            let stubData = try! DataMock(value: 45).data()
+                            return OHHTTPStubsResponse(data: stubData,
+                                                       statusCode: 200,
+                                                       headers: nil)
+                        }
+                        
+                        waitUntil(timeout: 5) { done in
+                            
+                            self.sut.request(resquest: self.requestData,
+                                             response: DataMock.self,
+                                             errorHandler: { (_,_) in CustomDummyError() }) { result in
+                                switch result {
+                                    case .success:
+                                        fail("deveria dar erro")
+                                    case let .failure(error):
+                                        expect(error.errorType).to(equal(.custom))
+                                        expect(error.originalError as? CustomDummyError).toNot(beNil())
+                                }
+                                done()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -271,4 +296,8 @@ class VSessionTests: QuickSpec {
 
 private struct DataMock: Codable {
     let value: Int
+}
+
+private struct CustomDummyError: Error {
+    
 }

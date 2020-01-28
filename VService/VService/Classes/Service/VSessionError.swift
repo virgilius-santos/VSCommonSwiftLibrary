@@ -23,6 +23,7 @@ public struct VSessionError: Error {
 public enum VSessionErrorType: Error {
     case generic, urlInvalid, withoutConnection
     case responseFailure, timedOut, cancelled
+    case custom
 }
 
 public struct VErrorHandler {

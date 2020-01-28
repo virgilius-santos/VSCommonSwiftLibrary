@@ -57,7 +57,7 @@ public class VSession: VSessionProtocol {
                     if let customErrorHandler = customErrorHandler,
                         let err = customErrorHandler(response,error) {
                         logger.error("\(err) info:\(String(describing: response))")
-                        throw err
+                        throw VSessionError(VSessionErrorType.custom, originalError: err)
                     }
 
                     guard let data = data else {
