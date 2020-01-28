@@ -9,7 +9,13 @@
 import Foundation
 import VCore
 
-public class VSession {
+public protocol VSessionProtocol {
+    func request<DataReceived>(resquest requestData: VRequestData,
+                               response responseData: @escaping ((Data) throws -> DataReceived),
+                               completion: ((Result<DataReceived, VSessionError>) -> Void)?)
+}
+
+public class VSession: VSessionProtocol {
     public let config: VConfiguration
     var dataTask: URLSessionDataTask?
     let errorHandler: VErrorHandler
@@ -68,7 +74,7 @@ public class VSession {
     }
 }
 
-extension VSession {
+extension VSessionProtocol {
     func request(resquest: VRequestData,
                  completion: ((Result<Data, VSessionError>) -> Void)? = nil) {
         request(resquest: resquest, response: { $0 }, completion: completion)
