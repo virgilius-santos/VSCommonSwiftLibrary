@@ -151,7 +151,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar timeout")
                                 case let .failure(error):
-                                    expect(error).to(equal(.cancelled))
+                                    expect(error.errorType).to(equal(.cancelled))
                                 }
                                 done()
                             }
@@ -175,7 +175,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar erro")
                                 case let .failure(error):
-                                    expect(error).to(equal(.responseFailure))
+                                    expect(error.errorType).to(equal(.responseFailure))
                                 }
                                 done()
                             }
@@ -197,7 +197,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar erro")
                                 case let .failure(error):
-                                    expect(error).to(equal(.responseFailure))
+                                    expect(error.errorType).to(equal(.responseFailure))
                                 }
                                 done()
                             }
@@ -219,7 +219,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar timeout")
                                 case let .failure(error):
-                                    expect(error).to(equal(.timedOut))
+                                    expect(error.errorType).to(equal(.timedOut))
                                 }
                                 done()
                             }
@@ -238,7 +238,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar timeout")
                                 case let .failure(error):
-                                    expect(error).to(equal(.timedOut))
+                                    expect(error.errorType).to(equal(.timedOut))
                                 }
                                 done()
                             }
@@ -257,7 +257,7 @@ class VSessionTests: QuickSpec {
                                 case .success:
                                     fail("deveria dar erro")
                                 case let .failure(error):
-                                    expect(error).to(equal(.withoutConnection))
+                                    expect(error.errorType).to(equal(.withoutConnection))
                                 }
                                 done()
                             }

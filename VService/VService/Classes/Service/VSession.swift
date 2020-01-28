@@ -9,9 +9,12 @@
 import Foundation
 import VCore
 
+public typealias CustomErrorHandler = ((URLResponse?, Error?) -> Error?)
+
 public protocol VSessionProtocol {
     func request<DataReceived>(resquest requestData: VRequestData,
                                response responseData: @escaping ((Data) throws -> DataReceived),
+                               errorHandler: CustomErrorHandler?,
                                completion: ((Result<DataReceived, VSessionError>) -> Void)?)
 }
 
@@ -28,6 +31,7 @@ public class VSession: VSessionProtocol {
 
     public func request<DataReceived>(resquest requestData: VRequestData,
                                       response responseData: @escaping ((Data) throws -> DataReceived),
+                                      errorHandler customErrorHandler: CustomErrorHandler? = nil,
                                       completion: ((Result<DataReceived, VSessionError>) -> Void)?) {
         do {
             try errorHandler.checkConection()
@@ -48,13 +52,21 @@ public class VSession: VSessionProtocol {
                         logger.error("\(err) info:\(String(describing: response))")
                         throw err
                     }
+                    
+                    if let customErrorHandler = customErrorHandler,
+                        let err = customErrorHandler(response,error) {
+                        logger.error("\(err) info:\(String(describing: response))")
+                        throw err
+                    }
 
                     guard let data = data else {
                         throw errorHandler.build()
                     }
 
                     let objectDecoded = try responseData(data)
-                    completion?(.success(objectDecoded))
+                    if let completion = completion {
+                        completion(.success(objectDecoded))
+                    }
                 } catch {
                     completion?(.failure(errorHandler.build(error)))
                 }
@@ -76,22 +88,31 @@ public class VSession: VSessionProtocol {
 
 extension VSessionProtocol {
     func request(resquest: VRequestData,
+                 errorHandler customErrorHandler: CustomErrorHandler? = nil,
                  completion: ((Result<Data, VSessionError>) -> Void)? = nil) {
-        request(resquest: resquest, response: { $0 }, completion: completion)
+        
+        request(resquest: resquest,
+                response: { $0 },
+                errorHandler: customErrorHandler,
+                completion: completion)
     }
 
     func request<DataReceived: Decodable>(resquest: VRequestData,
+                                          errorHandler customErrorHandler: CustomErrorHandler? = nil,
                                           completion: ((Result<DataReceived, VSessionError>) -> Void)? = nil) {
         request(resquest: resquest,
                 response: { try DataReceived.decode(data: $0) },
+                errorHandler: customErrorHandler,
                 completion: completion)
     }
 
     func request<DataReceived: Decodable>(resquest: VRequestData,
                                           response: DataReceived.Type,
+                                          errorHandler customErrorHandler: CustomErrorHandler? = nil,
                                           completion: ((Result<DataReceived, VSessionError>) -> Void)? = nil) {
         request(resquest: resquest,
                 response: { try response.decode(data: $0) },
+                errorHandler: customErrorHandler,
                 completion: completion)
     }
 }
@@ -99,8 +120,8 @@ extension VSessionProtocol {
 extension VSession {
     func makeRequest(resquestData: VRequestData, config: VConfiguration) throws -> URLRequest {
         guard let url = resquestData.url else {
-            logger.error("\(VSessionError.urlInvalid) info:\(String(describing: resquestData.url))")
-            throw VSessionError.urlInvalid
+            logger.error("\(VSessionErrorType.urlInvalid) info:\(String(describing: resquestData.url))")
+            throw VSessionErrorType.urlInvalid
         }
 
         var request = URLRequest(url: url,

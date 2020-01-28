@@ -10,7 +10,17 @@ import Foundation
 import SystemConfiguration
 import VCore
 
-public enum VSessionError: Error {
+public struct VSessionError: Error {
+    let errorType: VSessionErrorType
+    let originalError: Error?
+    
+    init(_ errorType: VSessionErrorType, originalError: Error? = nil) {
+        self.errorType = errorType
+        self.originalError = originalError
+    }
+}
+
+public enum VSessionErrorType: Error {
     case generic, urlInvalid, withoutConnection
     case responseFailure, timedOut, cancelled
 }
@@ -22,8 +32,8 @@ public struct VErrorHandler {
 
     func checkConection() throws {
         if !isInternetAvailable {
-            logger.error("\(VSessionError.withoutConnection)")
-            throw VSessionError.withoutConnection
+            logger.error("\(VSessionErrorType.withoutConnection)")
+            throw VSessionErrorType.withoutConnection
         }
     }
 
@@ -35,8 +45,8 @@ public struct VErrorHandler {
         if let error = build(info) {
             return error
         }
-        logger.error("\(VSessionError.generic) info:\(String(describing: info))")
-        return VSessionError.generic
+        logger.error("\(VSessionErrorType.generic) info:\(String(describing: info))")
+        return VSessionError(VSessionErrorType.generic)
     }
 }
 
@@ -63,7 +73,8 @@ extension VErrorHandler {
 
 extension VErrorHandler {
     static let rules: [RuleFunction] = [
-        sessionRule,
+        sessionErrorRule,
+        sessionErrorTypeRule,
         responseRule,
         timedOutConnectionRule,
         withoutConnectionRule,
@@ -71,41 +82,48 @@ extension VErrorHandler {
         errorRule,
     ]
 
-    static let sessionRule: RuleFunction = { $0 as? VSessionError }
+    static let sessionErrorRule: RuleFunction = { $0 as? VSessionError }
+    
+    static let sessionErrorTypeRule: RuleFunction = {
+        if let err = $0 as? VSessionErrorType {
+            return VSessionError(err)
+        }
+        return nil
+    }
 
     static let responseRule: RuleFunction = {
         if let response = $0 as? HTTPURLResponse,
             response.statusCode < 200 || response.statusCode > 299 {
-            logger.error("\(VSessionError.responseFailure) info:\(String(describing: $0))")
-            return VSessionError.responseFailure
+            logger.error("\(VSessionErrorType.responseFailure) info:\(String(describing: $0))")
+            return VSessionError(VSessionErrorType.responseFailure)
         }
         return nil
     }
 
     static let withoutConnectionRule: RuleFunction = {
         if let err = $0 as? NSError, err.code == URLError.notConnectedToInternet.rawValue {
-            return VSessionError.withoutConnection
+            return VSessionError(VSessionErrorType.withoutConnection, originalError: $0 as? Error)
         }
         return nil
     }
 
     static let timedOutConnectionRule: RuleFunction = {
         if let err = $0 as? NSError, err.code == URLError.timedOut.rawValue {
-            return VSessionError.timedOut
+            return VSessionError(VSessionErrorType.timedOut, originalError: $0 as? Error)
         }
         return nil
     }
 
     static let cancelledRule: RuleFunction = {
         if let err = $0 as? NSError, err.code == URLError.cancelled.rawValue {
-            return VSessionError.cancelled
+            return VSessionError(VSessionErrorType.cancelled, originalError: $0 as? Error)
         }
         return nil
     }
 
     static let errorRule: RuleFunction = {
         if $0 is Error {
-            return VSessionError.generic
+            return VSessionError(VSessionErrorType.generic, originalError: $0 as? Error)
         }
         return nil
     }

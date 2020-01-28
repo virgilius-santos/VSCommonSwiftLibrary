@@ -23,36 +23,36 @@ class VErrorHandlerTests: QuickSpec {
             }
 
             it("retornar generic para uma regra desconhecida") {
-                expect(self.sut.build(9) as VSessionError).to(equal(.generic))
+                expect(self.sut.build(9).errorType).to(equal(.generic))
             }
 
             it("retornar nil para uma regra desconhecida se for optional") {
-                expect(self.sut.build(9) as VSessionError?).to(beNil())
+                expect((self.sut.build(9) as VSessionError?)?.errorType).to(beNil())
             }
 
             it("sem informar parametros retornar generic") {
-                expect(self.sut.build()).to(equal(.generic))
+                expect(self.sut.build().errorType).to(equal(.generic))
             }
 
             it("deve retornar o mesmo erro se for VSessionError") {
-                expect(self.sut.build(VSessionError.urlInvalid)).to(equal(.urlInvalid))
+                expect(self.sut.build(VSessionErrorType.urlInvalid).errorType).to(equal(.urlInvalid))
             }
         }
 
         describe("responseFailure") {
             context("retornar erro") {
                 it("se o codigo for menor que 200") {
-                    expect(self.sut.build(CodeHTTPURLResponseMock(9))).to(equal(.responseFailure))
+                    expect(self.sut.build(CodeHTTPURLResponseMock(9)).errorType).to(equal(.responseFailure))
                 }
 
                 it("se o codigo for maior que 299") {
-                    expect(self.sut.build(CodeHTTPURLResponseMock(309))).to(equal(.responseFailure))
+                    expect(self.sut.build(CodeHTTPURLResponseMock(309)).errorType).to(equal(.responseFailure))
                 }
             }
 
             context("retornar nil") {
                 it("se o codigo estiver entre 200 e 299") {
-                    expect(self.sut.build(CodeHTTPURLResponseMock(200)) as VSessionError?).to(beNil())
+                    expect((self.sut.build(CodeHTTPURLResponseMock(200)) as VSessionError?)?.errorType).to(beNil())
                 }
             }
         }
