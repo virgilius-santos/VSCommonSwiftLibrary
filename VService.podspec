@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "VService"
-  spec.version      = "0.2.6"
+  spec.version      = "0.3.0"
   spec.summary      = "Elegant HTTP Networking in Swift."
   spec.homepage     = "https://github.com/virgilius-santos/VSCommonSwiftLibrary"
 
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.platform     = :ios, "12.4"
-  spec.swift_versions = ["5.1"]
+  spec.swift_versions = ["5"]
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

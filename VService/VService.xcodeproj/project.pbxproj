@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		181BA55D23D3D99B000874EF /* VSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BA55C23D3D99B000874EF /* VSessionTests.swift */; };
 		183986098C2806E5C79B16F9 /* Pods_VService_VServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BE3643D75F008BC3BDD0A4 /* Pods_VService_VServiceTests.framework */; };
+		1855905A2506A1EC00B2F112 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185590592506A1EC00B2F112 /* Cache.swift */; };
+		1855905D2506A24F00B2F112 /* Cache+WrappedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855905C2506A24F00B2F112 /* Cache+WrappedKey.swift */; };
+		1855905F2506A2B100B2F112 /* Cache+Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855905E2506A2B100B2F112 /* Cache+Entry.swift */; };
+		185590612506A30300B2F112 /* Cache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185590602506A30300B2F112 /* Cache+Subscript.swift */; };
+		185590632506A46B00B2F112 /* Cache+KeyTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185590622506A46B00B2F112 /* Cache+KeyTracker.swift */; };
 		185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC02923D449310083A6D4 /* VSessionError.swift */; };
 		185DC03323D485780083A6D4 /* VErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */; };
 		185DC06E23D4F22D0083A6D4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */; };
@@ -36,6 +41,11 @@
 		0126D9CB19BB7579699B37D1 /* Pods-VService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService.release.xcconfig"; path = "Target Support Files/Pods-VService/Pods-VService.release.xcconfig"; sourceTree = "<group>"; };
 		02AB749947C30699C9961039 /* Pods-VService-VServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VService-VServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-VService-VServiceTests/Pods-VService-VServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		181BA55C23D3D99B000874EF /* VSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionTests.swift; sourceTree = "<group>"; };
+		185590592506A1EC00B2F112 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		1855905C2506A24F00B2F112 /* Cache+WrappedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+WrappedKey.swift"; sourceTree = "<group>"; };
+		1855905E2506A2B100B2F112 /* Cache+Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+Entry.swift"; sourceTree = "<group>"; };
+		185590602506A30300B2F112 /* Cache+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+Subscript.swift"; sourceTree = "<group>"; };
+		185590622506A46B00B2F112 /* Cache+KeyTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+KeyTracker.swift"; sourceTree = "<group>"; };
 		185DC02923D449310083A6D4 /* VSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSessionError.swift; sourceTree = "<group>"; };
 		185DC03223D485780083A6D4 /* VErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VErrorHandlerTests.swift; sourceTree = "<group>"; };
 		185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -94,6 +104,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		1855905B2506A23E00B2F112 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				185590592506A1EC00B2F112 /* Cache.swift */,
+				1855905E2506A2B100B2F112 /* Cache+Entry.swift */,
+				185590622506A46B00B2F112 /* Cache+KeyTracker.swift */,
+				185590602506A30300B2F112 /* Cache+Subscript.swift */,
+				1855905C2506A24F00B2F112 /* Cache+WrappedKey.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		185590662507136F00B2F112 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		185DC06B23D4F2080083A6D4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +138,8 @@
 		185DC06C23D4F2140083A6D4 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
-				185DC06D23D4F22D0083A6D4 /* LocalStorage.swift */,
+				185590662507136F00B2F112 /* UserDefaults */,
+				1855905B2506A23E00B2F112 /* Cache */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -386,10 +417,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1855905A2506A1EC00B2F112 /* Cache.swift in Sources */,
+				1855905F2506A2B100B2F112 /* Cache+Entry.swift in Sources */,
 				1869A4A423D29DDA0030742E /* VRequestData.swift in Sources */,
 				1869A58023D3AB190030742E /* VSession.swift in Sources */,
 				1869A57E23D3A9FC0030742E /* VConfiguration.swift in Sources */,
 				185DC06E23D4F22D0083A6D4 /* LocalStorage.swift in Sources */,
+				185590632506A46B00B2F112 /* Cache+KeyTracker.swift in Sources */,
+				185590612506A30300B2F112 /* Cache+Subscript.swift in Sources */,
+				1855905D2506A24F00B2F112 /* Cache+WrappedKey.swift in Sources */,
 				185DC02A23D449310083A6D4 /* VSessionError.swift in Sources */,
 				185DC07123D4FAEA0083A6D4 /* ImageService.swift in Sources */,
 			);

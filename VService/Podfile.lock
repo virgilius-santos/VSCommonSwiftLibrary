@@ -35,7 +35,7 @@ SPEC REPOS:
     - OHHTTPStubs
     - Quick
     - Willow
-  https://github.com/virgilius-santos/public-pod-specs:
+  https://github.com/virgilius-santos/public-pod-specs.git:
     - VCore
 
 SPEC CHECKSUMS:
@@ -48,4 +48,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 58bca590927de5633523bd21382433cc87fcab20
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
