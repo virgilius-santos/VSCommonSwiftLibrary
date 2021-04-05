@@ -11,17 +11,8 @@ def quickTests
 end
 
 workspace 'VSCommonSwiftLibrary'
-project 'VComponents/VComponents.xcodeproj'
 project 'VCore/VCore.xcodeproj'
 project 'VService/VService.xcodeproj'
-
-target 'VComponents' do
-  project 'VComponents/VComponents.xcodeproj'
-
-  target 'VComponentsTests' do
-    quickTests
-  end
-end
   
 target 'VCore' do
   project 'VCore/VCore.xcodeproj'
