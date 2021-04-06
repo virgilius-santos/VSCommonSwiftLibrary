@@ -11,12 +11,16 @@ let package = Package(
       targets: ["VSUIKitExtensions"]),
   ],
   dependencies: [
-    .package(path: "./VSFunctionsFeature")
+    .package(path: "./VSFunctionsFeature"),
+    .package(path: "./VSFoundationExtensions"),
   ],
   targets: [
     .target(
       name: "VSUIKitExtensions",
-      dependencies: ["VSFunctionsFeature"]
+      dependencies: [
+        "VSFunctionsFeature",
+        "VSFoundationExtensions"
+      ]
     ),
     .testTarget(
       name: "VSUIKitExtensionsTests",
