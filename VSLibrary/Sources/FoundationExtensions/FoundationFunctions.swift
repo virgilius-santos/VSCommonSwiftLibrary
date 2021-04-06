@@ -4,6 +4,18 @@ import os.log
 import SystemConfiguration
 import Functions
 
+public func logError(
+  dso: UnsafeRawPointer = #dsohandle,
+  log: OSLog = .default,
+  file: String = #fileID,
+  function: String = #function,
+  line: Int = #line,
+  _ error: Error?,
+  info: Any? = "-"
+) {
+  os_log(.error, dso: dso, log: log, "%s:%s:%d: Error: %@, extra: %@", file, function, line, String(describing: error), String(describing: info))
+}
+
 public func logIfError<B>(
   dso: UnsafeRawPointer = #dsohandle,
   log: OSLog = .default,

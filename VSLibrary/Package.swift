@@ -26,6 +26,10 @@ let package = Package(
       name: "Cache",
       targets: ["Cache"]
     ),
+    .library(
+      name: "Service",
+      targets: ["Service"]
+    ),
   ],
   dependencies: [
   ],
@@ -69,6 +73,14 @@ let package = Package(
     .testTarget(
       name: "CacheTests",
       dependencies: ["Cache"]
+    ),
+    .target(
+      name: "Service",
+      dependencies: ["FoundationExtensions"]
+    ),
+    .testTarget(
+      name: "ServiceTests",
+      dependencies: ["Service"]
     ),
   ]
 )
