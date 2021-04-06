@@ -5,15 +5,6 @@
       location = "group:VSLibrary">
    </FileRef>
    <FileRef
-      location = "group:VSUIKitExtensions">
-   </FileRef>
-   <FileRef
-      location = "group:VSFunctionsFeature">
-   </FileRef>
-   <FileRef
-      location = "group:VSFoundationExtensions">
-   </FileRef>
-   <FileRef
       location = "group:VService/VService.xcodeproj">
    </FileRef>
    <FileRef
