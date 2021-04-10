@@ -30,6 +30,10 @@ let package = Package(
       name: "Service",
       targets: ["Service"]
     ),
+    .library(
+      name: "BoxFeature",
+      targets: ["BoxFeature"]
+    ),
   ],
   dependencies: [
     .package(
@@ -105,6 +109,14 @@ let package = Package(
         .product(name: "OHHTTPStubs", package: "OHHTTPStubs")
       ],
       exclude: ["__Snapshots__"]
+    ),
+    .target(
+      name: "BoxFeature",
+      dependencies: []
+    ),
+    .testTarget(
+      name: "BoxFeatureTests",
+      dependencies: ["BoxFeature"]
     ),
   ]
 )

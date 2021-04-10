@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../BoxFeature">
+   </FileRef>
+   <FileRef
+      location = "group:../FoundationFunctionsFeature">
+   </FileRef>
+   <FileRef
+      location = "group:../FunctionsFeature">
+   </FileRef>
+   <FileRef
+      location = "group:../UIKitFunctionsFeature">
+   </FileRef>
+   <FileRef
+      location = "group:../WordDataSource">
+   </FileRef>
+   <FileRef
+      location = "group:../ResourcesFeature">
+   </FileRef>
+   <FileRef
+      location = "group:">
+   </FileRef>
+</Workspace>
