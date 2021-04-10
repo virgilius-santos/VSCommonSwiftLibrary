@@ -1,0 +1,5 @@
+▿ Optional<Array<(key: String, value: String)>>
+  ▿ some: 1 element
+    ▿ (2 elements)
+      - key: "mais"
+      - value: "42"

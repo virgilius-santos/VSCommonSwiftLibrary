@@ -1,0 +1,19 @@
+▿ Optional<VRequestData>
+  ▿ some: VRequestData
+    ▿ body: Optional<Data>
+      - some: 10 bytes
+    ▿ headers: Optional<Array<(key: String, value: String)>>
+      ▿ some: 1 element
+        ▿ (2 elements)
+          - key: "application"
+          - value: "json"
+    - httpMethod: VHttpMethod.post
+    ▿ paths: 2 elements
+      - "123"
+      - "card"
+    ▿ queryParameters: Optional<Array<(key: String, value: String)>>
+      ▿ some: 1 element
+        ▿ (2 elements)
+          - key: "user"
+          - value: "432"
+    - urlString: "http://www.google.com"

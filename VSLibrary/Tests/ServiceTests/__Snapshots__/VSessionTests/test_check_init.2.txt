@@ -1,0 +1,10 @@
+▿ Optional<VConfiguration>
+  ▿ some: VConfiguration
+    - cachePolicy: NSURLRequestCachePolicy.NSURLRequestCachePolicy
+    - configuration: <NSURLSessionConfiguration>
+    ▿ headers: Optional<Array<(key: String, value: String)>>
+      ▿ some: 1 element
+        ▿ (2 elements)
+          - key: "bearer"
+          - value: "oiufhj"
+    - timeoutInterval: 3.0

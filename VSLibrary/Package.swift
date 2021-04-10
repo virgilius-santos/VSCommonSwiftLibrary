@@ -32,6 +32,24 @@ let package = Package(
     ),
   ],
   dependencies: [
+    .package(
+      name: "SnapshotTesting",
+      url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      from: "1.8.1"
+    ),
+    .package(
+      name: "OHHTTPStubs",
+      url: "https://github.com/AliSoftware/OHHTTPStubs",
+      from: "9.1.0"
+    ),
+    .package(
+      url: "https://github.com/Quick/Quick.git",
+      .upToNextMajor(from: "3.0.0")
+    ),
+    .package(
+      url: "https://github.com/Quick/Nimble.git",
+      .upToNextMajor(from: "9.0.0")
+    ),
   ],
   targets: [
     .target(
@@ -80,7 +98,13 @@ let package = Package(
     ),
     .testTarget(
       name: "ServiceTests",
-      dependencies: ["Service"]
+      dependencies: [
+        "Service",
+        "SnapshotTesting", "Quick", "Nimble",
+        .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs"),
+        .product(name: "OHHTTPStubs", package: "OHHTTPStubs")
+      ],
+      exclude: ["__Snapshots__"]
     ),
   ]
 )
