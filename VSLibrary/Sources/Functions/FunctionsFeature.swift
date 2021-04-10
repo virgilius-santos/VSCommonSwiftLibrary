@@ -6,8 +6,16 @@ public typealias Func<A, B> = (A) -> B
 
 // MARK: Generic Functions
 
+public func uncurry<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (A, B) -> C {
+  { a, b in f(a)(b) }
+}
+
 public func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
   { a in { b in f(a, b) } }
+}
+
+public func curry<A, B, C, D>(_ f: @escaping (A, B, C) -> D) -> (A) -> (B) -> (C) -> D {
+  { a in { b in { c in f(a, b, c) }}}
 }
 
 public func zurry<A>(_ f: () -> A) -> A {
@@ -20,6 +28,10 @@ public func flip<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (B) -> (A) -> C {
 
 public func flip<A, C>(_ f: @escaping (A) -> () -> C) -> () -> (A) -> C {
   { { a in f(a)() } }
+}
+
+public func filter<A>(_ p: @escaping (A) -> Bool) -> ([A]) -> [A] {
+  { $0.filter(p) }
 }
 
 public func second<A, B, C>(_ f: @escaping (B) -> C) -> ((A, B)) -> (A, C) {
@@ -101,4 +113,14 @@ public func set<S, T, A, B>(
   _ value: B
 ) -> (S) -> T {
   over(setter, { _ in value })
+}
+
+func reduce<A, R>(
+  _ accumulator: @escaping (R, A) -> R
+) -> (R) -> ([A]) -> R {
+  { initialValue in
+    { collection in
+      collection.reduce(initialValue, accumulator)
+    }
+  }
 }
