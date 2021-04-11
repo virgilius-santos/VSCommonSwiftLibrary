@@ -95,22 +95,16 @@ struct UnitViewModel: Identifiable {
             conversionType: conversionType,
             unitSelected: conversionType.unitTypes.last!
         )
+        
+        updateSecond()
     }
     
-    mutating func updateSecond() {
+    private mutating func updateSecond() {
         let unitString = convert(from: firstInput, to: secondInput)
         secondInput.value = unitString
     }
     
-    func convert(from v1: Input, to v2: Input) -> String {
-        let value = Double(v1.value) ?? 0
-        let unit = Measurement(value: value, unit: v1.unitSelected.unitLength)
-        let unitConverted = unit.converted(to: v2.unitSelected.unitLength)
-        let unitString = String(format: "%.2f", unitConverted.value)
-        return unitString
-    }
-    
-    mutating func resetValue(old: Input, new: Input) {
+    private mutating func resetValue(old: Input, new: Input) {
         guard
             old.unitSelected != new.unitSelected,
             old.value == new.value
@@ -120,6 +114,14 @@ struct UnitViewModel: Identifiable {
         if new.value != unitString {
             secondInput.value = unitString
         }
+    }
+    
+    private func convert(from v1: Input, to v2: Input) -> String {
+        let value = Double(v1.value) ?? 0
+        let unit = Measurement(value: value, unit: v1.unitSelected.unitLength)
+        let unitConverted = unit.converted(to: v2.unitSelected.unitLength)
+        let unitString = String(format: "%.2f", unitConverted.value)
+        return unitString
     }
 }
 

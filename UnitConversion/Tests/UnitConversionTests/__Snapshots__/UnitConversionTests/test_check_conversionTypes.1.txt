@@ -6,12 +6,15 @@
       ▿ UnitType
         - shortTitle: "°C"
         - title: "Celsius"
+        - unitLength: <_NSStatic_NSUnitTemperature> °C
       ▿ UnitType
         - shortTitle: "°F"
         - title: "Fahrenheit"
+        - unitLength: <_NSStatic_NSUnitTemperature> °F
       ▿ UnitType
         - shortTitle: "K"
         - title: "Kelvin"
+        - unitLength: <_NSStatic_NSUnitTemperature> K
   ▿ ConversionType
     - shortTitle: "Lgth"
     - title: "Length"
@@ -19,18 +22,23 @@
       ▿ UnitType
         - shortTitle: "m"
         - title: "Meters"
+        - unitLength: <_NSStatic_NSUnitLength> m
       ▿ UnitType
         - shortTitle: "Km"
         - title: "Kilometers"
+        - unitLength: <_NSStatic_NSUnitLength> km
       ▿ UnitType
         - shortTitle: "ft"
         - title: "Feet"
+        - unitLength: <NSUnitLength> ft
       ▿ UnitType
         - shortTitle: "yd"
         - title: "Yards"
+        - unitLength: <_NSStatic_NSUnitLength> yd
       ▿ UnitType
         - shortTitle: "mi"
         - title: "Miles"
+        - unitLength: <_NSStatic_NSUnitLength> mi
   ▿ ConversionType
     - shortTitle: "Time"
     - title: "Time"
@@ -38,31 +46,40 @@
       ▿ UnitType
         - shortTitle: "s"
         - title: "Seconds"
+        - unitLength: <_NSStatic_NSUnitDuration> s
       ▿ UnitType
         - shortTitle: "m"
         - title: "Minutes"
+        - unitLength: <_NSStatic_NSUnitDuration> min
       ▿ UnitType
         - shortTitle: "h"
         - title: "Hours"
+        - unitLength: <_NSStatic_NSUnitDuration> hr
       ▿ UnitType
         - shortTitle: "d"
         - title: "Days"
+        - unitLength: <_NSStatic_NSUnitDuration> hr
   ▿ ConversionType
     - shortTitle: "Vol"
     - title: "Volume"
     ▿ unitTypes: 5 elements
       ▿ UnitType
-        - shortTitle: "s"
+        - shortTitle: "ml"
         - title: "Milliliters"
+        - unitLength: <_NSStatic_NSUnitVolume> mL
       ▿ UnitType
-        - shortTitle: "m"
+        - shortTitle: "l"
         - title: "Liters"
+        - unitLength: <_NSStatic_NSUnitVolume> L
       ▿ UnitType
-        - shortTitle: "h"
+        - shortTitle: "c"
         - title: "Cups"
+        - unitLength: <_NSStatic_NSUnitVolume> cup
       ▿ UnitType
-        - shortTitle: "d"
+        - shortTitle: "pt"
         - title: "Pints"
+        - unitLength: <_NSStatic_NSUnitVolume> pt
       ▿ UnitType
-        - shortTitle: "d"
+        - shortTitle: "gal"
         - title: "Gallons"
+        - unitLength: <_NSStatic_NSUnitVolume> gal
