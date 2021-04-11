@@ -1,0 +1,68 @@
+▿ 4 elements
+  ▿ ConversionType
+    - shortTitle: "Temp"
+    - title: "Temperature"
+    ▿ unitTypes: 3 elements
+      ▿ UnitType
+        - shortTitle: "°C"
+        - title: "Celsius"
+      ▿ UnitType
+        - shortTitle: "°F"
+        - title: "Fahrenheit"
+      ▿ UnitType
+        - shortTitle: "K"
+        - title: "Kelvin"
+  ▿ ConversionType
+    - shortTitle: "Lgth"
+    - title: "Length"
+    ▿ unitTypes: 5 elements
+      ▿ UnitType
+        - shortTitle: "m"
+        - title: "Meters"
+      ▿ UnitType
+        - shortTitle: "Km"
+        - title: "Kilometers"
+      ▿ UnitType
+        - shortTitle: "ft"
+        - title: "Feet"
+      ▿ UnitType
+        - shortTitle: "yd"
+        - title: "Yards"
+      ▿ UnitType
+        - shortTitle: "mi"
+        - title: "Miles"
+  ▿ ConversionType
+    - shortTitle: "Time"
+    - title: "Time"
+    ▿ unitTypes: 4 elements
+      ▿ UnitType
+        - shortTitle: "s"
+        - title: "Seconds"
+      ▿ UnitType
+        - shortTitle: "m"
+        - title: "Minutes"
+      ▿ UnitType
+        - shortTitle: "h"
+        - title: "Hours"
+      ▿ UnitType
+        - shortTitle: "d"
+        - title: "Days"
+  ▿ ConversionType
+    - shortTitle: "Vol"
+    - title: "Volume"
+    ▿ unitTypes: 5 elements
+      ▿ UnitType
+        - shortTitle: "s"
+        - title: "Milliliters"
+      ▿ UnitType
+        - shortTitle: "m"
+        - title: "Liters"
+      ▿ UnitType
+        - shortTitle: "h"
+        - title: "Cups"
+      ▿ UnitType
+        - shortTitle: "d"
+        - title: "Pints"
+      ▿ UnitType
+        - shortTitle: "d"
+        - title: "Gallons"
