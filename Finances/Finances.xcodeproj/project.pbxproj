@@ -13,10 +13,8 @@
 		180BDA4626220EFF003EF4B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180BDA4526220EFF003EF4B5 /* Preview Assets.xcassets */; };
 		180BDA5126220F00003EF4B5 /* FinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5026220F00003EF4B5 /* FinancesTests.swift */; };
 		180BDA5C26220F00003EF4B5 /* FinancesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */; };
+		18B3AB492623233B000F192F /* Weather in Frameworks */ = {isa = PBXBuildFile; productRef = 18B3AB482623233B000F192F /* Weather */; };
 		18E91263262220CA0038BA89 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 18E91262262220CA0038BA89 /* Functions */; };
-		18E91269262258240038BA89 /* WeatherCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E91268262258240038BA89 /* WeatherCollection.swift */; };
-		18E9126F262258A00038BA89 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E9126E262258A00038BA89 /* Theme.swift */; };
-		18E91277262258E60038BA89 /* EnviromentDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E91276262258E60038BA89 /* EnviromentDefinitions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +47,6 @@
 		180BDA5726220F00003EF4B5 /* FinancesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesUITests.swift; sourceTree = "<group>"; };
 		180BDA5D26220F00003EF4B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18E91268262258240038BA89 /* WeatherCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollection.swift; sourceTree = "<group>"; };
-		18E9126E262258A00038BA89 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		18E91276262258E60038BA89 /* EnviromentDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentDefinitions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E91263262220CA0038BA89 /* Functions in Frameworks */,
+				18B3AB492623233B000F192F /* Weather in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,11 +103,8 @@
 				180BDA4726220EFF003EF4B5 /* Info.plist */,
 				180BDA4026220EFC003EF4B5 /* ContentView.swift */,
 				180BDA3E26220EFC003EF4B5 /* FinancesApp.swift */,
-				18E9126D2622588E0038BA89 /* Theme */,
-				18E912672622580C0038BA89 /* Weather */,
 				180BDA4226220EFF003EF4B5 /* Assets.xcassets */,
 				180BDA4426220EFF003EF4B5 /* Preview Content */,
-				18E91276262258E60038BA89 /* EnviromentDefinitions.swift */,
 			);
 			path = Finances;
 			sourceTree = "<group>";
@@ -149,22 +142,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		18E912672622580C0038BA89 /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				18E91268262258240038BA89 /* WeatherCollection.swift */,
-			);
-			path = Weather;
-			sourceTree = "<group>";
-		};
-		18E9126D2622588E0038BA89 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				18E9126E262258A00038BA89 /* Theme.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,6 +160,7 @@
 			name = Finances;
 			packageProductDependencies = (
 				18E91262262220CA0038BA89 /* Functions */,
+				18B3AB482623233B000F192F /* Weather */,
 			);
 			productName = Finances;
 			productReference = 180BDA3B26220EFC003EF4B5 /* Finances.app */;
@@ -297,9 +275,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E91277262258E60038BA89 /* EnviromentDefinitions.swift in Sources */,
-				18E91269262258240038BA89 /* WeatherCollection.swift in Sources */,
-				18E9126F262258A00038BA89 /* Theme.swift in Sources */,
 				180BDA4126220EFC003EF4B5 /* ContentView.swift in Sources */,
 				180BDA3F26220EFC003EF4B5 /* FinancesApp.swift in Sources */,
 			);
@@ -623,6 +598,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		18B3AB482623233B000F192F /* Weather */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Weather;
+		};
 		18E91262262220CA0038BA89 /* Functions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Functions;

@@ -34,6 +34,10 @@ let package = Package(
       name: "BoxFeature",
       targets: ["BoxFeature"]
     ),
+    .library(
+      name: "Styles",
+      targets: ["Styles"]
+    ),
   ],
   dependencies: [
     .package(
@@ -117,6 +121,10 @@ let package = Package(
     .testTarget(
       name: "BoxFeatureTests",
       dependencies: ["BoxFeature"]
+    ),
+    .target(
+      name: "Styles",
+      dependencies: []
     ),
   ]
 )
