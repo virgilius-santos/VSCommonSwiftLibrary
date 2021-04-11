@@ -47,3 +47,9 @@ public extension WeatherView {
     static let mock: some View = WeatherView(weather: WeatherViewModel.mock)
         .environmentObject(WeatherEnviroment())
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        WeatherView.mock
+    }
+}
