@@ -15,8 +15,8 @@ struct WeatherDay: View {
                 .baseStyle(size: 16, color: enviroment.theme.secondary)
             
             Image(systemName: weather.image)
-                |> curry(imageStyle)(40)
-                |> { $0.colorMultiply(enviroment.theme.secondary) }
+                .imageStyle(size: 40)
+                .colorMultiply(enviroment.theme.secondary)
             
             Text(weather.temperature)
                 .baseStyle(size: 24, color: enviroment.theme.secondary)

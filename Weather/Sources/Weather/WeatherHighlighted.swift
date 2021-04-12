@@ -12,8 +12,8 @@ struct WeatherHighlighted: View {
     var body: some View {
         VStack(spacing: 10) {
             Image(systemName: image)
-                |> curry(imageStyle)(180)
-                |> { $0.colorMultiply(enviroment.theme.secondary) }
+                .imageStyle(size: 180)
+                .colorMultiply(enviroment.theme.secondary)
             
             Text(temperature)
                 .baseStyle(size: 70, color: enviroment.theme.secondary)

@@ -16,18 +16,14 @@ public extension Text {
 }
 
 @available(iOS 13.0.0, *)
-extension Image {
-    
+public extension Image {
+    func imageStyle(size: CGFloat) -> some View {
+        renderingMode(.original)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: size, height: size)
+    }
 }
-
-@available(iOS 13.0.0, *)
-public func imageStyle(size: CGFloat, _ view: Image) -> some View {
-    view.renderingMode(.original)
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width: size, height: size)
-}
-
 
 
 @available(iOS 13.0, *)
