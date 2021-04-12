@@ -16,8 +16,7 @@ struct WeatherHighlighted: View {
                 |> { $0.colorMultiply(enviroment.theme.secondary) }
             
             Text(temperature)
-                |> textStyle(size: 70, color: enviroment.theme.secondary)
-                |> simplePadding
+                .baseStyle(size: 70, color: enviroment.theme.secondary)
         }
     }
 }

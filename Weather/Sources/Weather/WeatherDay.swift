@@ -12,16 +12,14 @@ struct WeatherDay: View {
     var body: some View {
         VStack() {
             Text(weather.day)
-                |> textStyle(size: 16, color: enviroment.theme.secondary)
-                |> simplePadding
+                .baseStyle(size: 16, color: enviroment.theme.secondary)
             
             Image(systemName: weather.image)
                 |> curry(imageStyle)(40)
                 |> { $0.colorMultiply(enviroment.theme.secondary) }
             
             Text(weather.temperature)
-                |> textStyle(size: 24, color: enviroment.theme.secondary)
-                |> simplePadding
+                .baseStyle(size: 24, color: enviroment.theme.secondary)
         }
     }
 }

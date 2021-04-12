@@ -10,7 +10,6 @@ struct WeatherHeader: View {
     
     var body: some View {
         Text(title)
-            |> textStyle(size: 32, color: enviroment.theme.secondary)
-            |> simplePadding
+            .baseStyle(size: 32, color: enviroment.theme.secondary)
     }
 }
