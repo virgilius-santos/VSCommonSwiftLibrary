@@ -1,15 +1,16 @@
 import XCTest
 @testable import GuessTheFlag
+import SnapshotTesting
+import SwiftUI
 
 final class GuessTheFlagTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(GuessTheFlag().text, "Hello, World!")
+    
+    func test_viewSnapshot() {
+        random = { 1 }
+        shuffle = { _ in }
+        
+        let vc = UIHostingController(rootView: GuessTheFlagView.mock)
+        vc.view.frame = UIScreen.main.bounds
+        assertSnapshot(matching: vc, as: .image)
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

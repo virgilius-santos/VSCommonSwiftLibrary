@@ -13,7 +13,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../VSLibrary"),,
+        .package(path: "../VSLibrary"),
         .package(
           name: "SnapshotTesting",
           url: "https://github.com/pointfreeco/swift-snapshot-testing.git",

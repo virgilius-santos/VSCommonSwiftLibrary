@@ -3,13 +3,16 @@ import SwiftUI
 import Styles
 import Functions
 
+var random: () -> Int = { Int.random(in: 0...2) }
+var shuffle: (inout [String]) -> Void = { $0.shuffle() }
+
 public extension GuessTheFlagView {
-    static let mock = GuessTheFlagView()
+    static var mock: GuessTheFlagView { GuessTheFlagView() }
 }
 
 public struct GuessTheFlagView: View {
     
-    @State private var viewModel: GuessTheFlagViewModel = .init()
+    @State var viewModel: GuessTheFlagViewModel = .init()
     
     public init() {}
     
@@ -76,9 +79,9 @@ struct GuessTheFlagViewModel {
         "Spain",
         "UK",
         "US"
-    ].shuffled()
+    ]
     
-    var correctAnswer = Int.random(in: 0...2)
+    var correctAnswer = random()
     
     var correctCountry: String { countries[correctAnswer] }
     
@@ -87,6 +90,10 @@ struct GuessTheFlagViewModel {
     var scoreTitle = ""
     
     var score = 0
+    
+    init() {
+        askQuestion()
+    }
     
     mutating func flagTapped(_ number: Int) {
         if number == correctAnswer {
@@ -101,7 +108,7 @@ struct GuessTheFlagViewModel {
     }
     
     mutating func askQuestion() {
-        countries.shuffle()
-        correctAnswer = Int.random(in: 0...2)
+        shuffle(&countries)
+        correctAnswer = random()
     }
 }

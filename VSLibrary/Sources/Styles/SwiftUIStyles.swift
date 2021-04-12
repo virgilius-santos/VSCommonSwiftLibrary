@@ -38,6 +38,7 @@ public extension Image {
     }
 }
 
+@available(iOS 13.0, *)
 struct CapsuleImageStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
