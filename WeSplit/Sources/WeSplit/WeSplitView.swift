@@ -3,41 +3,13 @@ import SwiftUI
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeSplitView()
     }
 }
 
-struct ContentData {
-    var checkAmount = ""
-//    var numberOfPeople = 2
-    var numberOfPeople: String = "2"
-    var tipPercentage = 2
-    var tipPercentages: [Int] = [10, 15, 20, 25, 0]
+struct WeSplitView: View {
     
-    var totalAmount: Double {
-        let tipSelection = Double(tipPercentages[tipPercentage]) / 100
-        let orderAmount = Double(checkAmount) ?? 0
-        
-        let tipAmount = orderAmount * tipSelection
-        let totalAmount = tipAmount + orderAmount
-        return totalAmount
-    }
-    
-    var totalPerPerson: LocalizedStringKey {
-        let peopleCount = Double(numberOfPeople) ?? 0
-        let amountPerPerson = totalAmount / peopleCount
-        
-        return "$ \(amountPerPerson, specifier: "%.2f")"
-    }
-    
-    var total: LocalizedStringKey {
-        "$ \(totalAmount, specifier: "%.2f")"
-    }
-}
-
-struct ContentView: View {
-    
-    @State private var content = ContentData()
+    @State private var content = WeSplitViewModel()
     
     var body: some View {
         NavigationView {
@@ -46,10 +18,9 @@ struct ContentView: View {
     }
 }
 
-
 struct AmountForm: View {
     
-    @State var content: ContentData
+    @State var content: WeSplitViewModel
     
     var body: some View {
         Form {
