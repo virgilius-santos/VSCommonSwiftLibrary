@@ -34,7 +34,14 @@ public extension Image {
     }
     
     func capsuleStyle() -> some View {
-        clipShape(Capsule())
+        modifier(CapsuleImageStyle())
+    }
+}
+
+struct CapsuleImageStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .clipShape(Capsule())
             .overlay(Capsule().stroke(Color.black, lineWidth: 1))
             .shadow(color: .black, radius: 2)
     }
