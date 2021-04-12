@@ -1,15 +1,18 @@
 import XCTest
 @testable import Weather
+import SnapshotTesting
+import SwiftUI
 
 final class WeatherTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Weather().text, "Hello, World!")
+    func test_viewSnapshot() {
+        let vc = UIHostingController(rootView: WeatherView.mock)
+        vc.view.frame = UIScreen.main.bounds
+        assertSnapshot(matching: vc, as: .image)
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+    
+    func test_viewSnapshot_darkMode() {
+        let vc = UIHostingController(rootView: WeatherView.darkMock)
+        vc.view.frame = UIScreen.main.bounds
+        assertSnapshot(matching: vc, as: .image)
+    }
 }

@@ -12,7 +12,12 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../VSLibrary")
+        .package(path: "../VSLibrary"),
+        .package(
+          name: "SnapshotTesting",
+          url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+          from: "1.8.1"
+        ),
     ],
     targets: [
         .target(
@@ -24,7 +29,8 @@ let package = Package(
         ),
         .testTarget(
             name: "WeatherTests",
-            dependencies: ["Weather"]
+            dependencies: ["Weather", "SnapshotTesting"],
+            exclude: ["__Snapshots__"]
         ),
     ]
 )

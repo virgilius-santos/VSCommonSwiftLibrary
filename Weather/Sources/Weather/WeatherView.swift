@@ -43,9 +43,13 @@ public struct WeatherView: View {
         self.weather = weather
     }
 }
+
 public extension WeatherView {
     static let mock: some View = WeatherView(weather: WeatherViewModel.mock)
         .environmentObject(WeatherEnviroment())
+    
+    static let darkMock: some View = WeatherView(weather: WeatherViewModel.mock)
+        .environmentObject(WeatherEnviroment.darkMock)
 }
 
 struct ContentView_Previews: PreviewProvider {

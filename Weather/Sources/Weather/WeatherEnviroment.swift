@@ -16,3 +16,11 @@ public final class WeatherEnviroment: ObservableObject {
         theme = isNight ? .dark : .light
     }
 }
+
+extension WeatherEnviroment {
+    static var darkMock: WeatherEnviroment {
+        let env = WeatherEnviroment()
+        env.isNight = true
+        return env
+    }
+}
