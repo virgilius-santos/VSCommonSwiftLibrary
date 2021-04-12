@@ -1,7 +1,7 @@
 
 import SwiftUI
 import Combine
-//import Styles
+import Styles
 //import Functions
 
 struct ContentView_Previews: PreviewProvider {
@@ -11,8 +11,23 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ContentView: View {
-    var body: some View {
-//        GuessTheFlagView.mock
-        EmptyView()
-    }
+    @State private var notificationShown = false
+
+        var body: some View {
+            VStack {
+                if self.notificationShown {
+                    NotificationView {
+                        Text("notification")
+                    }
+                }
+
+                Spacer()
+
+                Button("toggle") {
+                    self.notificationShown.toggle()
+                }
+
+                Spacer()
+            }
+        }
 }
