@@ -26,3 +26,10 @@ public func imageStyle(size: CGFloat, _ view: Image) -> some View {
         .aspectRatio(contentMode: .fit)
         .frame(width: size, height: size)
 }
+
+@available(iOS 13.0, *)
+public extension LinearGradient {
+    init(_ colors: Color..., startPoint: UnitPoint = .topLeading, endPoint: UnitPoint = .topTrailing) {
+        self.init(gradient: Gradient(colors: colors), startPoint: startPoint, endPoint: endPoint)
+    }
+}

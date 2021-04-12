@@ -12,12 +12,17 @@ let package = Package(
             targets: ["GuessTheFlag"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(path: "../VSLibrary"),
+    ],
     targets: [
         .target(
             name: "GuessTheFlag",
-            dependencies: [],
-            resources: [.copy("Assets")]
+            dependencies: [
+                .product(name: "Styles", package: "VSLibrary"),
+                .product(name: "Functions", package: "VSLibrary")
+            ],
+            resources: [.process("Assets")]
         ),
         .testTarget(
             name: "GuessTheFlagTests",

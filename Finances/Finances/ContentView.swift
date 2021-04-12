@@ -1,8 +1,9 @@
 
 import SwiftUI
-import Functions
 import Combine
-import Weather
+//import GuessTheFlag
+//import Styles
+//import Functions
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -12,6 +13,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ContentView: View {
     var body: some View {
-        WeatherView.mock
+//        GuessTheFlagView.mock
+        EmptyView()
     }
 }

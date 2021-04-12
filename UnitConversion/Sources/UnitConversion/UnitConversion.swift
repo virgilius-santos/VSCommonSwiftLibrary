@@ -74,7 +74,11 @@ struct UnitViewModel: Identifiable {
     }
     
     var secondInput: Input {
-        didSet { resetValue(old: oldValue, new: secondInput) }
+        didSet {
+            if let value = oldValue.resetValue(to: secondInput) {
+                secondInput.value = value
+            }
+        }
     }
     
     init(
@@ -100,28 +104,8 @@ struct UnitViewModel: Identifiable {
     }
     
     private mutating func updateSecond() {
-        let unitString = convert(from: firstInput, to: secondInput)
+        let unitString = firstInput.convert(to: secondInput)
         secondInput.value = unitString
-    }
-    
-    private mutating func resetValue(old: Input, new: Input) {
-        guard
-            old.unitSelected != new.unitSelected,
-            old.value == new.value
-        else { return }
-        
-        let unitString = convert(from: old, to: new)
-        if new.value != unitString {
-            secondInput.value = unitString
-        }
-    }
-    
-    private func convert(from v1: Input, to v2: Input) -> String {
-        let value = Double(v1.value) ?? 0
-        let unit = Measurement(value: value, unit: v1.unitSelected.unitLength)
-        let unitConverted = unit.converted(to: v2.unitSelected.unitLength)
-        let unitString = String(format: "%.2f", unitConverted.value)
-        return unitString
     }
 }
 
@@ -134,6 +118,29 @@ extension UnitViewModel {
         
         var unitTypes: [UnitViewModel.UnitType] { conversionType.unitTypes }
         var unitSelected: UnitViewModel.UnitType
+                
+        func resetValue(to new: Input) -> String? {
+            guard
+                unitSelected != new.unitSelected,
+                value == new.value
+            else { return nil }
+            
+            let unitString = convert(to: new)
+            
+            guard new.value != unitString else {
+                return nil
+            }
+            
+            return unitString
+        }
+        
+        func convert(to input: Input) -> String {
+            let value = Double(self.value) ?? 0
+            let unit = Measurement(value: value, unit: unitSelected.unitLength)
+            let unitConverted = unit.converted(to: input.unitSelected.unitLength)
+            let unitString = String(format: "%.2f", unitConverted.value)
+            return unitString
+        }
     }
     
     struct ConversionType: Equatable, Hashable {

@@ -13,8 +13,8 @@
 		180BDA4626220EFF003EF4B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180BDA4526220EFF003EF4B5 /* Preview Assets.xcassets */; };
 		180BDA5126220F00003EF4B5 /* FinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5026220F00003EF4B5 /* FinancesTests.swift */; };
 		180BDA5C26220F00003EF4B5 /* FinancesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */; };
-		18B3AB492623233B000F192F /* Weather in Frameworks */ = {isa = PBXBuildFile; productRef = 18B3AB482623233B000F192F /* Weather */; };
-		18E91263262220CA0038BA89 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 18E91262262220CA0038BA89 /* Functions */; };
+		186B84302623CE5A00514B80 /* GuessTheFlag in Frameworks */ = {isa = PBXBuildFile; productRef = 186B842F2623CE5A00514B80 /* GuessTheFlag */; };
+		186B84312623CE5A00514B80 /* GuessTheFlag in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 186B842F2623CE5A00514B80 /* GuessTheFlag */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,20 @@
 			remoteInfo = Finances;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		186B84322623CE5A00514B80 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				186B84312623CE5A00514B80 /* GuessTheFlag in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		180BDA3B26220EFC003EF4B5 /* Finances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finances.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,8 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E91263262220CA0038BA89 /* Functions in Frameworks */,
-				18B3AB492623233B000F192F /* Weather in Frameworks */,
+				186B84302623CE5A00514B80 /* GuessTheFlag in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +165,7 @@
 				180BDA3726220EFC003EF4B5 /* Sources */,
 				180BDA3826220EFC003EF4B5 /* Frameworks */,
 				180BDA3926220EFC003EF4B5 /* Resources */,
+				186B84322623CE5A00514B80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,8 +173,7 @@
 			);
 			name = Finances;
 			packageProductDependencies = (
-				18E91262262220CA0038BA89 /* Functions */,
-				18B3AB482623233B000F192F /* Weather */,
+				186B842F2623CE5A00514B80 /* GuessTheFlag */,
 			);
 			productName = Finances;
 			productReference = 180BDA3B26220EFC003EF4B5 /* Finances.app */;
@@ -598,13 +611,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		18B3AB482623233B000F192F /* Weather */ = {
+		186B842F2623CE5A00514B80 /* GuessTheFlag */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Weather;
-		};
-		18E91262262220CA0038BA89 /* Functions */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Functions;
+			productName = GuessTheFlag;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
