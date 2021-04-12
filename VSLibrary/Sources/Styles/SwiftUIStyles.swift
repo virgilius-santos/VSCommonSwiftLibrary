@@ -16,6 +16,15 @@ public extension Text {
 }
 
 @available(iOS 13.0.0, *)
+public extension View {
+    func roundedStyle(foregroundColor: Color, background: Color) -> some View {
+        frame(width: 280, height: 50)
+            .background(background)
+            .cornerRadius(10)
+    }
+}
+
+@available(iOS 13.0.0, *)
 public extension Image {
     func imageStyle(size: CGFloat) -> some View {
         renderingMode(.original)
@@ -24,7 +33,6 @@ public extension Image {
             .frame(width: size, height: size)
     }
 }
-
 
 @available(iOS 13.0, *)
 public extension LinearGradient {

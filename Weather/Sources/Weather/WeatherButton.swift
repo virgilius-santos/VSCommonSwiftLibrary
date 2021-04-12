@@ -10,10 +10,7 @@ struct WeatherButton: View {
     
     var body: some View {
         Text(title)
-            .frame(width: 280, height: 50)
-            .foregroundColor(enviroment.theme.primary)
-            .background(enviroment.theme.secondary)
-            .font(.system(size: 18, weight: .bold, design: .rounded))
-            .cornerRadius(10)
+            .baseStyle(size: 18, weight: .bold, color: enviroment.theme.primary)
+            .roundedStyle(foregroundColor: enviroment.theme.primary, background: enviroment.theme.secondary)
     }
 }
