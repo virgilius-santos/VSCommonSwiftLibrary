@@ -32,6 +32,12 @@ public extension Image {
             .aspectRatio(contentMode: .fit)
             .frame(width: size, height: size)
     }
+    
+    func capsuleStyle() -> some View {
+        clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+            .shadow(color: .black, radius: 2)
+    }
 }
 
 @available(iOS 13.0, *)
@@ -39,4 +45,10 @@ public extension LinearGradient {
     init(_ colors: Color..., startPoint: UnitPoint = .topLeading, endPoint: UnitPoint = .bottomTrailing) {
         self.init(gradient: Gradient(colors: colors), startPoint: startPoint, endPoint: endPoint)
     }
+}
+
+@available(iOS 13.0, *)
+public func image(from name: String, in bundle: Bundle?) -> Image {
+    Image(uiImage: UIImage(named: name, in: bundle, compatibleWith: nil)!)
+        .renderingMode(.original)
 }

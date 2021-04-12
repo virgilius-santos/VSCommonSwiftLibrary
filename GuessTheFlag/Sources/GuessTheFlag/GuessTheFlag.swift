@@ -24,10 +24,10 @@ public struct GuessTheFlagView: View {
                 VStack {
 
                     Text("Tap the flag of")
-                        |> textStyle(size: 24)
+                        .baseStyle(size: 24)
 
                     Text(viewModel.correctCountry)
-                        |> textStyle(size: 36, weight: .bold)
+                        .baseStyle(size: 36, weight: .bold)
 
                 }
 
@@ -35,20 +35,15 @@ public struct GuessTheFlagView: View {
                     Button(action: {
                         viewModel.flagTapped(number)
                     }) {
-                        viewModel.countries[number]
-                            |> image(from:)
-                            |> { view in
-                                view.clipShape(Capsule())
-                                    .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                                    .shadow(color: .black, radius: 2)
-                            }
+                        image(from: viewModel.countries[number], in: .module)
+                            .capsuleStyle()
                     }
                 }
                 
                 VStack {
 
                     Text("Your Score is: \(viewModel.score)")
-                        |> textStyle(size: 24)
+                        .baseStyle(size: 24)
                 }
                 
                 Spacer()
@@ -109,10 +104,4 @@ struct GuessTheFlagViewModel {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
-}
-
-
-public func image(from name: String) -> Image {
-    Image(uiImage: UIImage(named: name, in: .module, compatibleWith: nil)!)
-        .renderingMode(.original)
 }
