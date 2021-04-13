@@ -52,7 +52,7 @@ struct AmountForm: View {
             }
             
             Section(header: Text("Total Amount")) {
-                Text(content.total)
+                Text(content.total).foregroundColor(content.tipPercentage == 4 ? .red : .black)
             }
         }
         .navigationBarTitle("SwiftUI", displayMode: .inline)
