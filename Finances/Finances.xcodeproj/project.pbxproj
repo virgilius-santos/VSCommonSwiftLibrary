@@ -13,8 +13,7 @@
 		180BDA4626220EFF003EF4B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180BDA4526220EFF003EF4B5 /* Preview Assets.xcassets */; };
 		180BDA5126220F00003EF4B5 /* FinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5026220F00003EF4B5 /* FinancesTests.swift */; };
 		180BDA5C26220F00003EF4B5 /* FinancesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */; };
-		186B84302623CE5A00514B80 /* GuessTheFlag in Frameworks */ = {isa = PBXBuildFile; productRef = 186B842F2623CE5A00514B80 /* GuessTheFlag */; };
-		186B84312623CE5A00514B80 /* GuessTheFlag in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 186B842F2623CE5A00514B80 /* GuessTheFlag */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1884C9D026275032003D93EB /* WordScramble in Frameworks */ = {isa = PBXBuildFile; productRef = 1884C9CF26275032003D93EB /* WordScramble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				186B84312623CE5A00514B80 /* GuessTheFlag in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186B84302623CE5A00514B80 /* GuessTheFlag in Frameworks */,
+				1884C9D026275032003D93EB /* WordScramble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +171,7 @@
 			);
 			name = Finances;
 			packageProductDependencies = (
-				186B842F2623CE5A00514B80 /* GuessTheFlag */,
+				1884C9CF26275032003D93EB /* WordScramble */,
 			);
 			productName = Finances;
 			productReference = 180BDA3B26220EFC003EF4B5 /* Finances.app */;
@@ -611,9 +609,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		186B842F2623CE5A00514B80 /* GuessTheFlag */ = {
+		1884C9CF26275032003D93EB /* WordScramble */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = GuessTheFlag;
+			productName = WordScramble;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

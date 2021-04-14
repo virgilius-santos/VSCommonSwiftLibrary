@@ -10,10 +10,12 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct WordScrambleView: View {
+public struct WordScrambleView: View {
     @State var model = WordScrambleModel()
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         NavigationView {
                 VStack {
                     TextField("Enter your word", text: $model.newWord, onCommit: addNewWord)
@@ -31,6 +33,7 @@ struct WordScrambleView: View {
                     model.startGame()
                 })
                 .alert(isPresented: $model.alert.showing, message: model.alert)
+                .navigationBarItems(leading: Button("Restart", action: { model.startGame() }))
             }
     }
     
@@ -71,6 +74,7 @@ struct WordScrambleModel {
     var alert = AlertMessage()
     
     var rules: [ValidationFunction] = [
+        isDifferent,
         isLong,
         isOriginal,
         isPossible,
@@ -93,13 +97,23 @@ struct WordScrambleModel {
     
     mutating func startGame() {
         rootWord = randomString(allWords) ?? "silkworm"
+        usedWords = []
     }
 }
 
-
+var isDifferent: ValidationFunction = { (word, _, rootWord) -> Validation in
+    guard !word.elementsEqual(rootWord) else {
+        return .error(message: .init(
+            title: "Word used is the original",
+            message: "Be more original",
+            showing: true
+        ))
+    }
+    return .success
+}
 
 var isLong: ValidationFunction = { (word, _, _) -> Validation in
-    guard word.count > 0 else {
+    guard word.count > 2 else {
         return .error(message: .init(
             title: "Word used is too short",
             message: "Be more original",
@@ -154,7 +168,7 @@ var readFileContent: () -> [String] = {
     guard let fileString = file(from: "start", in: .module) else {
         fatalError("file not found")
     }
-    return fileString.components(separatedBy: "\n")
+    return fileString.lowercased().components(separatedBy: "\n")
 }
 
 var randomString: ([String]) -> String? = {
