@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../BetterRest">
+   </FileRef>
+   <FileRef
       location = "group:../ViewsAndModifiers">
    </FileRef>
    <FileRef

@@ -112,3 +112,10 @@ struct GuessTheFlagViewModel {
         correctAnswer = random()
     }
 }
+
+// craches because project has .xcassets
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GuessTheFlagView()
+//    }
+//}

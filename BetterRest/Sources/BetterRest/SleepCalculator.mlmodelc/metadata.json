@@ -1,0 +1,69 @@
+[
+  {
+    "shortDescription" : "A model to predict bedtime based on wakeup time, sleep duration, and coffee intake.",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "isOptional" : "0",
+        "formattedType" : "Double",
+        "type" : "Double",
+        "name" : "actualSleep",
+        "shortDescription" : ""
+      }
+    ],
+    "version" : "1.0",
+    "modelParameters" : [
+
+    ],
+    "author" : "John Mueller",
+    "specificationVersion" : 1,
+    "license" : "",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.13",
+      "tvOS" : "11.0",
+      "watchOS" : "4.0",
+      "iOS" : "11.0",
+      "macCatalyst" : "11.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_pipelineRegressor",
+      "structure" : [
+        {
+          "name" : "MLModelType_featureVectorizer"
+        },
+        {
+          "name" : "MLModelType_glmRegressor"
+        }
+      ]
+    },
+    "inputSchema" : [
+      {
+        "isOptional" : "0",
+        "formattedType" : "Double",
+        "type" : "Double",
+        "name" : "wake",
+        "shortDescription" : ""
+      },
+      {
+        "isOptional" : "0",
+        "formattedType" : "Double",
+        "type" : "Double",
+        "name" : "estimatedSleep",
+        "shortDescription" : ""
+      },
+      {
+        "isOptional" : "0",
+        "formattedType" : "Double",
+        "type" : "Double",
+        "name" : "coffee",
+        "shortDescription" : ""
+      }
+    ],
+    "userDefinedMetadata" : {
+
+    },
+    "generatedClassName" : "SleepCalculator",
+    "method" : "predict"
+  }
+]
