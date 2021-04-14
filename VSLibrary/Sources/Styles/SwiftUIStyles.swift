@@ -60,3 +60,27 @@ public func image(from name: String, in bundle: Bundle?) -> Image {
     Image(uiImage: UIImage(named: name, in: bundle, compatibleWith: nil)!)
         .renderingMode(.original)
 }
+
+
+
+@available(iOS 13.0.0, *)
+public extension View {
+    func alert(isPresented: Binding<Bool>, message: AlertMessage) -> some View {
+        alert(isPresented: isPresented) {
+            Alert(title: Text(message.title), message: Text(message.message), dismissButton: .default(Text("OK")))
+        }
+    }
+}
+
+public struct AlertMessage {
+    
+    public var title = ""
+    public var message = ""
+    public var showing = false
+    
+    public init(title: String = "", message: String = "", showing: Bool = false) {
+        self.title = title
+        self.message = message
+        self.showing = showing
+    }
+}

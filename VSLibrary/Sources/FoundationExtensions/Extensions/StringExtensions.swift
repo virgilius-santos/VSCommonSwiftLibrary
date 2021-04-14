@@ -14,3 +14,21 @@ public func onlyAlphanumerics(_ string: String) -> String {
 public func diacriticInsensitive(_ string: String) -> String {
   string.folding(options: .diacriticInsensitive, locale: nil)
 }
+
+public func file(from name: String, extension: String = "txt", in bundle: Bundle?) -> String? {
+    
+    enum ReadFileError: Error {
+        case notFound
+    }
+    
+    do {
+        if let fileURL = bundle?.url(forResource: name, withExtension: "txt") {
+            return try String(contentsOf: fileURL)
+        } else {
+            throw ReadFileError.notFound
+        }
+    } catch {
+        logError(error)
+    }
+    return nil
+}
