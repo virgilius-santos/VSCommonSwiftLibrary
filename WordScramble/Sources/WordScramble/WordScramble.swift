@@ -39,8 +39,30 @@ struct WordScrambleView: View {
     }
 }
 
+enum Validation {
+    case success
+    case error(message: AlertMessage)
+}
+
+typealias ValidationFunction = (_ word: String, _ usedWords: [String], _ rootWord: String) -> Validation
+
+extension Array where Element == ValidationFunction {
+    func validate(_ word: String, _ usedWords: [String], _ rootWord: String) -> Validation {
+        for rule in self {
+            let result = rule(word, usedWords, rootWord)
+            switch result {
+            case .success:
+                continue
+            case .error:
+                return result
+            }
+        }
+        return .success
+    }
+}
+
 struct WordScrambleModel {
-    var startWords = readFileContent()
+    var allWords = readFileContent()
    
     var usedWords = [String]()
     var rootWord = ""
@@ -48,67 +70,76 @@ struct WordScrambleModel {
     
     var alert = AlertMessage()
     
-    var allWords: [String] { startWords.components(separatedBy: "\n") }
+    var rules: [ValidationFunction] = [
+        isLong,
+        isOriginal,
+        isPossible,
+        isSpelledWord
+    ]
     
     mutating func addNewWord() {
         // lowercase and trim the word, to make sure we don't add duplicate words with case differences
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
         // exit if the remaining string is empty
-        guard answer.count > 0 else { return }
-
-        guard isOriginal(word: answer) else {
-            alert = .init(
-                title: "Word used already",
-                message: "Be more original",
-                showing: true
-            )
-            return
+        switch rules.validate(answer, usedWords, rootWord) {
+        case .success:
+            usedWords.insert(answer, at: 0)
+            newWord = ""
+        case let .error(message):
+            alert = message
         }
-
-        guard isPossible(word: answer) else {
-            alert = .init(
-                title: "Word not recognized",
-                message: "You can't just make them up, you know!",
-                showing: true
-            )
-            return
-        }
-
-        guard textChecker(answer) else {
-            alert = .init(
-                title: "Word not possible",
-                message: "That isn't a real word.",
-                showing: true
-            )
-            return
-        }
-
-        usedWords.insert(answer, at: 0)
-        newWord = ""
     }
     
     mutating func startGame() {
         rootWord = randomString(allWords) ?? "silkworm"
     }
-    
-    func isOriginal(word: String) -> Bool {
-        !usedWords.contains(word)
-    }
-    
-    func isPossible(word: String) -> Bool {
-        var tempWord = rootWord
+}
 
-        for letter in word {
-            if let pos = tempWord.firstIndex(of: letter) {
-                tempWord.remove(at: pos)
-            } else {
-                return false
-            }
-        }
 
-        return true
+
+var isLong: ValidationFunction = { (word, _, _) -> Validation in
+    guard word.count > 0 else {
+        return .error(message: .init(
+            title: "Word used is too short",
+            message: "Be more original",
+            showing: true
+        ))
     }
+    return .success
+}
+
+var isOriginal: ValidationFunction = { (word, usedWords, rootWord) -> Validation in
+    guard word.count > 0 else {
+        return .error(message: .init(
+            title: "Word used already",
+            message: "Be more original",
+            showing: true
+        ))
+    }
+    return .success
+}
+
+var isPossible: ValidationFunction = { (word, usedWords, _) -> Validation in
+    guard !usedWords.contains(word) else {
+        return .error(message: .init(
+            title: "Word not recognized",
+            message: "You can't just make them up, you know!",
+            showing: true
+        ))
+    }
+    return .success
+}
+
+var isSpelledWord: ValidationFunction = { (word, _, _) -> Validation in
+    guard textChecker(word) else {
+        return .error(message: .init(
+            title: "Word not possible",
+            message: "That isn't a real word.",
+            showing: true
+        ))
+    }
+    return .success
 }
 
 var textChecker: (_ word: String) -> Bool = { word in
@@ -119,11 +150,11 @@ var textChecker: (_ word: String) -> Bool = { word in
     return allGood
 }
 
-var readFileContent: () -> String = {
+var readFileContent: () -> [String] = {
     guard let fileString = file(from: "start", in: .module) else {
         fatalError("file not found")
     }
-    return fileString
+    return fileString.components(separatedBy: "\n")
 }
 
 var randomString: ([String]) -> String? = {
