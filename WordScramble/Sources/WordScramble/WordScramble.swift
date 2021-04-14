@@ -17,15 +17,23 @@ public struct WordScrambleView: View {
     
     public var body: some View {
         NavigationView {
-                VStack {
-                    TextField("Enter your word", text: $model.newWord, onCommit: addNewWord)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .padding()
+                Form {
+                    Section(header: Text("Input your word:")) {
+                        TextField("Enter your word", text: $model.newWord, onCommit: addNewWord)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                            .padding()
+                    }
                     
-                    List(model.usedWords, id: \.self) {
-                        Image(systemName: "\($0.count).circle")
-                        Text($0)
+                    Section(header: Text("Words list:")) {
+                        List(model.usedWords, id: \.self) {
+                            Image(systemName: "\($0.count).circle")
+                            Text($0)
+                        }
+                    }
+                    
+                    Section(header: Text("Score:")) {
+                        Text("\(model.points) points").font(.title2)
                     }
                 }
                 .navigationBarTitle(model.rootWord)
@@ -70,6 +78,10 @@ struct WordScrambleModel {
     var usedWords = [String]()
     var rootWord = ""
     var newWord = ""
+    
+    var points: Int {
+        usedWords.reduce(0, { $0 + $1.count * 5 })
+    }
     
     var alert = AlertMessage()
     
