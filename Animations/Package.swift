@@ -11,11 +11,13 @@ let package = Package(
             targets: ["Animations"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(path: "../VSLibrary"),
+    ],
     targets: [
         .target(
             name: "Animations",
-            dependencies: []
+            dependencies: [.product(name: "Styles", package: "VSLibrary"),]
         ),
         .testTarget(
             name: "AnimationsTests",
