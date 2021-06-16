@@ -4,52 +4,86 @@ import Combine
 import ComposableArchitecture
 import Styles
 
-enum CardBalance {
+struct CardBalance_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            
+            ZStack {
+                Color.offWhite.edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    LazyVStack.init(alignment: .center, spacing: .spacing_10) {
+                        ForEach(1...1, id: \.self) { count in
+                            CardBalance.View(store: .init(
+                                initialState: .init(),
+                                reducer: CardBalance.reducer,
+                                environment: .init()
+                            ))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+public enum CardBalance {}
+
+public extension CardBalance {
+    typealias Store = ComposableArchitecture.Store<State, Action>
+    typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
+    
     struct State: Equatable, Hashable {
+        var title: String = "Gastos Fixos"
         
+        var valueTitle: String = "Total: "
+        var value: String = "R$ 2000.00"
     }
 
     enum Action: Equatable, Hashable {
-        
+        case addValue
     }
 
-    struct Environment: Equatable, Hashable {
+    struct Environment: Equatable, Hashable {}
+    
+    static let reducer: Reducer = .empty
+    
+    struct View: SwiftUI.View {
         
-    }
-    
-    static let balanceReduce: Reducer<State, Action, Environment> = .combine(
-    
-    
-    )
-}
-
-public struct CardBalanceView: View {
-    public var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("SwiftUI")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                Text("Drawing a Border with Rounded Corners")
-                    .font(.title)
-                    .fontWeight(.black)
-                    .foregroundColor(.primary)
-                    .lineLimit(3)
-                Text("Written by Simon Ng".uppercased())
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                
-                
+        public var body: some SwiftUI.View {
+            WithViewStore(store) { viewStore in
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text(viewStore.title)
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        Spacer.init(minLength: .spacing_10)
+                        
+                        Group {
+                            Text(viewStore.valueTitle)
+                                .font(.caption2)
+                                .fontWeight(.black)
+                                .foregroundColor(.primary)
+                                .lineLimit(3)
+                            Text(viewStore.value)
+                                .font(.callout)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                    }
+                    Spacer()
+                    VStack(alignment: .trailing, spacing: .spacing_10) {
+                        Spacer()
+                        FloatingButton(iconName: "plus.circle.fill", action: { viewStore.send(.addValue) } )
+                    }
+                    
+                }
+                .modifier(CardStyle())
             }
-            
-            FloatingButtonGroup {
-                FloatingButton(iconName: "list.bullet", action: {})
-                
-                FloatingButton(iconName: "plus.circle.fill", action: {})
-            }
-            
         }
-        .modifier(CardStyle())
+        
+        let store: Store
     }
 }
 
@@ -84,25 +118,6 @@ struct FloatingButton: View {
         })
         .buttonStyle(SimpleButtonStyle())
         .frame(minWidth: .minClickableWidth, minHeight: .minClickableHeight)
-    }
-}
-
-struct CardBalance_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            
-            ZStack {
-                Color.offWhite.edgesIgnoringSafeArea(.all)
-                
-                ScrollView {
-                    LazyVStack.init(alignment: .center, spacing: .spacing_10) {
-                        ForEach(1...10, id: \.self) { count in
-                            CardBalanceView()
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
