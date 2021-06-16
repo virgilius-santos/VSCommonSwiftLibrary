@@ -1,10 +1,7 @@
 
 import SwiftUI
 import Combine
-//import GuessTheFlag
-//import Styles
-//import Functions
-import WordScramble
+import iExpense
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -14,7 +11,6 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ContentView: View {
     var body: some View {
-//        GuessTheFlagView.mock
-        WordScrambleView()
+        IExpensiveView()
     }
 }

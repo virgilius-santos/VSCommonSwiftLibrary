@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		180BDA4626220EFF003EF4B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180BDA4526220EFF003EF4B5 /* Preview Assets.xcassets */; };
 		180BDA5126220F00003EF4B5 /* FinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5026220F00003EF4B5 /* FinancesTests.swift */; };
 		180BDA5C26220F00003EF4B5 /* FinancesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */; };
-		1884C9D026275032003D93EB /* WordScramble in Frameworks */ = {isa = PBXBuildFile; productRef = 1884C9CF26275032003D93EB /* WordScramble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1884C9D026275032003D93EB /* WordScramble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +169,6 @@
 			);
 			name = Finances;
 			packageProductDependencies = (
-				1884C9CF26275032003D93EB /* WordScramble */,
 			);
 			productName = Finances;
 			productReference = 180BDA3B26220EFC003EF4B5 /* Finances.app */;
@@ -607,13 +604,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1884C9CF26275032003D93EB /* WordScramble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = WordScramble;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 180BDA3326220EFC003EF4B5 /* Project object */;
 }
