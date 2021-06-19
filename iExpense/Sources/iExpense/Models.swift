@@ -1,5 +1,6 @@
 
 import Foundation
+import LocalStorage
 
 enum RecorrenceType: String, CaseIterable, Equatable {
     case fixed, recorrence
@@ -34,24 +35,29 @@ struct RecorrenceValue: Equatable, Hashable {
     var id: UUID
     var desc: String
     var value: Double
-    var installments: UInt8
-    var startDate: Date
+    var total: UInt8
+    var current: UInt8
     var source: Source
     let recorrenceType: RecorrenceType = .recorrence
     
-    init(
+    var pawn: Double {
+        value * Double(total - current)
+    }
+    
+    init?(
         id: UUID = .init(),
         desc: String = "Aluguel",
         value: Double = 2000,
-        installments: UInt8 = 2,
-        startDate: Date = .init(),
+        total: UInt8 = 7,
+        current: UInt8 = 3,
         source: Source = Source()
     ) {
+        guard total >= current else { return nil }
         self.id = id
         self.desc = desc
         self.value = value
-        self.installments = installments
-        self.startDate = startDate
+        self.total = total
+        self.current = current
         self.source = source
     }
 }

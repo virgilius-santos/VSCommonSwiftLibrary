@@ -26,8 +26,8 @@ public extension RecorrenceInput {
         var model: RecorrenceValue
         
         init(
-            modelList: [RecorrenceValue] = [.init(), .init()],
-            model: RecorrenceValue = .init()
+            modelList: [RecorrenceValue] = [.init()!, .init()!],
+            model: RecorrenceValue = .init()!
         ) {
             self.modelList = modelList
             self.model = model
@@ -80,22 +80,23 @@ public extension RecorrenceInput {
                                 formatter: decimalFormatter
                             )
                             .keyboardType(.numbersAndPunctuation)
-                            
-                            DatePicker.init(
+
+                            Picker(
+                                "Current installment",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.startDate,
+                                    keyPath: \.model.current,
                                     send: RecorrenceInput.Action.form
-                                ),
-                                displayedComponents: .date,
-                                label: { Text("Bought in")}
-                            )
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .frame(maxHeight: 400)
+                                )
+                            ) {
+                                ForEach(1..<viewStore.model.total, id: \.self) {
+                                    Text("\($0)")
+                                }
+                            }
                             
                             Picker(
                                 "number of installments",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.installments,
+                                    keyPath: \.model.total,
                                     send: RecorrenceInput.Action.form
                                 )
                             ) {

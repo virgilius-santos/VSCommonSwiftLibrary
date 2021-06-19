@@ -33,7 +33,8 @@ let package = Package(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
                 ),
-                .product(name: "Styles", package: "VSLibrary")
+                .product(name: "Styles", package: "VSLibrary"),
+                .product(name: "LocalStorage", package: "VSLibrary")
             ]
         ),
         .testTarget(

@@ -14,11 +14,7 @@ struct CardBalance_Previews: PreviewProvider {
                 ScrollView {
                     LazyVStack.init(alignment: .center, spacing: .spacing_10) {
                         ForEach(1...1, id: \.self) { count in
-                            CardBalance.View(store: .init(
-                                initialState: .init(),
-                                reducer: CardBalance.reducer,
-                                environment: .init()
-                            ))
+                            CardBalance.View(state: .init()) {}
                         }
                     }
                 }
@@ -30,88 +26,65 @@ struct CardBalance_Previews: PreviewProvider {
 public enum CardBalance {}
 
 public extension CardBalance {
-    typealias Store = ComposableArchitecture.Store<State, Action>
-    typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
-    
-    struct CardValue: Equatable {
-        
-        var value: Double
-        var id: UUID
-        
-        public init(value: Double, id: UUID = .init()) {
-            self.value = value
-            self.id = id
-        }
-    }
-    
     struct State: Equatable {
         var title: String = "Gastos Fixos"
         var valueTitle: String = "Total: "
-        var values: [CardValue]
+        var values: [Double]
         
         var value: NSNumber {
-            NSNumber(value: values.map(\.value).reduce(0, +))
+            NSNumber(value: values.reduce(0, +))
         }
         
         init(
             title: String = "Gastos Fixos",
             valueTitle: String = "Total: ",
-            values: [CardValue] = [.init(value: 1000), .init(value: 500)]
+            values: [Double] = [.init(1000), .init(500)]
         ) {
             self.title = title
             self.valueTitle = valueTitle
             self.values = values
         }
     }
-
-    enum Action: Equatable, Hashable {
-        case addValue
-    }
-
-    struct Environment: Equatable, Hashable {}
-    
-    static let reducer: Reducer = .empty
     
     struct View: SwiftUI.View {
         
         public var body: some SwiftUI.View {
-            WithViewStore(store) { viewStore in
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Text(viewStore.title)
-                            .font(.headline)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(state.title)
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer.init(minLength: .spacing_10)
+                    
+                    Group {
+                        Text(state.valueTitle)
+                            .font(.caption2)
+                            .fontWeight(.black)
+                            .foregroundColor(.primary)
+                            .lineLimit(3)
+                        
+                        Text(state.value, formatter: currencyFormatter)
+                            .font(.callout)
                             .foregroundColor(.secondary)
-                        
-                        Spacer.init(minLength: .spacing_10)
-                        
-                        Group {
-                            Text(viewStore.valueTitle)
-                                .font(.caption2)
-                                .fontWeight(.black)
-                                .foregroundColor(.primary)
-                                .lineLimit(3)
-                            
-                            Text(viewStore.value, formatter: currencyFormatter)
-                                .font(.callout)
-                                .foregroundColor(.secondary)
-                        }
-                        
-                    }
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: .spacing_10) {
-                        Spacer()
-                        FloatingButton(
-                            iconName: "plus.circle.fill",
-                            action: { viewStore.send(.addValue) }
-                        )
                     }
                     
                 }
-                .modifier(CardStyle())
+                Spacer()
+                VStack(alignment: .trailing, spacing: .spacing_10) {
+                    Spacer()
+                    FloatingButton(
+                        iconName: "plus.circle.fill",
+                        action: { action() }
+                    )
+                }
+                
             }
+            .modifier(CardStyle())
         }
         
-        let store: Store
+        let state: State
+        let action: () -> Void
     }
 }
 

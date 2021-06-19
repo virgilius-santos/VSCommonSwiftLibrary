@@ -8,7 +8,7 @@ public class LocalStorage {
   
   var userDefaults: UserDefaults
   
-  init(name: String) {
+  public init(name: String) {
     userDefaults = UserDefaults(suiteName: name) ?? .standard
   }
   

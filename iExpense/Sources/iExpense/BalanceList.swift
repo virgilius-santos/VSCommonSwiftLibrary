@@ -22,50 +22,42 @@ public extension BalanceList {
     typealias Store = ComposableArchitecture.Store<State, Action>
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
-    struct State: Equatable, Hashable {
-        var fixedValues: [FixedValue] = [
-            .init(), .init(), .init()
-        ]
-        
-        var recorrenceValues: [RecorrenceValue] = [
-            .init(), .init(), .init()
-        ]
-        
-        var inputNewVale = false
+    struct State: Equatable {
+
+        var inputNewFixedValue = false
+        var inputNewRecorrenceValue = false
         
         var fixedCard: CardBalance.State {
-            get { .init(values: fixedValues.map { .init(value: $0.value)}) }
-            set { /* fixedValues = newValue.values */ }
+            .init(
+                title: "Gastos Fixos",
+                values: fixedInput.modelList.map(\.value)
+            )
         }
         
-        var fixedInput: FixedInput.State {
-            get { .init(modelList: fixedValues) }
-            set { fixedValues = newValue.modelList }
+        var recurrenceCard: CardBalance.State {
+            .init(
+                title: "Gastos Recorrentes",
+                values: recorrenceInput.modelList.map(\.pawn)
+            )
         }
         
-        var recorrenceInput: RecorrenceInput.State {
-            get { .init(modelList: recorrenceValues) }
-            set { recorrenceValues = newValue.modelList }
-        }
+        var fixedInput: FixedInput.State = .init()
+        var recorrenceInput: RecorrenceInput.State = .init()
     }
     
     enum Action: Equatable {
-        case addValue
+        case appear
+        case addFixedValue
+        case addRecorrenceValue
         case showInputValue
         case hiddenInputValue
-        case fixedValue(CardBalance.Action)
         case fixedInput(FixedInput.Action)
         case recorrenceInput(RecorrenceInput.Action)
     }
     
-    struct Environment: Equatable, Hashable {}
+    struct Environment {}
     
     static let reducer: Reducer = .combine(
-        CardBalance.reducer.pullback(
-            state: \.fixedCard,
-            action: /BalanceList.Action.fixedValue,
-            environment: { _ in .init() }
-        ),
         
         FixedInput.reducer.pullback(
             state: \.fixedInput,
@@ -81,29 +73,38 @@ public extension BalanceList {
         
         .init { state, action, environment in
             switch action {
-            case .addValue:
+            case .appear:
                 return .none
                 
-            case .fixedInput(.addValue):
-                state.inputNewVale = false
+            case .addFixedValue:
+                state.inputNewFixedValue = true
                 return .none
                 
-            case .fixedInput:
-                return .none
-                
-            case .fixedValue(.addValue):
-                state.inputNewVale = true
+            case .addRecorrenceValue:
+                state.inputNewRecorrenceValue = true
                 return .none
                 
             case .showInputValue:
                 return .none
                 
             case .hiddenInputValue:
-                state.inputNewVale = false
+                state.inputNewFixedValue = false
+                state.inputNewRecorrenceValue = false
                 return .none
-              
+                
+            // FixedInput
+            
+            case .fixedInput(.addValue):
+                state.inputNewFixedValue = false
+                return .none
+                
+            case .fixedInput:
+                return .none
+                
+            // RecorrenceInput
+            
             case .recorrenceInput(.addValue):
-                state.inputNewVale = false
+                state.inputNewRecorrenceValue = false
                 return .none
                 
             case .recorrenceInput:
@@ -127,25 +128,42 @@ public extension BalanceList {
                             )
                         ),
                         isActive: viewStore.binding(
-                            get: \.inputNewVale,
+                            get: \.inputNewFixedValue,
                             send: { $0 ? .showInputValue : .hiddenInputValue }
                         ),
-                        label: { EmptyView() })
+                        label: { EmptyView() }
+                    )
                     
+                    NavigationLink(
+                        destination: RecorrenceInput.View.init(
+                            store: store.scope(
+                                state: \.recorrenceInput,
+                                action: BalanceList.Action.recorrenceInput
+                            )
+                        ),
+                        isActive: viewStore.binding(
+                            get: \.inputNewRecorrenceValue,
+                            send: { $0 ? .showInputValue : .hiddenInputValue }
+                        ),
+                        label: { EmptyView() }
+                    )
                     
                     ScrollView {
                         LazyVStack.init(alignment: .center, spacing: .spacing_10) {
-                            CardBalance.View(store: store.scope(
-                                state: \.fixedCard,
-                                action: BalanceList.Action.fixedValue
-                            ))
+                            CardBalance.View(
+                                state: viewStore.fixedCard,
+                                action: { viewStore.send(.addFixedValue) }
+                            )
                             
-                            CardBalance.View(store: store.scope(
-                                state: \.fixedCard,
-                                action: BalanceList.Action.fixedValue
-                            ))
+                            CardBalance.View(
+                                state: viewStore.recurrenceCard,
+                                action: { viewStore.send(.addRecorrenceValue) }
+                            )
                         }
                     }
+                }
+                .onAppear {
+                    viewStore.send(.appear)
                 }
             }
         }
