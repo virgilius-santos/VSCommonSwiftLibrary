@@ -33,11 +33,35 @@ public extension CardBalance {
     typealias Store = ComposableArchitecture.Store<State, Action>
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
-    struct State: Equatable, Hashable {
-        var title: String = "Gastos Fixos"
+    struct CardValue: Equatable {
         
+        var value: Double
+        var id: UUID
+        
+        public init(value: Double, id: UUID = .init()) {
+            self.value = value
+            self.id = id
+        }
+    }
+    
+    struct State: Equatable {
+        var title: String = "Gastos Fixos"
         var valueTitle: String = "Total: "
-        var value: String = "R$ 2000.00"
+        var values: [CardValue]
+        
+        var value: NSNumber {
+            NSNumber(value: values.map(\.value).reduce(0, +))
+        }
+        
+        init(
+            title: String = "Gastos Fixos",
+            valueTitle: String = "Total: ",
+            values: [CardValue] = [.init(value: 1000), .init(value: 500)]
+        ) {
+            self.title = title
+            self.valueTitle = valueTitle
+            self.values = values
+        }
     }
 
     enum Action: Equatable, Hashable {
@@ -66,7 +90,8 @@ public extension CardBalance {
                                 .fontWeight(.black)
                                 .foregroundColor(.primary)
                                 .lineLimit(3)
-                            Text(viewStore.value)
+                            
+                            Text(viewStore.value, formatter: currencyFormatter)
                                 .font(.callout)
                                 .foregroundColor(.secondary)
                         }
@@ -75,7 +100,10 @@ public extension CardBalance {
                     Spacer()
                     VStack(alignment: .trailing, spacing: .spacing_10) {
                         Spacer()
-                        FloatingButton(iconName: "plus.circle.fill", action: { viewStore.send(.addValue) } )
+                        FloatingButton(
+                            iconName: "plus.circle.fill",
+                            action: { viewStore.send(.addValue) }
+                        )
                     }
                     
                 }
