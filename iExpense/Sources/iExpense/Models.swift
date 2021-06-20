@@ -2,21 +2,21 @@
 import Foundation
 import LocalStorage
 
-enum RecorrenceType: String, CaseIterable, Equatable {
-    case fixed, recorrence
+public enum RecurrenceType: String, CaseIterable, Equatable {
+    case fixed, recurrence
 }
 
-struct FixedValue: Equatable, Hashable {
+public struct FixedValue: Equatable, Hashable {
     
     var id: UUID
     var desc: String
     var value: Double
     var day: Day
     var source: Source
-    let recorrenceType: RecorrenceType = .fixed
+    let recurrenceType: RecurrenceType = .fixed
     
     init(
-        id: UUID = .init(),
+        id: UUID,
         desc: String = "Aluguel",
         value: Double = 2000,
         day: Day = Day(),
@@ -30,7 +30,7 @@ struct FixedValue: Equatable, Hashable {
     }
 }
 
-struct RecorrenceValue: Equatable, Hashable {
+public struct RecurrenceValue: Equatable, Hashable {
     
     var id: UUID
     var desc: String
@@ -38,21 +38,20 @@ struct RecorrenceValue: Equatable, Hashable {
     var total: UInt8
     var current: UInt8
     var source: Source
-    let recorrenceType: RecorrenceType = .recorrence
+    let recurrenceType: RecurrenceType = .recurrence
     
     var pawn: Double {
         value * Double(total - current)
     }
     
-    init?(
-        id: UUID = .init(),
+    init(
+        id: UUID,
         desc: String = "Aluguel",
         value: Double = 2000,
         total: UInt8 = 7,
         current: UInt8 = 3,
         source: Source = Source()
     ) {
-        guard total >= current else { return nil }
         self.id = id
         self.desc = desc
         self.value = value
@@ -62,12 +61,12 @@ struct RecorrenceValue: Equatable, Hashable {
     }
 }
 
-struct Source: Equatable, Hashable {
+public struct Source: Equatable, Hashable {
     var selected: String = "Nubank"
     let availables: [String] = ["Nubank", "Itau", "Way 9400", "Way 9880", "original"]
 }
 
-struct Day: Equatable, Hashable {
+public struct Day: Equatable, Hashable {
     var selected: UInt8 = 10
     let availables: [UInt8] = Array(1...30)
 }
@@ -92,3 +91,22 @@ var dateFormatter: DateFormatter = {
     formatter.dateStyle = .short
     return formatter
 }()
+
+public struct BalanceLocalStorage {
+    var getFixedValues: () -> [FixedValue]
+    var getRecurrentValues: () -> [RecurrenceValue]
+    
+    var addFixedValue: (FixedValue) -> Void
+    var addRecurrentValue: (RecurrenceValue) -> Void
+    
+    public init() {
+        var fixedValues: [FixedValue] = [.init(id: .init()), .init(id: .init())]
+        var recurrentValues: [RecurrenceValue] = [.init(id: .init()), .init(id: .init())]
+        
+        getFixedValues = { fixedValues }
+        getRecurrentValues = { recurrentValues }
+        
+        addFixedValue = { fixedValues.append($0) }
+        addRecurrentValue = { recurrentValues.append($0) }
+    }
+}

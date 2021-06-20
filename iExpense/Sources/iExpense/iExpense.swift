@@ -17,24 +17,24 @@ import SwiftUI
 //
 //public struct IExpensiveView: View {
 //    
-//    public enum RecorrenceType: String, CaseIterable, Equatable {
+//    public enum RecurrenceType: String, CaseIterable, Equatable {
 //        case fixed
 //    }
 //    
 //    @State
-//    private var recorrenceType: RecorrenceType = .fixed
+//    private var recurrenceType: RecurrenceType = .fixed
 //    
 //    @State
 //    private var values: [InvoiceEntry & InvoiceID] = [FixedInput()]
 //    
-//    private let recorrences: [RecorrenceType] = RecorrenceType.allCases
+//    private let recurrences: [RecurrenceType] = RecurrenceType.allCases
 //    
 //    public var body: some View {
 //        ZStack(alignment: .top) {
 //            Form {
-//                Section(header: Text("Recorrence Type")) {
-//                    Picker("Recorrence Type", selection: $recorrenceType) {
-//                        ForEach(recorrences, id: \.self) {
+//                Section(header: Text("Recurrence Type")) {
+//                    Picker("Recurrence Type", selection: $recurrenceType) {
+//                        ForEach(recurrences, id: \.self) {
 //                            Text($0.rawValue)
 //                        }
 //                    }
@@ -42,7 +42,7 @@ import SwiftUI
 //                    .pickerStyle(SegmentedPickerStyle())
 //                }
 //                
-//                switch recorrenceType {
+//                switch recurrenceType {
 //                case .fixed:
 //                    fixedInput
 //                }
@@ -91,7 +91,7 @@ import SwiftUI
 //        var valueInputed: String = "R$ 2000.00"
 //        var day = Day()
 //        var source = Source()
-//        let recorrenceType: RecorrenceType = .fixed
+//        let recurrenceType: RecurrenceType = .fixed
 //    }
 //    
 //    @State

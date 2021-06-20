@@ -5,13 +5,7 @@ import ComposableArchitecture
 struct BalanceList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            BalanceList.View(
-                store: .init(
-                    initialState: .init(),
-                    reducer: BalanceList.reducer,
-                    environment: .init()
-                )
-            )
+            BalanceList.View()
         }
     }
 }
@@ -24,94 +18,102 @@ public extension BalanceList {
     
     struct State: Equatable {
 
-        var inputNewFixedValue = false
-        var inputNewRecorrenceValue = false
-        
+        var fixedInput: FixedInput.State?
+        var inputNewFixedValue: Bool { fixedInput != nil }
+        var fixedValues: [FixedValue] = [.init(id: .init()), .init(id: .init())] // []
         var fixedCard: CardBalance.State {
-            .init(
-                title: "Gastos Fixos",
-                values: fixedInput.modelList.map(\.value)
-            )
+            .init(title: "Gastos Fixos", values: fixedValues.map(\.value))
         }
         
+        var recurrenceInput: RecurrenceInput.State?
+        var inputNewRecurrenceValue: Bool { recurrenceInput != nil }
+        var recurrenceValues: [RecurrenceValue] = [.init(id: .init()), .init(id: .init())] // []
         var recurrenceCard: CardBalance.State {
-            .init(
-                title: "Gastos Recorrentes",
-                values: recorrenceInput.modelList.map(\.pawn)
-            )
+            .init(title: "Gastos Recorrentes", values: recurrenceValues.map(\.pawn))
         }
-        
-        var fixedInput: FixedInput.State = .init()
-        var recorrenceInput: RecorrenceInput.State = .init()
     }
     
     enum Action: Equatable {
-        case appear
-        case addFixedValue
-        case addRecorrenceValue
-        case showInputValue
-        case hiddenInputValue
+//        case appear
+        case fixedViewVisualization(Bool)
         case fixedInput(FixedInput.Action)
-        case recorrenceInput(RecorrenceInput.Action)
+        
+        case recurrenceViewVisualization(Bool)
+        case recurrenceInput(RecurrenceInput.Action)
     }
     
-    struct Environment {}
+    struct Environment {
+        var uuid: UUID
+        var storage: BalanceLocalStorage
+        
+        public init(storage: BalanceLocalStorage = .init(), uuid: UUID = .init()) {
+            self.storage = storage
+            self.uuid = uuid
+        }
+    }
     
     static let reducer: Reducer = .combine(
-        
-        FixedInput.reducer.pullback(
-            state: \.fixedInput,
-            action: /BalanceList.Action.fixedInput,
-            environment: { _ in .init() }
-        ),
-        
-        RecorrenceInput.reducer.pullback(
-            state: \.recorrenceInput,
-            action: /BalanceList.Action.recorrenceInput,
-            environment: { _ in .init() }
-        ),
-        
-        .init { state, action, environment in
-            switch action {
-            case .appear:
-                return .none
+        FixedInput.reducer
+            .optional()
+            .pullback(
+                state: \.fixedInput,
+                action: /BalanceList.Action.fixedInput,
+                environment: { .init(storage: $0.storage) }
+            )
+            .combined(with: .init { state, action, environment in
+                switch action {
+                // FixedInput
                 
-            case .addFixedValue:
-                state.inputNewFixedValue = true
-                return .none
-                
-            case .addRecorrenceValue:
-                state.inputNewRecorrenceValue = true
-                return .none
-                
-            case .showInputValue:
-                return .none
-                
-            case .hiddenInputValue:
-                state.inputNewFixedValue = false
-                state.inputNewRecorrenceValue = false
-                return .none
-                
-            // FixedInput
-            
-            case .fixedInput(.addValue):
-                state.inputNewFixedValue = false
-                return .none
-                
-            case .fixedInput:
-                return .none
-                
-            // RecorrenceInput
-            
-            case .recorrenceInput(.addValue):
-                state.inputNewRecorrenceValue = false
-                return .none
-                
-            case .recorrenceInput:
-                return .none
-            }
-        }
+                case .fixedViewVisualization(true):
+                    state.fixedInput = .init(value: .init(id: environment.uuid), list: state.fixedValues)
+                    return .none
+                    
+                case .fixedViewVisualization(false):
+                    state.fixedInput = nil
+                    return .none
+                    
+                case .fixedInput(.addValue):
+                    guard let list = state.fixedInput?.list else { return .none }
+                    state.fixedValues = list
+                    state.fixedInput = nil
+                    return .none
+                    
+                default:
+                    return .none
+                }
+            })
+        ,
+        RecurrenceInput.reducer
+            .optional()
+            .pullback(
+                state: \.recurrenceInput,
+                action: /BalanceList.Action.recurrenceInput,
+                environment: { .init(storage: $0.storage) }
+            )
+            .combined(with: .init { state, action, environment in
+                switch action {
+                // RecurrenceInput
+
+                case .recurrenceViewVisualization(true):
+                    state.recurrenceInput = .init(value: .init(id: environment.uuid), list: state.recurrenceValues)
+                    return .none
+
+                case .recurrenceViewVisualization(false):
+                    state.recurrenceInput = nil
+                    return .none
+
+                case .recurrenceInput(.addValue):
+                    guard let list = state.recurrenceInput?.list else { return .none }
+                    state.recurrenceValues = list
+                    state.recurrenceInput = nil
+                    return .none
+
+                default:
+                    return .none
+                }
+            })
     )
+    .debug()
     
     
     struct View: SwiftUI.View {
@@ -121,54 +123,64 @@ public extension BalanceList {
                     Color.offWhite.edgesIgnoringSafeArea(.all)
                     
                     NavigationLink(
-                        destination: FixedInput.View.init(
-                            store: store.scope(
+                        destination: IfLetStore(
+                            store.scope(
                                 state: \.fixedInput,
                                 action: BalanceList.Action.fixedInput
-                            )
+                            ),
+                            then: { FixedInput.View(store: $0) }
                         ),
                         isActive: viewStore.binding(
                             get: \.inputNewFixedValue,
-                            send: { $0 ? .showInputValue : .hiddenInputValue }
+                            send: BalanceList.Action.fixedViewVisualization
                         ),
                         label: { EmptyView() }
                     )
                     
-                    NavigationLink(
-                        destination: RecorrenceInput.View.init(
-                            store: store.scope(
-                                state: \.recorrenceInput,
-                                action: BalanceList.Action.recorrenceInput
-                            )
-                        ),
-                        isActive: viewStore.binding(
-                            get: \.inputNewRecorrenceValue,
-                            send: { $0 ? .showInputValue : .hiddenInputValue }
-                        ),
-                        label: { EmptyView() }
-                    )
+//                    NavigationLink(
+//                        destination: IfLetStore(
+//                            store.scope(
+//                                state: \.recurrenceInput,
+//                                action: BalanceList.Action.recurrenceInput
+//                            ),
+//                            then: { RecurrenceInput.View(store: $0) }
+//                        ),
+//                        isActive: viewStore.binding(
+//                            get: \.inputNewRecurrenceValue,
+//                            send: BalanceList.Action.recurrenceViewVisualization
+//                        ),
+//                        label: { EmptyView() }
+//                    )
                     
                     ScrollView {
                         LazyVStack.init(alignment: .center, spacing: .spacing_10) {
                             CardBalance.View(
                                 state: viewStore.fixedCard,
-                                action: { viewStore.send(.addFixedValue) }
+                                action: { viewStore.send(.fixedViewVisualization(true)) }
                             )
                             
                             CardBalance.View(
                                 state: viewStore.recurrenceCard,
-                                action: { viewStore.send(.addRecorrenceValue) }
+                                action: { viewStore.send(.recurrenceViewVisualization(true)) }
                             )
                         }
                     }
                 }
                 .onAppear {
-                    viewStore.send(.appear)
+//                    viewStore.send(.appear)
                 }
             }
         }
         
         let store: Store
+        
+        public init() {
+            store = .init(
+                initialState: .init(),
+                reducer: BalanceList.reducer,
+                environment: .init()
+            )
+        }
     }
     
 }

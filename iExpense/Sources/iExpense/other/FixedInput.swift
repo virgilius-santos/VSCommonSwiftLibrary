@@ -2,17 +2,17 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct FixedInputView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            FixedInput.View(store: .init(
-                initialState: .init(),
-                reducer: FixedInput.reducer,
-                environment: .init()
-            ))
-        }
-    }
-}
+//struct FixedInputView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            FixedInput.View(store: .init(
+//                initialState: .init(value: .init(id: .init()), list: [.init(id: .init()), .init(id: .init())]),
+//                reducer: FixedInput.reducer,
+//                environment: .init(storage: .init())
+//            ))
+//        }
+//    }
+//}
 
 public enum FixedInput {}
 
@@ -20,17 +20,13 @@ public extension FixedInput {
     typealias Store = ComposableArchitecture.Store<State, Action>
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
-    struct State: Equatable, Hashable {
+    struct State: Equatable {
+        var value: FixedValue
+        var list: [FixedValue]
         
-        var modelList: [FixedValue]
-        var model: FixedValue
-        
-        init(
-            modelList: [FixedValue] = [.init(), .init()],
-            model: FixedValue = .init()
-        ) {
-            self.modelList = modelList
-            self.model = model
+        init(value: FixedValue, list: [FixedValue]) {
+            self.value = value
+            self.list = list
         }
     }
 
@@ -39,21 +35,24 @@ public extension FixedInput {
         case form(BindingAction<State>)
     }
 
-    struct Environment: Equatable, Hashable {
-        public init() {}
+    struct Environment {
+        var storage: BalanceLocalStorage
+        
+        public init(storage: BalanceLocalStorage) {
+            self.storage = storage
+        }
     }
     
-    static let reducer: Reducer = .combine(
-        .init { state, action, environment in
-            switch action {
-            case .addValue:
-                state.modelList.append(state.model)
-                return .none
-            case .form:
-                return .none
-            }
+    static let reducer: Reducer = .init { state, action, environment in
+        switch action {
+        case .addValue:
+            state.list.append(state.value)
+            return .none
+            
+        case .form:
+            return .none
         }
-    )
+    }
     .binding(action: /FixedInput.Action.form)
     
     struct View: SwiftUI.View {
@@ -66,7 +65,7 @@ public extension FixedInput {
                             TextField(
                                 "Description",
                                 text: viewStore.binding(
-                                    keyPath: \.model.desc,
+                                    keyPath: \.value.desc,
                                     send: FixedInput.Action.form
                                 )
                             )
@@ -74,7 +73,7 @@ public extension FixedInput {
                             TextField.init(
                                 "Value",
                                 value: viewStore.binding(
-                                    keyPath: \.model.value,
+                                    keyPath: \.value.value,
                                     send: FixedInput.Action.form
                                 ),
                                 formatter: decimalFormatter
@@ -84,11 +83,11 @@ public extension FixedInput {
                             Picker(
                                 "Due date",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.day.selected,
+                                    keyPath: \.value.day.selected,
                                     send: FixedInput.Action.form
                                 )
                             ) {
-                                ForEach(viewStore.model.day.availables, id: \.self) {
+                                ForEach(viewStore.value.day.availables, id: \.self) {
                                     Text("\($0)")
                                 }
                             }
@@ -96,11 +95,11 @@ public extension FixedInput {
                             Picker(
                                 "Payment source",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.source.selected,
+                                    keyPath: \.value.source.selected,
                                     send: FixedInput.Action.form
                                 )
                             ) {
-                                ForEach(viewStore.model.source.availables, id: \.self) {
+                                ForEach(viewStore.value.source.availables, id: \.self) {
                                     Text("\($0)")
                                 }
                             }
@@ -114,7 +113,8 @@ public extension FixedInput {
                             FloatingButton(
                                 iconName: "plus.circle.fill",
                                 action: { viewStore.send(.addValue) }
-                            ).padding()
+                            )
+                            .padding()
                         }
                     }
                     

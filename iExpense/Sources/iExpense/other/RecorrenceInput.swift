@@ -2,35 +2,31 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct RecorrenceInputView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            RecorrenceInput.View(store: .init(
-                initialState: .init(),
-                reducer: RecorrenceInput.reducer,
-                environment: .init()
-            ))
-        }
-    }
-}
+//struct RecurrenceInputView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            RecurrenceInput.View(store: .init(
+//                initialState: .init(value: .init(id: .init()), list: [.init(id: .init()), .init(id: .init())]),
+//                reducer: RecurrenceInput.reducer,
+//                environment: .init(storage: .init())
+//            ))
+//        }
+//    }
+//}
 
-public enum RecorrenceInput {}
+public enum RecurrenceInput {}
 
-public extension RecorrenceInput {
+public extension RecurrenceInput {
     typealias Store = ComposableArchitecture.Store<State, Action>
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
-    struct State: Equatable, Hashable {
+    struct State: Equatable {
+        var value: RecurrenceValue
+        var list: [RecurrenceValue]
         
-        var modelList: [RecorrenceValue]
-        var model: RecorrenceValue
-        
-        init(
-            modelList: [RecorrenceValue] = [.init()!, .init()!],
-            model: RecorrenceValue = .init()!
-        ) {
-            self.modelList = modelList
-            self.model = model
+        init(value: RecurrenceValue, list: [RecurrenceValue]) {
+            self.value = value
+            self.list = list
         }
     }
 
@@ -39,22 +35,25 @@ public extension RecorrenceInput {
         case form(BindingAction<State>)
     }
 
-    struct Environment: Equatable, Hashable {
-        public init() {}
+    struct Environment {
+        var storage: BalanceLocalStorage
+        
+        public init(storage: BalanceLocalStorage) {
+            self.storage = storage
+        }
     }
     
-    static let reducer: Reducer = .combine(
-        .init { state, action, environment in
-            switch action {
-            case .addValue:
-                state.modelList.append(state.model)
-                return .none
-            case .form:
-                return .none
-            }
+    static let reducer: Reducer = .init { state, action, environment in
+        switch action {
+        case .addValue:
+            state.list.append(state.value)
+            return .none
+            
+        case .form:
+            return .none
         }
-    )
-    .binding(action: /RecorrenceInput.Action.form)
+    }
+    .binding(action: /RecurrenceInput.Action.form).debug()
     
     struct View: SwiftUI.View {
         
@@ -62,20 +61,20 @@ public extension RecorrenceInput {
             WithViewStore(store) { viewStore in
                 ZStack(alignment: .center) {
                     Form {
-                        Section(header: Text("Recorrence Invoice")) {
+                        Section(header: Text("Recurrence Invoice")) {
                             TextField(
                                 "Description",
                                 text: viewStore.binding(
-                                    keyPath: \.model.desc,
-                                    send: RecorrenceInput.Action.form
+                                    keyPath: \.value.desc,
+                                    send: RecurrenceInput.Action.form
                                 )
                             )
                             
                             TextField.init(
                                 "Value",
                                 value: viewStore.binding(
-                                    keyPath: \.model.value,
-                                    send: RecorrenceInput.Action.form
+                                    keyPath: \.value.value,
+                                    send: RecurrenceInput.Action.form
                                 ),
                                 formatter: decimalFormatter
                             )
@@ -84,11 +83,11 @@ public extension RecorrenceInput {
                             Picker(
                                 "Current installment",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.current,
-                                    send: RecorrenceInput.Action.form
+                                    keyPath: \.value.current,
+                                    send: RecurrenceInput.Action.form
                                 )
                             ) {
-                                ForEach(1..<viewStore.model.total, id: \.self) {
+                                ForEach(1..<viewStore.value.total, id: \.self) {
                                     Text("\($0)")
                                 }
                             }
@@ -96,8 +95,8 @@ public extension RecorrenceInput {
                             Picker(
                                 "number of installments",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.total,
-                                    send: RecorrenceInput.Action.form
+                                    keyPath: \.value.total,
+                                    send: RecurrenceInput.Action.form
                                 )
                             ) {
                                 ForEach(2..<UInt8.max, id: \.self) {
@@ -108,11 +107,11 @@ public extension RecorrenceInput {
                             Picker(
                                 "Payment source",
                                 selection: viewStore.binding(
-                                    keyPath: \.model.source.selected,
-                                    send: RecorrenceInput.Action.form
+                                    keyPath: \.value.source.selected,
+                                    send: RecurrenceInput.Action.form
                                 )
                             ) {
-                                ForEach(viewStore.model.source.availables, id: \.self) {
+                                ForEach(viewStore.value.source.availables, id: \.self) {
                                     Text("\($0)")
                                 }
                             }

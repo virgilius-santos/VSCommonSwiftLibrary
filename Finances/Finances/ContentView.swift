@@ -12,11 +12,7 @@ struct ContentView_Previews: PreviewProvider {
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            FixedInput.View(store: .init(
-                initialState: .init(),
-                reducer: FixedInput.reducer,
-                environment: .init()
-            ))
+            BalanceList.View()
         }
     }
 }
