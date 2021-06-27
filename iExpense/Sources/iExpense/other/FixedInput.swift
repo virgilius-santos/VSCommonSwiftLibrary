@@ -2,17 +2,13 @@
 import ComposableArchitecture
 import SwiftUI
 
-//struct FixedInputView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            FixedInput.View(store: .init(
-//                initialState: .init(value: .init(id: .init()), list: [.init(id: .init()), .init(id: .init())]),
-//                reducer: FixedInput.reducer,
-//                environment: .init(storage: .init())
-//            ))
-//        }
-//    }
-//}
+struct FixedInputView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            FixedInput.View(store: .init(initialState: .init(value: .init(id: .init())), reducer: FixedInput.reducer, environment: .init(addValue: { _ in })))
+        }
+    }
+}
 
 public enum FixedInput {}
 
@@ -22,11 +18,9 @@ public extension FixedInput {
     
     struct State: Equatable {
         var value: FixedValue
-        var list: [FixedValue]
         
-        init(value: FixedValue, list: [FixedValue]) {
+        init(value: FixedValue) {
             self.value = value
-            self.list = list
         }
     }
 
@@ -36,17 +30,17 @@ public extension FixedInput {
     }
 
     struct Environment {
-        var storage: BalanceLocalStorage
+        var addValue: (FixedValue) -> Void
         
-        public init(storage: BalanceLocalStorage) {
-            self.storage = storage
+        public init(addValue: @escaping (FixedValue) -> Void) {
+            self.addValue = addValue
         }
     }
     
     static let reducer: Reducer = .init { state, action, environment in
         switch action {
         case .addValue:
-            state.list.append(state.value)
+            environment.addValue(state.value)
             return .none
             
         case .form:

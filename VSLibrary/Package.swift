@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
   name: "VSLibrary",
-  platforms: [.iOS(.v12), .macOS(.v10_14)],
+  platforms: [.iOS(.v14), .macOS(.v11)],
   products: [
     .library(
       name: "UIKitExtensions",

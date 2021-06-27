@@ -14,7 +14,7 @@ struct CardBalance_Previews: PreviewProvider {
                 ScrollView {
                     LazyVStack.init(alignment: .center, spacing: .spacing_10) {
                         ForEach(1...1, id: \.self) { count in
-                            CardBalance.View(state: .init()) {}
+                            BalanceCard.View(state: .init()) {}
                         }
                     }
                 }
@@ -23,9 +23,9 @@ struct CardBalance_Previews: PreviewProvider {
     }
 }
 
-public enum CardBalance {}
+public enum BalanceCard {}
 
-public extension CardBalance {
+public extension BalanceCard {
     struct State: Equatable {
         var title: String = "Gastos Fixos"
         var valueTitle: String = "Total: "

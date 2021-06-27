@@ -21,7 +21,7 @@ let package = Package(
         .package(
             name: "swift-composable-architecture",
             url: "https://github.com/pointfreeco/swift-composable-architecture.git",
-            .upToNextMajor(from: "0.18.0")
+            .upToNextMajor(from: "0.19.0")
         ),
         .package(path: "../VSLibrary")
     ],

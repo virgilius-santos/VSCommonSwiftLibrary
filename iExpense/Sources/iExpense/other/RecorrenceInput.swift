@@ -22,11 +22,9 @@ public extension RecurrenceInput {
     
     struct State: Equatable {
         var value: RecurrenceValue
-        var list: [RecurrenceValue]
         
-        init(value: RecurrenceValue, list: [RecurrenceValue]) {
+        init(value: RecurrenceValue) {
             self.value = value
-            self.list = list
         }
     }
 
@@ -36,17 +34,17 @@ public extension RecurrenceInput {
     }
 
     struct Environment {
-        var storage: BalanceLocalStorage
+        var addValue: (RecurrenceValue) -> Void
         
-        public init(storage: BalanceLocalStorage) {
-            self.storage = storage
+        public init(addValue: @escaping (RecurrenceValue) -> Void) {
+            self.addValue = addValue
         }
     }
     
     static let reducer: Reducer = .init { state, action, environment in
         switch action {
         case .addValue:
-            state.list.append(state.value)
+            environment.addValue(state.value)
             return .none
             
         case .form:
