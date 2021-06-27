@@ -5,7 +5,12 @@ import SwiftUI
 struct FixedInputView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FixedInput.View(store: .init(initialState: .init(value: .init(id: .init())), reducer: FixedInput.reducer, environment: .init(addValue: { _ in })))
+            FixedInput.View(
+                store: .init(
+                    initialState: .init(value: .init(id: .init()), values: []),
+                    reducer: FixedInput.reducer,
+                    environment: .init())
+            )
         }
     }
 }
@@ -18,9 +23,11 @@ public extension FixedInput {
     
     struct State: Equatable {
         var value: FixedValue
+        var values: [FixedValue]
         
-        init(value: FixedValue) {
+        init(value: FixedValue, values: [FixedValue]) {
             self.value = value
+            self.values = values
         }
     }
 
@@ -29,18 +36,12 @@ public extension FixedInput {
         case form(BindingAction<State>)
     }
 
-    struct Environment {
-        var addValue: (FixedValue) -> Void
-        
-        public init(addValue: @escaping (FixedValue) -> Void) {
-            self.addValue = addValue
-        }
-    }
+    struct Environment {}
     
-    static let reducer: Reducer = .init { state, action, environment in
+    static let reducer: Reducer = .init { state, action, _ in
         switch action {
         case .addValue:
-            environment.addValue(state.value)
+            state.values.append(state.value)
             return .none
             
         case .form:

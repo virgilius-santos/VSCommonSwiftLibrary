@@ -6,14 +6,10 @@ struct BalanceList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             BalanceList.View(store: {
-                let storage = BalanceLocalStorage()
                 let store = BalanceList.Store.init(
                     initialState: .init(),
                     reducer: BalanceList.reducer,
-                    environment: .init(
-                        fixedValues: storage.getFixedValues,
-                        recurrenceValues: storage.getRecurrentValues
-                    )
+                    environment: .init()
                 )
                 return store
             }())
@@ -40,19 +36,28 @@ public extension BalanceList {
     
     struct State: Equatable {
 
-        var fixedInput: Card<FixedInput.State, FixedValue, BalanceCard.State> = .init(
-            values: [.init(id: .init()), .init(id: .init())],
-            makeCard: {
-                .init(title: "Gastos Fixos", values: $0.map(\.value))
-            }
-        )
+        var fixedInput: Card<FixedInput.State, FixedValue, BalanceCard.State>
+        var recurrenceInput: Card<RecurrenceInput.State, RecurrenceValue, BalanceCard.State>
         
-        var recurrenceInput: Card<RecurrenceInput.State, RecurrenceValue, BalanceCard.State> = .init(
-            values: [.init(id: .init()), .init(id: .init())],
-            makeCard: {
-                .init(title: "Gastos Recorrentes", values: $0.map(\.pawn))
-            }
-        )
+        init(
+            fixedValues: [FixedValue] = [.init(id: .init()), .init(id: .init())],
+            recurrenceValues: [RecurrenceValue] = [.init(id: .init()), .init(id: .init())]
+        ) {
+            
+            self.fixedInput = .init(
+                values: fixedValues,
+                makeCard: {
+                    .init(title: "Gastos Fixos", values: $0.map(\.value))
+                }
+            )
+            
+            self.recurrenceInput = .init(
+                values: recurrenceValues,
+                makeCard: {
+                    .init(title: "Gastos Recorrentes", values: $0.map(\.pawn))
+                }
+            )
+        }
     }
     
     enum Action: Equatable {
@@ -62,23 +67,11 @@ public extension BalanceList {
     }
     
     struct Environment {
-        var fixedValues: () -> [FixedValue]
-        var recurrenceValues: () -> [RecurrenceValue]
-        
-        public init(
-            fixedValues: @escaping () -> [FixedValue],
-            recurrenceValues: @escaping () -> [RecurrenceValue]
-        ) {
-            self.fixedValues = fixedValues
-            self.recurrenceValues = recurrenceValues
-        }
     }
     
-    static let reducer: Reducer = .init { state, action, environment in
+    static let reducer: Reducer = .init { state, action, _ in
         switch action {
         case .appear:
-            state.fixedInput.values = environment.fixedValues()
-            state.recurrenceInput.values = environment.recurrenceValues()
             return .none
             
         case .showFixedView:

@@ -23,13 +23,19 @@ public extension BalanceRouter {
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
     struct State: Equatable {
-        var balanceList: BalanceList.State = .init()
+        var fixedValues: [FixedValue] = []
+        var recurrenceValues: [RecurrenceValue] = []
+        
+        var balanceList: BalanceList.State {
+            get { .init(fixedValues: fixedValues) }
+            set {
+                fixedValues = newValue.fixedInput.values
+                recurrenceValues = newValue.recurrenceInput.values
+            }
+        }
         
         var fixedState: FixedInput.State?
-//        var showFixed: Bool = false
-        
         var recurrenceState: RecurrenceInput.State?
-//        var showRecurrence: Bool = false
         
         var navigate: Bool { fixedState != nil || recurrenceState != nil }
     }
@@ -38,10 +44,7 @@ public extension BalanceRouter {
         case didAppear
         case listAction(BalanceList.Action)
         
-//        case fixedActionVisibility(Bool)
         case fixedActions(FixedInput.Action)
-        
-//        case recurrenceActionVisibility(Bool)
         case recurrenceActions(RecurrenceInput.Action)
         
         case navigationStatus(Bool)
@@ -49,7 +52,6 @@ public extension BalanceRouter {
     
     struct Environment {
         var uuid: () -> UUID = UUID.init
-        var storage: BalanceLocalStorage = .init()
     }
     
     static let reducer: Reducer = .combine(
@@ -58,9 +60,7 @@ public extension BalanceRouter {
             .pullback(
                 state: \.fixedState,
                 action: /BalanceRouter.Action.fixedActions,
-                environment: {
-                    .init(addValue: $0.storage.addFixedValue)
-                }
+                environment: { _ in .init() }
             ),
         
         RecurrenceInput.reducer
@@ -68,37 +68,43 @@ public extension BalanceRouter {
             .pullback(
                 state: \.recurrenceState,
                 action: /BalanceRouter.Action.recurrenceActions,
-                environment: {
-                    .init(addValue: $0.storage.addRecurrentValue)
-                }
+                environment: { _ in .init() }
             )
     )
     .combined(with: BalanceList.reducer.pullback(
         state: \.balanceList,
         action: /BalanceRouter.Action.listAction,
-        environment: {
-            .init(
-                fixedValues: $0.storage.getFixedValues,
-                recurrenceValues: $0.storage.getRecurrentValues
-            )
-        }
+        environment: { _ in .init() }
     ))
     .combined(with: .init { state, action, env in
         switch action {
         case .listAction(.showFixedView):
-            state.fixedState = .init(value: .init(id: env.uuid()))
+            state.fixedState = .init(
+                value: .init(id: env.uuid()),
+                values: state.fixedValues
+            )
             return .none
             
         case .fixedActions(.addValue):
+            state.fixedValues = state.fixedState?.values ?? []
             state.fixedState = nil
             return .none
             
         case .listAction(.showRecurrenceView):
-            state.recurrenceState = .init(value: .init(id: env.uuid()))
+            state.recurrenceState = .init(
+                value: .init(id: env.uuid()),
+                values: state.recurrenceValues
+            )
             return .none
             
         case .recurrenceActions(.addValue):
+            state.recurrenceValues = state.recurrenceState?.values ?? []
             state.recurrenceState = nil
+            return .none
+            
+        case .navigationStatus(false):
+            if state.fixedState != nil { state.fixedState = nil }
+            if state.recurrenceState != nil { state.recurrenceState = nil }
             return .none
             
         default:
@@ -135,33 +141,6 @@ public extension BalanceRouter {
                             send: BalanceRouter.Action.navigationStatus
                         )
                     )
-//                    if viewStore.fixedState != nil {
-//                        NavigationLink.init(
-//                            destination: IfLetStore(
-//                                store.scope(state: \.fixedState, action: BalanceRouter.Action.fixedActions),
-//                                then: FixedInput.View.init(store:)
-//                            ),
-//                            isActive: viewStore.binding(
-//                                get: \.showFixed,
-//                                send: BalanceRouter.Action.fixedActionVisibility
-//                            ),
-//                            label: EmptyView.init
-//                        )
-//                    }
-//
-//                    if viewStore.recurrenceState != nil {
-//                        NavigationLink.init(
-//                            destination: IfLetStore(
-//                                store.scope(state: \.recurrenceState, action: BalanceRouter.Action.recurrenceActions),
-//                                then: RecurrenceInput.View.init(store:)
-//                            ),
-//                            isActive: viewStore.binding(
-//                                get: \.showRecurrence,
-//                                send: BalanceRouter.Action.recurrenceActionVisibility
-//                            ),
-//                            label: EmptyView.init
-//                        )
-//                    }
                     
                     BalanceList.View(store: store.scope(
                         state: \.balanceList,
