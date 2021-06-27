@@ -14,70 +14,107 @@ struct AppContentView_Previews: PreviewProvider {
     }
 }
 
+enum NavExample {}
+
+extension NavExample {
+    enum State: Equatable {
+        case first(First.State)
+        case second(Second.State)
+    }
+
+    enum Action: Equatable {
+        case first(First.Action)
+        case second(Second.Action)
+    }
+
+    struct Env {}
+    
+    static let reducer: Reducer<State, Action, Env> = .combine(
+        First.reducer
+            .pullback(
+                state: /State.first,
+                action: /Action.first,
+                environment: { _ in .init() }
+            ),
+        
+        Second.reducer
+            .pullback(
+                state: /State.second,
+                action: /Action.second,
+                environment: { _ in .init() }
+            )
+    )
+    
+    struct View: SwiftUI.View {
+        
+        let store: Store<State, Action>
+        
+        var body: some SwiftUI.View {
+            WithViewStore.init(store, content: { viewStore in
+                switch viewStore.state {
+                case .first(let state):
+                    First.View.init(store: store.scope(
+                        state: { _ in state },
+                        action: Action.first
+                    ))
+                case .second(let state):
+                    Second.View.init(store: store.scope(
+                        state: { _ in state },
+                        action: Action.second
+                    ))
+                }
+            })
+        }
+    }
+}
+
 enum App {
     typealias Store = ComposableArchitecture.Store<State, Action>
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
     struct State: Equatable {
-        
-        var first: First.State?
-        var second: Second.State?
-        
-        var navigate: Bool { first != nil || second != nil }
+        var nav: NavExample.State?
+        var navigate: Bool { nav != nil }
     }
     
     enum Action: Equatable {
-        case first(First.Action)
-        case second(Second.Action)
         case showF, showS
         
+        case nav(NavExample.Action)
         case navigationStatus(Bool)
     }
     
     struct Environment {}
     
-    static let reducer: Reducer = .combine(
-        First.reducer
-            .optional()
-            .pullback(
-                state: \.first,
-                action: /App.Action.first,
-                environment: { _ in First.Environment() }
-            ),
-        Second.reducer
-            .optional()
-            .pullback(
-                state: \.second,
-                action: /App.Action.second,
-                environment: { _ in Second.Environment() }
-            )
-    )
-    .combined(with: .init { state, action, environment in
-        switch action {
-        
-        case .first:
-            return .none
+    static let reducer: Reducer = NavExample.reducer
+        .optional()
+        .pullback(
+            state: \.nav,
+            action: /App.Action.nav,
+            environment: { _ in .init() }
+        )
+        .combined(with: .init { state, action, environment in
+            switch action {
             
-        case .second:
-            return .none
-            
-        case .showF:
-            state.first = .init()
-            return .none
-            
-        case .showS:
-            state.second = .init()
-            return .none
-            
-        case .navigationStatus(true):
-            return .none
-            
-        case .navigationStatus(false):
-            if state.first != nil { state.first = nil }
-            if state.second != nil { state.second = nil }
-            return .none
-        }
-    })
+            case .showF:
+                state.nav = .first(.init())
+                return .none
+                
+            case .showS:
+                state.nav = .second(.init())
+                return .none
+                
+            case .navigationStatus(false):
+                state.nav = nil
+                return .none
+                
+            case .nav:
+                return .none
+                
+            default:
+                return .none
+            }
+        })
     
     struct View: SwiftUI.View {
         
@@ -87,28 +124,20 @@ enum App {
             WithViewStore(store) { viewStore in
                 
                 VStack {
-                    NavigationLink(
-                        destination: IfLetStore.init(
-                            store.scope(
-                                state: \.first,
-                                action: App.Action.first
-                            ),
-                            then: First.View.init(store:),
-                            else: {
-                                IfLetStore.init(
-                                    store.scope(
-                                        state: \.second,
-                                        action: App.Action.second
-                                    ),
-                                    then: Second.View.init(store:)
-                                )
-                            }
-                        ),
+                    NavigationLink.lazy(
+                        destination: {
+                            IfLetStore.init(
+                                store.scope(
+                                    state: \.nav,
+                                    action: App.Action.nav
+                                ),
+                                then: NavExample.View.init(store:)
+                            )
+                        },
                         isActive: viewStore.binding(
                             get: \.navigate,
                             send: App.Action.navigationStatus
-                        ),
-                        label: EmptyView.init
+                        )
                     )
                     
                     Button("First", action: { viewStore.send(.showF) })
