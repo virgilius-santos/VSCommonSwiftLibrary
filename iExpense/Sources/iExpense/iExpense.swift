@@ -20,11 +20,15 @@ extension NavExample {
     enum State: Equatable {
         case first(First.State)
         case second(Second.State)
+        case none
+        
+        var navigate: Bool { self != .none }
     }
 
     enum Action: Equatable {
         case first(First.Action)
         case second(Second.Action)
+        case navigationStatus(Bool)
     }
 
     struct Env {}
@@ -51,17 +55,26 @@ extension NavExample {
         
         var body: some SwiftUI.View {
             WithViewStore.init(store, content: { viewStore in
-                switch viewStore.state {
-                case .first(let state):
-                    First.View.init(store: store.scope(
-                        state: { _ in state },
-                        action: Action.first
-                    ))
-                case .second(let state):
-                    Second.View.init(store: store.scope(
-                        state: { _ in state },
-                        action: Action.second
-                    ))
+                NavigationLink.lazy(
+                    isActive: viewStore.binding(
+                        get: \.navigate,
+                        send: NavExample.Action.navigationStatus
+                    )
+                ) {
+                    switch viewStore.state {
+                    case .first(let state):
+                        First.View.init(store: store.scope(
+                            state: { _ in state },
+                            action: NavExample.Action.first
+                        ))
+                    case .second(let state):
+                        Second.View.init(store: store.scope(
+                            state: { _ in state },
+                            action: NavExample.Action.second
+                        ))
+                    case .none:
+                        EmptyView()
+                    }
                 }
             })
         }
@@ -73,21 +86,18 @@ enum App {
     typealias Reducer = ComposableArchitecture.Reducer<State, Action, Environment>
     
     struct State: Equatable {
-        var nav: NavExample.State?
-        var navigate: Bool { nav != nil }
+        var nav: NavExample.State = .none
     }
     
     enum Action: Equatable {
         case showF, showS
         
         case nav(NavExample.Action)
-        case navigationStatus(Bool)
     }
     
     struct Environment {}
     
     static let reducer: Reducer = NavExample.reducer
-        .optional()
         .pullback(
             state: \.nav,
             action: /App.Action.nav,
@@ -104,11 +114,8 @@ enum App {
                 state.nav = .second(.init())
                 return .none
                 
-            case .navigationStatus(false):
-                state.nav = nil
-                return .none
-                
-            case .nav:
+            case .nav(.navigationStatus(false)):
+                state.nav = .none
                 return .none
                 
             default:
@@ -124,19 +131,10 @@ enum App {
             WithViewStore(store) { viewStore in
                 
                 VStack {
-                    NavigationLink.lazy(
-                        destination: {
-                            IfLetStore.init(
-                                store.scope(
-                                    state: \.nav,
-                                    action: App.Action.nav
-                                ),
-                                then: NavExample.View.init(store:)
-                            )
-                        },
-                        isActive: viewStore.binding(
-                            get: \.navigate,
-                            send: App.Action.navigationStatus
+                    NavExample.View.init(
+                        store: store.scope(
+                            state: \.nav,
+                            action: App.Action.nav
                         )
                     )
                     

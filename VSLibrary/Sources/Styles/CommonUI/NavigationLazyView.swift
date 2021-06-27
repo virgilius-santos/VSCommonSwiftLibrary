@@ -6,7 +6,7 @@ public extension NavigationLink where Label == EmptyView {
         .init(destination: NavigationLazyView(destination), isActive: isActive, label: { EmptyView() })
     }
     
-    static func lazy(destination: @escaping () -> Destination, isActive: Binding<Bool>) -> NavigationLink<Label, NavigationLazyView<Destination>> {
+    static func lazy(isActive: Binding<Bool>, @ViewBuilder destination: @escaping () -> Destination) -> NavigationLink<Label, NavigationLazyView<Destination>> {
         .init(destination: NavigationLazyView(destination()), isActive: isActive, label: { EmptyView() })
     }
     
