@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Finances/Finances.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WordDataSource">
+   </FileRef>
+   <FileRef
+      location = "group:WordScramble">
+   </FileRef>
+   <FileRef
+      location = "group:WeSplit">
+   </FileRef>
+   <FileRef
+      location = "group:Weather">
+   </FileRef>
+   <FileRef
+      location = "group:VSLibrary">
+   </FileRef>
+   <FileRef
+      location = "group:ViewsAndModifiers">
+   </FileRef>
+   <FileRef
+      location = "group:UnitConversion">
+   </FileRef>
+   <FileRef
+      location = "group:MQTTLibrary">
+   </FileRef>
+   <FileRef
+      location = "group:iExpense">
+   </FileRef>
+   <FileRef
+      location = "group:GuessTheFlag">
+   </FileRef>
+   <FileRef
+      location = "group:BetterRest">
+   </FileRef>
+   <FileRef
+      location = "container:Animations">
+   </FileRef>
+</Workspace>
