@@ -10,9 +10,6 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-//            BalanceRouter.View()
-            Text("value")
-        }
+        TabView()
     }
 }
