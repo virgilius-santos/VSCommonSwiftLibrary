@@ -1,7 +1,6 @@
 
 import SwiftUI
 import Combine
-import iExpense
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -12,7 +11,8 @@ struct ContentView_Previews: PreviewProvider {
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            BalanceRouter.View()
+//            BalanceRouter.View()
+            Text("value")
         }
     }
 }

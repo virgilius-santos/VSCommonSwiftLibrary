@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		180BDA4626220EFF003EF4B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180BDA4526220EFF003EF4B5 /* Preview Assets.xcassets */; };
 		180BDA5126220F00003EF4B5 /* FinancesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5026220F00003EF4B5 /* FinancesTests.swift */; };
 		180BDA5C26220F00003EF4B5 /* FinancesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */; };
-		1822E063267B547000B465EF /* iExpense in Frameworks */ = {isa = PBXBuildFile; productRef = 1822E062267B547000B465EF /* iExpense */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +58,7 @@
 		180BDA5726220F00003EF4B5 /* FinancesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180BDA5B26220F00003EF4B5 /* FinancesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesUITests.swift; sourceTree = "<group>"; };
 		180BDA5D26220F00003EF4B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18B7CE9727B097CC0075ECC1 /* Finances.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finances.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1822E063267B547000B465EF /* iExpense in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +110,7 @@
 		180BDA3D26220EFC003EF4B5 /* Finances */ = {
 			isa = PBXGroup;
 			children = (
+				18B7CE9727B097CC0075ECC1 /* Finances.entitlements */,
 				180BDA4726220EFF003EF4B5 /* Info.plist */,
 				180BDA4026220EFC003EF4B5 /* ContentView.swift */,
 				180BDA3E26220EFC003EF4B5 /* FinancesApp.swift */,
@@ -171,7 +171,6 @@
 			);
 			name = Finances;
 			packageProductDependencies = (
-				1822E062267B547000B465EF /* iExpense */,
 			);
 			productName = Finances;
 			productReference = 180BDA3B26220EFC003EF4B5 /* Finances.app */;
@@ -444,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Finances/Finances.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Finances/Preview Content\"";
 				DEVELOPMENT_TEAM = KR99UBUHUT;
@@ -456,6 +456,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiculos.Finances;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Finances/Finances.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Finances/Preview Content\"";
 				DEVELOPMENT_TEAM = KR99UBUHUT;
@@ -478,6 +480,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.versiculos.Finances;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -607,13 +610,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1822E062267B547000B465EF /* iExpense */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = iExpense;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 180BDA3326220EFC003EF4B5 /* Project object */;
 }
