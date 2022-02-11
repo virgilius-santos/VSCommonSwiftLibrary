@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331427B5E8190059BB99 /* AllChatsView.swift */; };
+		1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331627B5E83A0059BB99 /* RecentCardView.swift */; };
+		1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331827B5ED6F0059BB99 /* ContentView.swift */; };
+		1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331A27B5EEC00059BB99 /* SearchText.swift */; };
+		1800331D27B5EEDB0059BB99 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331C27B5EEDB0059BB99 /* IconButton.swift */; };
+		1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331E27B5EEF90059BB99 /* DetailView.swift */; };
 		18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */; };
 		18B7CEB227B0A47C0075ECC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */; };
 		18B7CEB527B0A47C0075ECC1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B7CEB427B0A47C0075ECC1 /* Preview Assets.xcassets */; };
@@ -36,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1800331427B5E8190059BB99 /* AllChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsView.swift; sourceTree = "<group>"; };
+		1800331627B5E83A0059BB99 /* RecentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCardView.swift; sourceTree = "<group>"; };
+		1800331827B5ED6F0059BB99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1800331A27B5EEC00059BB99 /* SearchText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchText.swift; sourceTree = "<group>"; };
+		1800331C27B5EEDB0059BB99 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		1800331E27B5EEF90059BB99 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		18B7CEA827B0A47A0075ECC1 /* FinancesMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancesMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesMacApp.swift; sourceTree = "<group>"; };
 		18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1800331327B5E8060059BB99 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1800331427B5E8190059BB99 /* AllChatsView.swift */,
+				1800331627B5E83A0059BB99 /* RecentCardView.swift */,
+				1800331E27B5EEF90059BB99 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		18B7CE9F27B0A47A0075ECC1 = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +122,10 @@
 		18B7CEAA27B0A47A0075ECC1 /* FinancesMac */ = {
 			isa = PBXGroup;
 			children = (
+				1800331327B5E8060059BB99 /* Views */,
 				18B7CED927B0A4DC0075ECC1 /* Components */,
 				18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */,
+				1800331827B5ED6F0059BB99 /* ContentView.swift */,
 				18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */,
 				18B7CEB627B0A47C0075ECC1 /* Info.plist */,
 				18B7CEB727B0A47C0075ECC1 /* FinancesMac.entitlements */,
@@ -141,6 +165,8 @@
 				18B7CEDA27B0A4DC0075ECC1 /* BlurView.swift */,
 				18B7CEDB27B0A4DC0075ECC1 /* TabButton.swift */,
 				18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */,
+				1800331A27B5EEC00059BB99 /* SearchText.swift */,
+				1800331C27B5EEDB0059BB99 /* IconButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,9 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1800331D27B5EEDB0059BB99 /* IconButton.swift in Sources */,
 				18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */,
+				1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */,
+				1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */,
+				1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */,
 				18B7CEDD27B0A4DC0075ECC1 /* BlurView.swift in Sources */,
+				1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */,
 				18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */,
+				1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */,
 				18B7CEDF27B0A4DC0075ECC1 /* TabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
