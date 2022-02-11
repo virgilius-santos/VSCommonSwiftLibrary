@@ -34,17 +34,3 @@ struct TabButton: View {
         .buttonStyle(.plain)
     }
 }
-
-//struct TabButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TabButton(
-//            image: "message",
-//            title: "All Chats",
-//            selectedTab: $viewMdoel.selectedTab
-//        )
-//    }
-//}
-//
-//final class TabButtonViewModel: ObservableObject {
-//    @Published var selectedTab = "All Chats"
-//}
