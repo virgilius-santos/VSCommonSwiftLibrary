@@ -5,11 +5,7 @@ struct RecentCardView: View {
     
     var body: some View {
         HStack {
-            Image.init(recentMsg.userImage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
+            ProfileView(image: recentMsg.userImage)
             
             VStack(spacing: 4) {
                 HStack {

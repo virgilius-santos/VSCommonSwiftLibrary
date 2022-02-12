@@ -13,11 +13,10 @@ struct ExpandView: View {
             
             VStack(spacing: 25) {
                 
-                Image(recentMsg.userImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 90, height: 90)
-                    .clipShape(Circle())
+                ProfileView(
+                    image: recentMsg.userImage,
+                    size: .init(width: 90, height: 90)
+                )
                     .padding(.top, 35)
                 
                 Text(recentMsg.userName)
