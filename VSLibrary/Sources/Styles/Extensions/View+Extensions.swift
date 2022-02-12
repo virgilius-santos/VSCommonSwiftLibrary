@@ -6,6 +6,15 @@ public extension View {
       .background(background)
       .cornerRadius(10)
   }
+  
+  @ViewBuilder
+  func hidden(_ hidden: Bool) -> some View {
+    if hidden {
+      EmptyView()
+    } else {
+      self
+    }
+  }
 }
 
 public extension View {

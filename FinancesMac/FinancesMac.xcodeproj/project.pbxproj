@@ -22,9 +22,9 @@
 		18B7CEDD27B0A4DC0075ECC1 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDA27B0A4DC0075ECC1 /* BlurView.swift */; };
 		18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDB27B0A4DC0075ECC1 /* TabButton.swift */; };
 		18B7CEDF27B0A4DC0075ECC1 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */; };
+		18E2F97B27B7FBE9003B6A79 /* Styles in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2F97A27B7FBE9003B6A79 /* Styles */; };
 		18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */; };
 		18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03127B66E8800EDDFE3 /* MessageView.swift */; };
-		18F3D03427B66EC500EDDFE3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */; };
 		18F3D03727B7B46300EDDFE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03627B7B46300EDDFE3 /* ProfileView.swift */; };
 		18F3D03927B7B74E00EDDFE3 /* MessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,6 @@
 		18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandView.swift; sourceTree = "<group>"; };
 		18F3D03127B66E8800EDDFE3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		18F3D03627B7B46300EDDFE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E2F97B27B7FBE9003B6A79 /* Styles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +118,7 @@
 				18B7CEBF27B0A47C0075ECC1 /* FinancesMacTests */,
 				18B7CEC927B0A47C0075ECC1 /* FinancesMacUITests */,
 				18B7CEA927B0A47A0075ECC1 /* Products */,
+				18E2F97927B7FBE9003B6A79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,7 +135,6 @@
 		18B7CEAA27B0A47A0075ECC1 /* FinancesMac */ = {
 			isa = PBXGroup;
 			children = (
-				18F3D03527B66ED000EDDFE3 /* Extensions */,
 				1800331327B5E8060059BB99 /* Views */,
 				18B7CED927B0A4DC0075ECC1 /* Components */,
 				18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */,
@@ -186,12 +186,11 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		18F3D03527B66ED000EDDFE3 /* Extensions */ = {
+		18E2F97927B7FBE9003B6A79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */,
 			);
-			path = Extensions;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +209,9 @@
 			dependencies = (
 			);
 			name = FinancesMac;
+			packageProductDependencies = (
+				18E2F97A27B7FBE9003B6A79 /* Styles */,
+			);
 			productName = FinancesMac;
 			productReference = 18B7CEA827B0A47A0075ECC1 /* FinancesMac.app */;
 			productType = "com.apple.product-type.application";
@@ -334,7 +336,6 @@
 				18F3D03927B7B74E00EDDFE3 /* MessageCard.swift in Sources */,
 				18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */,
 				1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */,
-				18F3D03427B66EC500EDDFE3 /* View+Extensions.swift in Sources */,
 				18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */,
 				1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */,
 				18F3D03727B7B46300EDDFE3 /* ProfileView.swift in Sources */,
@@ -658,6 +659,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18E2F97A27B7FBE9003B6A79 /* Styles */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styles;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18B7CEA027B0A47A0075ECC1 /* Project object */;
 }
