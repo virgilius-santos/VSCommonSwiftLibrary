@@ -1,4 +1,5 @@
 import SwiftUI
+import Styles
 
 struct AllChatsView: View {
   var recentMsgs: [RecentMessage]

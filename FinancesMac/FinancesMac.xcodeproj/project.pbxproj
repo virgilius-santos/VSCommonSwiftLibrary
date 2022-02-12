@@ -11,7 +11,6 @@
 		1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331627B5E83A0059BB99 /* RecentCardView.swift */; };
 		1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331827B5ED6F0059BB99 /* ContentView.swift */; };
 		1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331A27B5EEC00059BB99 /* SearchText.swift */; };
-		1800331D27B5EEDB0059BB99 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331C27B5EEDB0059BB99 /* IconButton.swift */; };
 		1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331E27B5EEF90059BB99 /* DetailView.swift */; };
 		18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */; };
 		18B7CEB227B0A47C0075ECC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */; };
@@ -50,7 +49,6 @@
 		1800331627B5E83A0059BB99 /* RecentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCardView.swift; sourceTree = "<group>"; };
 		1800331827B5ED6F0059BB99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1800331A27B5EEC00059BB99 /* SearchText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchText.swift; sourceTree = "<group>"; };
-		1800331C27B5EEDB0059BB99 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		1800331E27B5EEF90059BB99 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		18B7CEA827B0A47A0075ECC1 /* FinancesMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancesMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesMacApp.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				18B7CEDB27B0A4DC0075ECC1 /* TabButton.swift */,
 				18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */,
 				1800331A27B5EEC00059BB99 /* SearchText.swift */,
-				1800331C27B5EEDB0059BB99 /* IconButton.swift */,
 				18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */,
 			);
 			path = Components;
@@ -324,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */,
-				1800331D27B5EEDB0059BB99 /* IconButton.swift in Sources */,
 				18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */,
 				1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */,
 				1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */,
