@@ -1,17 +1,17 @@
 import SwiftUI
 
-struct TabButton: View {
+public struct TabButton: View {
   var image: String
   var title: String
-  @Binding var selectedTab: String
+  var selectedTab: Binding<String>?
   
-  var body: some View {
+  public var body: some View {
     
-    let isSelectedTab = selectedTab == title
+    let isSelectedTab = selectedTab?.wrappedValue == title
     
     Button(
       action: {
-        withAnimation { selectedTab = title }
+        withAnimation { selectedTab?.wrappedValue = title }
       },
       label: {
         VStack(spacing: 7) {
@@ -32,5 +32,11 @@ struct TabButton: View {
       }
     )
       .buttonStyle(.plain)
+  }
+  
+  public init(image: String, title: String, selectedTab: Binding<String>?) {
+    self.image = image
+    self.title = title
+    self.selectedTab = selectedTab
   }
 }

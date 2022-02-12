@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct TabView<LeftContent: View, MainContent: View>: View {
+public struct TabView<LeftContent: View, MainContent: View>: View {
   var leftContent: () -> LeftContent
   var mainContent: () -> MainContent
   
-  var body: some View {
+  public var body: some View {
     HStack(spacing: 0) {
       VStack(content: leftContent)
         .padding()
@@ -16,7 +16,7 @@ struct TabView<LeftContent: View, MainContent: View>: View {
     }
   }
   
-  init(
+  public init(
     @ViewBuilder leftContent: @escaping () -> LeftContent,
     @ViewBuilder mainContent: @escaping () -> MainContent
   ) {

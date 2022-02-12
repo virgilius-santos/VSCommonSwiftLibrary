@@ -1,5 +1,5 @@
 import SwiftUI
-
+import Styles
 private var screen = NSScreen.main?.visibleFrame ?? .zero
 
 struct Content: View {

@@ -107,12 +107,11 @@ struct MessageView: View {
   func myMessageCard(msg: Message, width: CGFloat) -> some View {
     Spacer()
     
-    MessageCardRounded(
+    MessageCard(
       message: msg.message,
       width: width,
-      alignment: .trailing,
-      backgroundColor: Color.blue
-    ).cornerRadius(10)
+      style: .rightCard
+    )
   }
   
   @ViewBuilder
@@ -123,12 +122,11 @@ struct MessageView: View {
     )
       .offset(y: 20)
     
-    MessageCardBubbled(
+    MessageCard(
       message: msg.message,
       width: width,
-      alignment: .leading,
-      backgroundColor: Color.primary.opacity(0.2)
-    ).clipShape(MessageBubble())
+      style: .leftCard
+    )
     
     Spacer()
   }

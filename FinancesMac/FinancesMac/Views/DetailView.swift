@@ -1,4 +1,5 @@
 import SwiftUI
+import Styles
 
 struct DetailView: View {
   var recentMsg: RecentMessage
