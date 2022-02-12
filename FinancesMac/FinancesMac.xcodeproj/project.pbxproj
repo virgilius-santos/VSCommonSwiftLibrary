@@ -22,6 +22,9 @@
 		18B7CEDD27B0A4DC0075ECC1 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDA27B0A4DC0075ECC1 /* BlurView.swift */; };
 		18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDB27B0A4DC0075ECC1 /* TabButton.swift */; };
 		18B7CEDF27B0A4DC0075ECC1 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */; };
+		18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */; };
+		18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03127B66E8800EDDFE3 /* MessageView.swift */; };
+		18F3D03427B66EC500EDDFE3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		18B7CEDA27B0A4DC0075ECC1 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		18B7CEDB27B0A4DC0075ECC1 /* TabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandView.swift; sourceTree = "<group>"; };
+		18F3D03127B66E8800EDDFE3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,8 @@
 				1800331427B5E8190059BB99 /* AllChatsView.swift */,
 				1800331627B5E83A0059BB99 /* RecentCardView.swift */,
 				1800331E27B5EEF90059BB99 /* DetailView.swift */,
+				18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */,
+				18F3D03127B66E8800EDDFE3 /* MessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,6 +130,7 @@
 		18B7CEAA27B0A47A0075ECC1 /* FinancesMac */ = {
 			isa = PBXGroup;
 			children = (
+				18F3D03527B66ED000EDDFE3 /* Extensions */,
 				1800331327B5E8060059BB99 /* Views */,
 				18B7CED927B0A4DC0075ECC1 /* Components */,
 				18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */,
@@ -169,6 +178,14 @@
 				1800331C27B5EEDB0059BB99 /* IconButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		18F3D03527B66ED000EDDFE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18F3D03327B66EC500EDDFE3 /* View+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,13 +318,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */,
 				1800331D27B5EEDB0059BB99 /* IconButton.swift in Sources */,
 				18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */,
 				1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */,
 				1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */,
 				1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */,
 				18B7CEDD27B0A4DC0075ECC1 /* BlurView.swift in Sources */,
+				18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */,
 				1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */,
+				18F3D03427B66EC500EDDFE3 /* View+Extensions.swift in Sources */,
 				18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */,
 				1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */,
 				18B7CEDF27B0A4DC0075ECC1 /* TabView.swift in Sources */,
