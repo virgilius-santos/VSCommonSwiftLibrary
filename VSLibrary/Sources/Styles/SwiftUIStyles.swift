@@ -2,7 +2,6 @@
 
 import SwiftUI
 
-@available(iOS 13.0.0, *)
 public extension Text {
     func baseStyle(
         size: CGFloat,
@@ -15,7 +14,6 @@ public extension Text {
     }
 }
 
-@available(iOS 13.0.0, *)
 public extension View {
     func roundedStyle(foregroundColor: Color, background: Color) -> some View {
         frame(width: 280, height: 50)
@@ -24,7 +22,6 @@ public extension View {
     }
 }
 
-@available(iOS 13.0.0, *)
 public extension Image {
     func imageStyle(size: CGFloat) -> some View {
         renderingMode(.original)
@@ -38,7 +35,6 @@ public extension Image {
     }
 }
 
-@available(iOS 13.0, *)
 struct CapsuleImageStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -48,22 +44,19 @@ struct CapsuleImageStyle: ViewModifier {
     }
 }
 
-@available(iOS 13.0, *)
 public extension LinearGradient {
     init(_ colors: Color..., startPoint: UnitPoint = .topLeading, endPoint: UnitPoint = .bottomTrailing) {
         self.init(gradient: Gradient(colors: colors), startPoint: startPoint, endPoint: endPoint)
     }
 }
 
-@available(iOS 13.0, *)
+#if os(iOS)
 public func image(from name: String, in bundle: Bundle?) -> Image {
     Image(uiImage: UIImage(named: name, in: bundle, compatibleWith: nil)!)
         .renderingMode(.original)
 }
+#endif
 
-
-
-@available(iOS 13.0.0, *)
 public extension View {
     func alert(isPresented: Binding<Bool>, message: AlertMessage) -> some View {
         alert(isPresented: isPresented) {

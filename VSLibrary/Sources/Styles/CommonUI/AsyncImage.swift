@@ -6,7 +6,7 @@ import Foundation
 public struct AsyncImage<Placeholder: View>: View {
     
     private class ImageLoader: ObservableObject {
-        @Published var image: UIImage?
+        @Published var image: KImage?
         private let url: URL
         private var cancellable: AnyCancellable?
 
@@ -20,7 +20,7 @@ public struct AsyncImage<Placeholder: View>: View {
         
         func load() {
             cancellable = URLSession.shared.dataTaskPublisher(for: url)
-                .map { UIImage(data: $0.data) }
+                .map { KImage(data: $0.data) }
                 .replaceError(with: nil)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] in self?.image = $0 }
@@ -31,16 +31,16 @@ public struct AsyncImage<Placeholder: View>: View {
         }
     }
     
+    @ViewBuilder
     public var body: some View {
-        Group {
-            if loader.image != nil {
-                Image(uiImage: loader.image!)
-                    .resizable()
-            } else {
-                placeholder()
-            }
+        if let image = loader.image {
+            Image(kImage: image)
+                .resizable()
+                .onAppear(perform: loader.load)
+        } else {
+            placeholder()
+                .onAppear(perform: loader.load)
         }
-        .onAppear(perform: loader.load)
     }
     
     @StateObject private var loader: ImageLoader

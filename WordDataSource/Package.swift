@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
   name: "WordDataSource",
-  platforms: [.iOS(.v12)],
+  platforms: [.iOS("15.0"), .macOS("12.1")],
   products: [
     .library(
       name: "WordDataSource",

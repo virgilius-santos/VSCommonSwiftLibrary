@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Animations",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS("15.0")],
     products: [
         .library(
             name: "Animations",

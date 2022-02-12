@@ -19,3 +19,20 @@ public struct WordDataSource {
     self.word = word
   }
 }
+
+public extension WordDataSource {
+  static let memory: WordDataSource = {
+    class Local {
+      var words = [String]()
+    }
+    
+    let local = Local()
+    
+    return WordDataSource(
+      saveWord: { local.words.append($0 ) },
+      deleteWord: { local.words.remove(at: $0) },
+      numberOfWords: { local.words.count },
+      word: { local.words[$0] }
+    )
+  }()
+}

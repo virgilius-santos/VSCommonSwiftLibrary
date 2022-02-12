@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "WordScramble",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS("15.0"), .macOS("12.1")],
     products: [
         .library(
             name: "WordScramble",

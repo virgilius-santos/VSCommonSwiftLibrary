@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "UnitConversion",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS("15.0")],
     products: [
         .library(
             name: "UnitConversion",

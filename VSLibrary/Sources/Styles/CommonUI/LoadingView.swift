@@ -1,6 +1,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 fileprivate let loadingText = "Loading"
 
 public struct LoadingView<Content>: View where Content: View {
@@ -37,7 +39,7 @@ public struct LoadingView<Content>: View where Content: View {
     }
 }
 
-struct LoadingIndicator: UIViewRepresentable {
+struct LoadingIndicator: KViewRepresentable {
 
     typealias UIViewType = UIActivityIndicatorView
 
@@ -52,3 +54,4 @@ struct LoadingIndicator: UIViewRepresentable {
     }
     
 }
+#endif

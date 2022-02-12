@@ -2,25 +2,17 @@
 import Foundation
 
 public extension WordDataSource {
-  static let mock = WordDataSource(
-    saveWord: { _ in },
-    deleteWord: { _ in },
-    numberOfWords: { 17 },
-    word: { _ in "dummy" }
-  )
-  
-  static let memory: WordDataSource = {
-    class Local {
-      var words = [String]()
-    }
-    
-    let local = Local()
-    
-    return WordDataSource(
-      saveWord: { local.words.append($0 ) },
-      deleteWord: { local.words.remove(at: $0) },
-      numberOfWords: { local.words.count },
-      word: { local.words[$0] }
-    )
-  }()
+  static func fixture(
+    saveWord: @escaping (String) -> Void = { _ in fatalError("not implemented") },
+    deleteWord: @escaping (Int) -> Void = { _ in fatalError("not implemented") },
+    numberOfWords: @escaping () -> Int = { fatalError("not implemented") },
+    word: @escaping (Int) -> String = { _ in fatalError("not implemented") }
+  ) -> WordDataSource {
+      .init(
+        saveWord: saveWord,
+        deleteWord: deleteWord,
+        numberOfWords: numberOfWords,
+        word: word
+      )
+  }
 }

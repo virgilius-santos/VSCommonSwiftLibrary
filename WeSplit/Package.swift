@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "WeSplit",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS("15.0")],
     products: [
         .library(
             name: "WeSplit",

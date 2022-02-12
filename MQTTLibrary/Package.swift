@@ -4,9 +4,7 @@ import PackageDescription
 
 let package = Package(
   name: "MQTTLibrary",
-  platforms: [
-    .iOS("12.3"),
-  ],
+  platforms: [.iOS("15.0"), .macOS("12.1")],
   products: [
     .library(
       name: "MQTTLibrary",

@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "GuessTheFlag",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS("15.0")],
     products: [
         .library(
             name: "GuessTheFlag",

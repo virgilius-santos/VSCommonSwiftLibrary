@@ -1,7 +1,6 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct NotificationView<Content: View>: View {
     let content: Content
 
@@ -12,9 +11,9 @@ public struct NotificationView<Content: View>: View {
     public var body: some View {
         content
             .padding()
-            .background(Color(.tertiarySystemBackground))
+            .background(.tertiary)
             .cornerRadius(16)
             .transition(.move(edge: .top))
-            .animation(.spring())
+            .animation(.spring(), value: 5)
     }
 }
