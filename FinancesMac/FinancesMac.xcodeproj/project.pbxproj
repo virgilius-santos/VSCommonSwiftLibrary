@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331427B5E8190059BB99 /* AllChatsView.swift */; };
-		1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331627B5E83A0059BB99 /* RecentCardView.swift */; };
-		1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331827B5ED6F0059BB99 /* ContentView.swift */; };
-		1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800331E27B5EEF90059BB99 /* DetailView.swift */; };
 		18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */; };
 		18B7CEB227B0A47C0075ECC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */; };
 		18B7CEB527B0A47C0075ECC1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B7CEB427B0A47C0075ECC1 /* Preview Assets.xcassets */; };
@@ -18,8 +14,7 @@
 		18B7CECB27B0A47C0075ECC1 /* FinancesMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CECA27B0A47C0075ECC1 /* FinancesMacUITests.swift */; };
 		18B7CECD27B0A47C0075ECC1 /* FinancesMacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7CECC27B0A47C0075ECC1 /* FinancesMacUITestsLaunchTests.swift */; };
 		18E2F97B27B7FBE9003B6A79 /* Styles in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2F97A27B7FBE9003B6A79 /* Styles */; };
-		18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */; };
-		18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03127B66E8800EDDFE3 /* MessageView.swift */; };
+		18E2F97F27B82116003B6A79 /* MacChat in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2F97E27B82116003B6A79 /* MacChat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1800331427B5E8190059BB99 /* AllChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChatsView.swift; sourceTree = "<group>"; };
-		1800331627B5E83A0059BB99 /* RecentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCardView.swift; sourceTree = "<group>"; };
-		1800331827B5ED6F0059BB99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1800331E27B5EEF90059BB99 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		18B7CEA827B0A47A0075ECC1 /* FinancesMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancesMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesMacApp.swift; sourceTree = "<group>"; };
 		18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,8 +46,6 @@
 		18B7CEC627B0A47C0075ECC1 /* FinancesMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancesMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B7CECA27B0A47C0075ECC1 /* FinancesMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesMacUITests.swift; sourceTree = "<group>"; };
 		18B7CECC27B0A47C0075ECC1 /* FinancesMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandView.swift; sourceTree = "<group>"; };
-		18F3D03127B66E8800EDDFE3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E2F97F27B82116003B6A79 /* MacChat in Frameworks */,
 				18E2F97B27B7FBE9003B6A79 /* Styles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,18 +75,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1800331327B5E8060059BB99 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1800331427B5E8190059BB99 /* AllChatsView.swift */,
-				1800331627B5E83A0059BB99 /* RecentCardView.swift */,
-				1800331E27B5EEF90059BB99 /* DetailView.swift */,
-				18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */,
-				18F3D03127B66E8800EDDFE3 /* MessageView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		18B7CE9F27B0A47A0075ECC1 = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +99,7 @@
 		18B7CEAA27B0A47A0075ECC1 /* FinancesMac */ = {
 			isa = PBXGroup;
 			children = (
-				1800331327B5E8060059BB99 /* Views */,
 				18B7CEAB27B0A47A0075ECC1 /* FinancesMacApp.swift */,
-				1800331827B5ED6F0059BB99 /* ContentView.swift */,
 				18B7CEB127B0A47C0075ECC1 /* Assets.xcassets */,
 				18B7CEB627B0A47C0075ECC1 /* Info.plist */,
 				18B7CEB727B0A47C0075ECC1 /* FinancesMac.entitlements */,
@@ -182,6 +158,7 @@
 			name = FinancesMac;
 			packageProductDependencies = (
 				18E2F97A27B7FBE9003B6A79 /* Styles */,
+				18E2F97E27B82116003B6A79 /* MacChat */,
 			);
 			productName = FinancesMac;
 			productReference = 18B7CEA827B0A47A0075ECC1 /* FinancesMac.app */;
@@ -297,13 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */,
 				18B7CEAC27B0A47A0075ECC1 /* FinancesMacApp.swift in Sources */,
-				1800331527B5E8190059BB99 /* AllChatsView.swift in Sources */,
-				1800331F27B5EEF90059BB99 /* DetailView.swift in Sources */,
-				1800331927B5ED6F0059BB99 /* ContentView.swift in Sources */,
-				18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */,
-				1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +599,10 @@
 		18E2F97A27B7FBE9003B6A79 /* Styles */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Styles;
+		};
+		18E2F97E27B82116003B6A79 /* MacChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacChat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

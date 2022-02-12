@@ -1,10 +1,11 @@
 import SwiftUI
+import MacChat
 
 @main
 struct FinancesMacApp: App {
     var body: some Scene {
         WindowGroup {
-            Content()
+            MacChat()
         }
         .windowStyle(.hiddenTitleBar)
     }

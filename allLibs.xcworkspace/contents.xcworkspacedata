@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MacChat">
+   </FileRef>
+   <FileRef
       location = "group:FinancesMac/FinancesMac.xcodeproj">
    </FileRef>
    <FileRef
