@@ -25,7 +25,6 @@
 		18E2F97B27B7FBE9003B6A79 /* Styles in Frameworks */ = {isa = PBXBuildFile; productRef = 18E2F97A27B7FBE9003B6A79 /* Styles */; };
 		18F3D03027B66B6D00EDDFE3 /* ExpandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */; };
 		18F3D03227B66E8800EDDFE3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03127B66E8800EDDFE3 /* MessageView.swift */; };
-		18F3D03727B7B46300EDDFE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03627B7B46300EDDFE3 /* ProfileView.swift */; };
 		18F3D03927B7B74E00EDDFE3 /* MessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		18F3D02F27B66B6D00EDDFE3 /* ExpandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandView.swift; sourceTree = "<group>"; };
 		18F3D03127B66E8800EDDFE3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		18F3D03627B7B46300EDDFE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +178,6 @@
 				18B7CEDC27B0A4DC0075ECC1 /* TabView.swift */,
 				1800331A27B5EEC00059BB99 /* SearchText.swift */,
 				1800331C27B5EEDB0059BB99 /* IconButton.swift */,
-				18F3D03627B7B46300EDDFE3 /* ProfileView.swift */,
 				18F3D03827B7B74E00EDDFE3 /* MessageCard.swift */,
 			);
 			path = Components;
@@ -338,7 +335,6 @@
 				1800331727B5E83A0059BB99 /* RecentCardView.swift in Sources */,
 				18B7CEDE27B0A4DC0075ECC1 /* TabButton.swift in Sources */,
 				1800331B27B5EEC00059BB99 /* SearchText.swift in Sources */,
-				18F3D03727B7B46300EDDFE3 /* ProfileView.swift in Sources */,
 				18B7CEDF27B0A4DC0075ECC1 /* TabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

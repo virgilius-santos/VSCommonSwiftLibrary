@@ -1,4 +1,5 @@
 import SwiftUI
+import Styles
 
 struct MessageView: View {
   var recentMsg: RecentMessage
@@ -118,7 +119,7 @@ struct MessageView: View {
   func reicevedMessageCard(msg: Message, width: CGFloat) -> some View {
     ProfileView(
       image: recentMsg.userImage,
-      size: .init(width: 35, height: 35)
+      style: .xSmall
     )
       .offset(y: 20)
     

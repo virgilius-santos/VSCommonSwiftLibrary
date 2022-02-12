@@ -1,4 +1,5 @@
 import SwiftUI
+import Styles
 
 struct ExpandView: View {
   
@@ -15,7 +16,7 @@ struct ExpandView: View {
         
         ProfileView(
           image: recentMsg.userImage,
-          size: .init(width: 90, height: 90)
+          style: .xxLarge
         )
           .padding(.top, 35)
         

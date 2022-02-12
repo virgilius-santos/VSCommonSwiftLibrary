@@ -1,4 +1,5 @@
 import SwiftUI
+import Styles
 
 struct RecentCardView: View {
   var recentMsg: RecentMessage
