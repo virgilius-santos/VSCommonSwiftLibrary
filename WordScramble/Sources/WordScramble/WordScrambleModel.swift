@@ -98,13 +98,33 @@ var isSpelledWord: ValidationFunction = { (word, _, _) -> Validation in
     return .success
 }
 
+#if os(OSX)
+import Cocoa
+typealias KTextChecker = NSSpellChecker
+
 var textChecker: (_ word: String) -> Bool = { word in
-    let checker = UITextChecker()
-    let range = NSRange(location: 0, length: word.utf16.count)
-    let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
-    let allGood = misspelledRange.location == NSNotFound
-    return allGood
+  let checker = KTextChecker()
+  
+  let range = NSRange(location: 0, length: word.utf16.count)
+  let misspelledRange = checker
+    .checkSpelling(of: word, startingAt: 0, language: "en", wrap: false, inSpellDocumentWithTag: 0, wordCount: nil)
+  let allGood = misspelledRange.location == NSNotFound
+  return allGood
 }
+
+#elseif os(iOS)
+import UIKit
+typealias KTextChecker = UITextChecker
+
+var textChecker: (_ word: String) -> Bool = { word in
+  let checker = KTextChecker()
+  
+  let range = NSRange(location: 0, length: word.utf16.count)
+  let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+  let allGood = misspelledRange.location == NSNotFound
+  return allGood
+}
+#endif
 
 var readFileContent: () -> [String] = {
     guard let fileString = file(from: "start", in: .module) else {

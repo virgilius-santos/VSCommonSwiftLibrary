@@ -12,7 +12,7 @@ public struct NotificationView<Content: View>: View {
         content
             .padding()
             .background(.tertiary)
-            .cornerRadius(16)
+            .cornerRadius(.radius_16)
             .transition(.move(edge: .top))
             .animation(.spring(), value: 5)
     }
