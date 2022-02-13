@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if os(OSX)
 public struct BlurView: NSViewRepresentable {
   public func makeNSView(context: Context) -> NSVisualEffectView {
     
@@ -13,3 +14,4 @@ public struct BlurView: NSViewRepresentable {
   
   public init() {}
 }
+#endif

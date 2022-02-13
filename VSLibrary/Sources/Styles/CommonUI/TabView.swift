@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if os(OSX)
 public struct TabView<LeftContent: View, MainContent: View>: View {
   var leftContent: () -> LeftContent
   var mainContent: () -> MainContent
@@ -24,3 +25,4 @@ public struct TabView<LeftContent: View, MainContent: View>: View {
     self.mainContent = mainContent
   }
 }
+#endif

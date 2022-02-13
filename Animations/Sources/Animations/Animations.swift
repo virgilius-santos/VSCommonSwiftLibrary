@@ -8,6 +8,10 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+public var animationsView: some View {
+  ContentView()
+}
+
 struct ContentView: View {
     
     @State private var animationAmount: CGFloat = 1

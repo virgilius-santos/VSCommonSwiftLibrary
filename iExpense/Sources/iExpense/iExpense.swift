@@ -14,6 +14,14 @@ struct AppContentView_Previews: PreviewProvider {
   }
 }
 
+public var app_view: some View {
+  App.View(store: .init(
+    initialState: .init(),
+    reducer: App.reducer,
+    environment: App.Environment()
+  ))
+}
+
 enum NavExample {}
 
 extension NavExample {
@@ -194,7 +202,6 @@ enum First {
     }
   }
 }
-
 
 enum Second {
   typealias Store = ComposableArchitecture.Store<State, Action>
